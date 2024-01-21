@@ -1,8 +1,5 @@
 # Login-Signup Templates 🚀
 
-<p align="center">
-  <img src="https://example.com/your-repo-logo.png" alt="Repository Logo">
-</p>
 
 # Welcome to the Login-Signup Templates repository! 🌟
 
