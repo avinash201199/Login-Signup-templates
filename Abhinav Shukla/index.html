@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Platform Login & Signup | Modern Authentication</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Background Decorative Elements -->
+        <div class="bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+
+        <!-- Forms Container -->
+        <div class="forms-container">
+            <div class="form-control signin-form">
+                <form action="#">
+                    <h2>Welcome Back!</h2>
+                    <p class="subtitle">Login to connect with your community</p>
+
+                    <!-- Social Login Buttons -->
+                    <div class="social-login">
+                        <button type="button" class="social-btn google-btn">
+                            <i class="fab fa-google"></i>
+                            <span>Continue with Google</span>
+                        </button>
+                        <button type="button" class="social-btn facebook-btn">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Continue with Facebook</span>
+                        </button>
+                        <button type="button" class="social-btn github-btn">
+                            <i class="fab fa-github"></i>
+                            <span>Continue with GitHub</span>
+                        </button>
+                    </div>
+
+                    <div class="divider">
+                        <span>Or login with email</span>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+
+                    <!-- Password Input with Show/Hide Toggle -->
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" class="password-input" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-submit">Login</button>
+                </form>
+            </div>
+
+            <div class="form-control signup-form">
+                <form action="#">
+                    <h2>Join Our Community!</h2>
+                    <p class="subtitle">Create an account to get started</p>
+
+                    <!-- Social Signup Buttons -->
+                    <div class="social-login">
+                        <button type="button" class="social-btn google-btn">
+                            <i class="fab fa-google"></i>
+                            <span>Sign up with Google</span>
+                        </button>
+                        <button type="button" class="social-btn facebook-btn">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Sign up with Facebook</span>
+                        </button>
+                        <button type="button" class="social-btn github-btn">
+                            <i class="fab fa-github"></i>
+                            <span>Sign up with GitHub</span>
+                        </button>
+                    </div>
+
+                    <div class="divider">
+                        <span>Or sign up with email</span>
+                    </div>
+
+                    <!-- Username Input -->
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" required>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+
+                    <!-- Password Input with Show/Hide Toggle -->
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" class="password-input" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+
+                    <!-- Confirm Password Input with Show/Hide Toggle -->
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Confirm Password" class="password-input" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+
+                    <!-- Terms & Conditions -->
+                    <label class="terms-checkbox">
+                        <input type="checkbox" required>
+                        <span>I agree to the <a href="#" class="terms-link">Terms & Conditions</a></span>
+                    </label>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-submit">Create Account</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Side Panel with Info -->
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <i class="fas fa-user-check icon-large"></i>
+                    <h3>Already a Member?</h3>
+                    <p>Welcome back! Login to access your account and stay connected with your community.</p>
+                    <button class="btn-transparent" id="login-btn">Login</button>
+                </div>
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <i class="fas fa-users-between-lines icon-large"></i>
+                    <h3>New Here?</h3>
+                    <p>Join our amazing community and connect with people who share your interests!</p>
+                    <button class="btn-transparent" id="signup-btn">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
