@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <div class="theme-toggle">
+            <span class="theme-label">🌙</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider"></span>
+            </label>
+            <span class="theme-label">☀️</span>
+        </div>
+    </div>
+
+    <div class="loginPage">
+        <div class="login-left">
+            <div class="welcome-heading">
+                <h2>Welcome Back</h2>
+                <p>
+                    Build skills for <span>today</span>, <span>tomorrow</span>, and <span>beyond</span>.
+                    <em>Education to future-proof your career.</em>
+                </p>
+            </div>
+            <div class="login-acctype-buttons">
+                <button
+                    class="acctype-btn active"
+                    data-type="Student"
+                    type="button"
+                >
+                    Student
+                </button>
+                <button
+                    class="acctype-btn"
+                    data-type="Instructor"
+                    type="button"
+                >
+                    Instructor
+                </button>
+                <button
+                    class="acctype-btn"
+                    data-type="Admin"
+                    type="button"
+                >
+                    Admin
+                </button>
+            </div>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>
+                        Email Address<span>*</span>
+                    </label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Enter email address"
+                        required
+                    />
+                </div>
+                <div class="input-group">
+                    <label>
+                        Password<span>*</span>
+                    </label>
+                    <div class="password-container">
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="Enter Password"
+                            required
+                        />
+                        <div class="eye-icon" id="togglePassword">
+                            Show
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forgot-password">
+                    <a href="../forgetpass/index.html">Forgot password</a>
+                </div>
+
+                <div class="login-submit-form-button">
+                    <button type="submit">Sign in</button>
+                </div>
+            </form>
+
+            <div class="auth-switch">
+                <p>Don't have an account? <a href="../signup/index.html" class="switch-link">Sign up</a></p>
+            </div>
+        </div>
+        <div class="login-right">
+            <img src="https://res.cloudinary.com/dwwwmae9x/image/upload/v1755000032/girlImage_stzjqv.png" alt="Girl Image" height="450" width="500" />
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

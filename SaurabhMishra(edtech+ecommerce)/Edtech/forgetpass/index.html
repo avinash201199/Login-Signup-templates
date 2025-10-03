@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password - GuruKul</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theme-selector">
+        <div class="theme-toggle">
+            <span class="theme-label">🌙</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider"></span>
+            </label>
+            <span class="theme-label">☀️</span>
+        </div>
+    </div>
+
+    <div class="resetsendotp-container">
+        <h2 class="reset-title">Reset your password</h2>
+        <p class="reset-description">
+            Have no fear. We'll email you instructions to reset your password. If you don't have access to your email we can try account recovery
+        </p>
+
+        <form class="reset-form" id="resetForm">
+            <label for="email" class="reset-label">
+                Email Address <span class="required">*</span>
+            </label>
+            <input
+                type="email"
+                id="email"
+                class="reset-input"
+                placeholder="myemailaddress@gmail.com"
+                required
+            />
+
+            <button type="submit" class="reset-button">
+                Reset Password
+            </button>
+
+            <div class="back-to-login" id="backToLogin">
+                <span>&larr;</span> Back to login
+            </div>
+            <div class="back-to-login" id="proceedToOtp" style="display: none;">
+                <span>&rarr;</span> Proceed to enter OTP
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

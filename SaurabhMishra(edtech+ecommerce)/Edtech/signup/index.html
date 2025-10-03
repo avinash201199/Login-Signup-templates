@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Join GuruKul</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <div class="theme-toggle">
+            <span class="theme-label">🌙</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider"></span>
+            </label>
+            <span class="theme-label">☀️</span>
+        </div>
+    </div>
+
+    <div class="signUpOpenContainer">
+        <div class="signUpleft">
+            <div class="signup-container">
+                <h2>Join the millions learning to code with GuruKul for free</h2>
+                <p class="subheading">
+                    Build skills for <span>today</span>, <span>tomorrow</span>, and <span>beyond</span>.
+                    <em>Education to future-proof your career.</em>
+                </p>
+
+                <!-- Toggle buttons -->
+                <div class="role-toggle">
+                    <button
+                        type="button"
+                        class="role-btn active"
+                        data-type="Student"
+                    >
+                        Student
+                    </button>
+                    <button
+                        type="button"
+                        class="role-btn"
+                        data-type="Instructor"
+                    >
+                        Instructors
+                    </button>
+                </div>
+
+                <form class="signup-form" id="signupForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name<span class="required">*</span></label>
+                            <input
+                                type="text"
+                                name="firstName"
+                                id="firstName"
+                                placeholder="Enter first name"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Last Name<span class="required">*</span></label>
+                            <input
+                                type="text"
+                                name="lastName"
+                                id="lastName"
+                                placeholder="Enter last name"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address<span class="required">*</span></label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="Enter email address"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group password-field">
+                            <label>Create Password <span class="required">*</span></label>
+                            <div class="password-wrapper">
+                                <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    placeholder="Enter Password"
+                                    required
+                                />
+                                <div class="eye-icon" id="togglePassword">
+                                    Show
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group password-field">
+                            <label>Confirm Password <span class="required">*</span></label>
+                            <div class="password-wrapper">
+                                <input
+                                    type="password"
+                                    name="confirmPassword"
+                                    id="confirmPassword"
+                                    placeholder="Confirm Password"
+                                    required
+                                />
+                                <div class="eye-icon" id="toggleConfirmPassword">
+                                    Show
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Validation Display -->
+                    <ul class="validation-list" id="validationList" style="display: none;">
+                        <li id="lowercase">✅ one lowercase character</li>
+                        <li id="uppercase">✅ one uppercase character</li>
+                        <li id="number">✅ one number</li>
+                        <li id="specialChar">✅ one special character</li>
+                        <li id="minLength">✅ 8 character minimum</li>
+                        <li id="passwordMatch">✅ passwords match</li>
+                    </ul>
+
+                    <button type="submit" class="create-btn">Create Account</button>
+                </form>
+
+                <div class="auth-switch">
+                    <p>Already have an account? <a href="../login/index.html" class="switch-link">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="signup-right">
+            <img src="https://res.cloudinary.com/dwwwmae9x/image/upload/v1755000033/groupImage_aezszj.png" alt="Group Image" height="531" width="585" />
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
