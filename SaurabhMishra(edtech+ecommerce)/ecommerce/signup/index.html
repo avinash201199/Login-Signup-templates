@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Ecommerce</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="background-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+        <div class="floating-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Side - Illustration -->
+        <div class="illustration-side">
+            <div class="illustration-content">
+                <div class="brand-logo">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>ShopVibe</span>
+                </div>
+                
+                <div class="illustration-graphic">
+                    <div class="graphic-container">
+                        <!-- Abstract Shopping Illustration -->
+                        <div class="shopping-illustration">
+                            <div class="shopping-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="product-cards">
+                                <div class="product-card card-1">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                                <div class="product-card card-2">
+                                    <i class="fas fa-headphones"></i>
+                                </div>
+                                <div class="product-card card-3">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                            </div>
+                            <div class="connecting-lines">
+                                <div class="line line-1"></div>
+                                <div class="line line-2"></div>
+                                <div class="line line-3"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Decorative Elements -->
+                        <div class="doodle-elements">
+                            <div class="doodle star-1">⭐</div>
+                            <div class="doodle heart-1">💜</div>
+                            <div class="doodle lightning-1">⚡</div>
+                            <div class="doodle circle-1"></div>
+                            <div class="doodle triangle-1"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="welcome-text">
+                    <h1>Join Our Shopping Community!</h1>
+                    <p>Discover amazing products, connect with sellers, and enjoy a seamless shopping experience.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="number">50K+</span>
+                            <span class="label">Happy Customers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">10K+</span>
+                            <span class="label">Products</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">24/7</span>
+                            <span class="label">Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Signup Form -->
+        <div class="form-side">
+            <div class="auth-container">
+                <div class="auth-box">
+                    <div class="form-header">
+                        <div class="header-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h2>Create Account</h2>
+                        <p class="auth-subtitle">Join us today and start shopping!</p>
+                    </div>
+                    
+                    <div id="error-message" class="error-message" style="display: none;"></div>
+                    
+                    <form id="signup-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                placeholder="Enter your full name"
+                            />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                placeholder="Enter your email"
+                            />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password"><i class="fas fa-lock"></i> Password</label>
+                            <div class="password-input-container">
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    required
+                                    placeholder="Create a password"
+                                />
+                                <span class="password-toggle" data-target="password">Show</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword"><i class="fas fa-lock"></i> Confirm Password</label>
+                            <div class="password-input-container">
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    name="confirmPassword"
+                                    required
+                                    placeholder="Confirm your password"
+                                />
+                                <span class="password-toggle" data-target="confirmPassword">Show</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Password Validation Display -->
+                        <ul class="validation-list" id="validationList" style="display: none;">
+                            <li id="lowercase">✅ one lowercase character</li>
+                            <li id="uppercase">✅ one uppercase character</li>
+                            <li id="number">✅ one number</li>
+                            <li id="specialChar">✅ one special character</li>
+                            <li id="minLength">✅ 8 character minimum</li>
+                            <li id="passwordMatch">✅ passwords match</li>
+                        </ul>
+                        
+                        <button type="submit" class="auth-button" id="submit-btn">
+                            <span class="btn-text">Create Account</span>
+                            <i class="fas fa-arrow-right btn-icon"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="auth-links">
+                        <p>
+                            Already have an account?
+                            <a href="../login/index.html" class="auth-link">
+                                <i class="fas fa-sign-in-alt"></i> Sign in here
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

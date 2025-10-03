@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP - GuruKul</title>
+    <link rel="stylesheet" href="otp-style.css">
+</head>
+<body>
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <div class="theme-toggle">
+            <span class="theme-label">☀️</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider"></span>
+            </label>
+            <span class="theme-label">🌙</span>
+        </div>
+    </div>
+
+    <div class="verify-container">
+        <h2>Verify Yourself</h2>
+        <p>A verification code has been sent to your registered email Id. Enter the code below</p>
+        
+        <div class="otp-boxes">
+            <input type="text" maxlength="1" class="otp-input" data-index="0">
+            <input type="text" maxlength="1" class="otp-input" data-index="1">
+            <input type="text" maxlength="1" class="otp-input" data-index="2">
+            <input type="text" maxlength="1" class="otp-input" data-index="3">
+            <input type="text" maxlength="1" class="otp-input" data-index="4">
+            <input type="text" maxlength="1" class="otp-input" data-index="5">
+        </div>
+        
+        <button class="verify-btn" id="verifyBtn">Verify OTP</button>
+        
+        <div class="verify-options">
+            <span id="backToLogin">← Back to login</span>
+            <span class="resend-link" id="resendOtp">🔄 Resend it</span>
+        </div>
+    </div>
+
+    <script src="otp-script.js"></script>
+</body>
+</html>
