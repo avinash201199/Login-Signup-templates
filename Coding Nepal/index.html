@@ -27,6 +27,7 @@
                 <li><a href="#">Contact us</a></li>
             </ul>
             <button class="login-btn">LOG IN</button>
+            <button id="theme-toggle" class="theme-btn material-symbols-rounded">dark_mode</button>
         </nav>
     </header>
 
@@ -46,9 +47,12 @@
                         <label>Email</label>
                     </div>
                     <div class="input-field">
-                        <input type="password" required>
+                        <input type="password" id="login-password" required>
                         <label>Password</label>
+                        <span class="toggle-password material-symbols-rounded">visibility</span>
                     </div>
+
+
                     <a href="#" class="forgot-pass-link">Forgot password?</a>
                     <button type="submit">Log In</button>
                 </form>
@@ -71,9 +75,16 @@
                         <label>Enter your email</label>
                     </div>
                     <div class="input-field">
-                        <input type="password" required>
+                        <input type="password" required id="signup-password" class="password-input">
                         <label>Create password</label>
+                        <span class="toggle-password material-symbols-rounded">visibility</span>
                     </div>
+
+                    <div class="password-strength">
+                        <span class="strength-text">Strength: </span>
+                        <span class="strength-value">-</span>
+                    </div>
+
                     <div class="policy-text">
                         <input type="checkbox" id="policy">
                         <label for="policy">

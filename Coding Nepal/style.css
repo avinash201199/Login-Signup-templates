@@ -135,7 +135,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 0; /* <- put behind popup */
     height: 100%;
     width: 100%;
     opacity: 0;
@@ -147,8 +147,9 @@ header {
 
 .show-popup .blur-bg-overlay {
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: none; /* <- don't block clicks */
 }
+
 
 .form-popup .form-box {
     display: flex;
@@ -342,6 +343,41 @@ form button:hover {
     }
 }
 
+/* Hero background for body */
+body {
+    background: url("images/hero-bg.jpg") center/cover no-repeat;
+    color: var(--text-color);
+    position: relative;
+}
+
+/* Dark theme overlay */
+body.dark-theme::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* semi-transparent dark overlay */
+    z-index: 0;
+}
+
+/* Ensure popup and other content appear above overlay */
+.form-popup, header, .navbar {
+    position: relative;
+    z-index: 1;
+}
+
+/* Update CSS variables for dark theme text/buttons */
+body.dark-theme {
+    --text-color: #f0f0f0;
+    --primary-color: #00bcd4;
+    --input-bg: rgba(30, 30, 30, 0.9);
+    --input-border: #555;
+}
+
+
+
 @media (max-width: 760px) {
     .form-popup {
         width: 95%;
@@ -355,3 +391,77 @@ form button:hover {
         padding: 30px 20px;
     }
 }
+
+
+/* Light mode popup */
+.form-popup .form-box .form-content {
+    background: #fff; /* white background for content */
+    color: #000;      /* dark text */
+    border-radius: 5px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Dark mode popup */
+/* Dark mode input fields */
+body.dark-theme .form-popup .form-box .form-content input {
+    background: rgba(30, 30, 30, 0.9); /* dark background */
+    color: #fff;                        /* white text */
+    border: 1px solid #555;             /* optional darker border */
+}
+
+body.dark-theme .form-popup .form-box .form-content input::placeholder {
+    color: #ccc; /* lighter placeholder text */
+}
+
+body.dark-theme .form-popup .form-box .form-content label {
+    color: #ccc; /* label text in white/light gray */
+}
+
+
+
+/* strenght of pass */
+
+.password-strength {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.strength-value {
+    font-weight: 600;
+}
+
+/* Optional color coding */
+.strength-weak { color: red; }
+.strength-medium { color: orange; }
+.strength-strong { color: green; }
+
+
+/* pass visibility */
+.input-field {
+    position: relative;
+    width: 100%;
+}
+
+.input-field input {
+    width: 100%;
+    padding-right: 40px; /* space for eye icon */
+    height: 50px;
+    font-size: 16px;
+}
+
+.input-field .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #555;
+    z-index: 10; /* must be above input */
+    user-select: none;
+}
+
