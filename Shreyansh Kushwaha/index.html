@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/0a0a1a/0a0a1a?text=');">
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-fuchsia-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
+    </div>
+
+    <div class="w-full max-w-md mx-auto form-container rounded-2xl p-8 md:p-10">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold font-orbitron text-cyan-400 tracking-widest">SYSTEM LOGIN</h1>
+            <p class="text-gray-400 mt-2">Authorize access to continue</p>
+        </div>
+
+
+        <form id="loginForm" novalidate>
+
+            <div class="mb-6 relative">
+                <label for="email" class="absolute -top-2.5 left-4 text-xs text-cyan-400 bg-transparent px-1" style="background-color: #0a0a1a;">Username / Email</label>
+                <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg input-field focus:outline-none" placeholder="user@domain.net" required>
+            </div>
+
+
+            <div class="mb-6 relative">
+                <label for="password" class="absolute -top-2.5 left-4 text-xs text-cyan-400 bg-transparent px-1" style="background-color: #0a0a1a;">Security Key / Password</label>
+                <input type="password" id="password" name="password" class="w-full px-4 py-3 rounded-lg input-field focus:outline-none" placeholder="••••••••" required>
+                <button type="button" id="togglePassword" class="absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-400 hover:text-cyan-400">
+                    <svg id="eye-open" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <svg id="eye-closed" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off hidden"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                </button>
+            </div>
+            
+
+            <div class="flex items-center justify-between mb-6 text-sm">
+                <label class="flex items-center space-x-2 cursor-pointer">
+                    <input type="checkbox" class="form-checkbox h-4 w-4 bg-transparent border-cyan-400 text-cyan-400 rounded focus:ring-cyan-500">
+                    <span class="text-gray-400">Remember session</span>
+                </label>
+                <a href="#" class="text-fuchsia-400 hover:text-fuchsia-300 transition-colors">Forgot Password?</a>
+            </div>
+
+
+            <button type="submit" class="w-full py-3 rounded-lg text-black font-bold text-lg login-btn focus:outline-none">
+                AUTHENTICATE
+            </button>
+        </form>
+
+
+        <div class="flex items-center my-8">
+            <hr class="flex-grow border-t border-gray-700">
+            <span class="px-4 text-gray-500 text-sm">OR CONNECT WITH</span>
+            <hr class="flex-grow border-t border-gray-700">
+        </div>
+        
+
+        <div class="flex justify-center space-x-4">
+            <a href="#" class="w-12 h-12 flex items-center justify-center rounded-full social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" class="w-12 h-12 flex items-center justify-center rounded-full social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <a href="#" class="w-12 h-12 flex items-center justify-center rounded-full social-icon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </a>
+        </div>
+    </div>
+
+
+</body>
+</html>
