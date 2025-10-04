@@ -24,11 +24,11 @@
 |----------------------|---------------------------------------|
 | `login/`             | Contains login page files              |
 | `login/index.html`   | Login page HTML                        |
-| `login/login.js`     | Login form validation & redirection    |
+| `login/script.js`     | Login form validation & redirection    |
 | `login/style.css`    | Login page styling                     |
 | `signup/`            | Contains signup page files             |
 | `signup/index.html`  | Signup page HTML                       |
-| `signup/signup.js`   | Signup form validation & redirection   |
+| `signup/script.js`   | Signup form validation & redirection   |
 | `signup/styles.css`  | Signup page styling                    |
 
 ---
