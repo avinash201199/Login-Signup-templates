@@ -1,0 +1,152 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  width: 900px;
+  height: 550px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Left Section */
+.left {
+  width: 40%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.illustration {
+  width: 90%;
+}
+
+/* Right Section */
+.right {
+  width: 60%;
+  background: #0288d1;
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 22px;
+  margin: 5px 0 15px;
+}
+.tagline {
+  font-size: 16px;
+  color: #ffeb3b;
+  margin-bottom: 25px;
+}
+
+form label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.input-box i {
+  margin-right: 10px;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 14px;
+}
+
+.btn-box {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.secondary {
+  background: #f1f1f1;
+  color: black;
+}
+
+.social-login {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.social {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google {
+  background: white;
+  color: #db4437;
+}
+
+.linkedin {
+  background: #0077b5;
+  color: white;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page Title -->
+    <title>LearnMode - Signup</title>
+    
+    <!-- External CSS and Font Awesome for icons -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- JavaScript file (deferred) -->
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Left section: Illustration image -->
+        <div class="left">
+            <img 
+                src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" 
+                alt="Graduates celebrating" 
+                class="illustration"
+            >
+        </div>
+
+        <!-- Right section: Signup form and options -->
+        <div class="right">
+            <!-- Logo and product/service name -->
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Your product/service name</span>
+            </div>
+
+            <!-- Signup heading and tagline -->
+            <h1>Create Account</h1>
+            <p class="tagline">Your description</p>
+
+            <!-- Signup form starts here -->
+            <form id="signupForm">
+                <!-- Name input -->
+                <div class="input-box">
+                    <label for="name">Name :</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+
+                <!-- Email input -->
+                <div class="input-box">
+                    <label for="email">E-mail :</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Phone number input -->
+                <div class="input-box">
+                    <label for="phone">Phone no :</label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                </div>
+
+                <!-- Password input -->
+                <div class="input-box">
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <!-- Register button -->
+                <div class="btn-box">
+                    <button type="submit" class="btn">Register</button>
+                </div>
+            </form>
+            <!-- Signup form ends here -->
+
+            <!-- Alternative signup options -->
+            <p class="other">Other ways :</p>
+            <div class="social-login">
+                <!-- Google signup button -->
+                <button type="button" class="social google" aria-label="Sign up with Google">
+                    <i class="fa-brands fa-google"></i>
+                </button>
+                <!-- LinkedIn signup button -->
+                <button type="button" class="social linkedin" aria-label="Sign up with LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </button>
+            </div>
+
+            <!-- Link to login page for existing users -->
+            <p class="other">
+                Already have an account? 
+                <a href="../login/index.html" class="back-link">Login</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
