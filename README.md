@@ -3,7 +3,7 @@
 
 # Welcome to the Login-Signup Templates repository! 🌟
 
-**This repository is a curated collection of creative login and signup page source codes. Elevate your web projects with stylish and user-friendly authentication interfaces. Whether you're building a website or a web application, find inspiration and save development time with these templates.**
+**A curated collection of creative source codes for login and signup pages. Use these stylish, user-friendly templates to enhance your web projects and accelerate your development workflow.**
 
 ## Features
 
