@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup - Chatfly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #09203F, #537895); 
+            font-family: 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #ecf0f1;
+            overflow: hidden; 
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(78, 205, 196, 0.4) 0%, transparent 60%),
+                        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 480px; 
+            z-index: 2; 
+        }
+
+        .form-box {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 360px;
+            padding: 45px;
+            border-radius: 25px;
+            
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4); 
+            
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        }
+
+        .form-box:not(.active) {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            pointer-events: none; 
+        }
+
+        .form-box.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: all;
+        }
+
+        .signup {
+            opacity: 0; 
+            pointer-events: none;
+        }
+        .login {
+            opacity: 1; 
+            pointer-events: all;
+        }
+
+        h2 {
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        input {
+            padding: 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: #ecf0f1;
+            font-size: 16px;
+            outline: none;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        input::placeholder {
+            color: rgba(236, 240, 241, 0.7);
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #72E6F2;
+            box-shadow: 0 0 10px rgba(114, 230, 242, 0.7);
+        }
+
+        button[type="submit"] {
+            padding: 16px;
+            border-radius: 14px;
+            background-color: #72E6F2;
+            color: #09203F; 
+            border: none;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s, transform 0.1s;
+            margin-top: 15px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #4ECDC4;
+        }
+
+        button[type="submit"]:active {
+            transform: scale(0.98);
+        }
+
+        .toggle-btn {
+            background: none;
+            color: rgba(236, 240, 241, 0.9);
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 25px;
+            transition: color 0.3s ease;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .toggle-btn:hover {
+            color: #72E6F2;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form class="form-box login active">
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+            <button type="button" class="toggle-btn" onclick="toggleForm()">Don't have an account? Sign Up</button>
+        </form>
+
+        <form class="form-box signup">
+            <h2>Create Account</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Confirm Password" required>
+            <button type="submit">Sign Up</button>
+            <button type="button" class="toggle-btn" onclick="toggleForm()">Already have an account? Login</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const loginForm = document.querySelector('.login');
+            const signupForm = document.querySelector('.signup');
+
+            loginForm.classList.toggle('active');
+            signupForm.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+             document.querySelector('.login').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>
