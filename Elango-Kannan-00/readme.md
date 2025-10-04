@@ -51,10 +51,3 @@ open index.html  # or double-click the file
 3. Click the Register button to navigate to the signup page.
 4. Fill out the forms and submit — alerts will show validation messages.
 5. Use the Back to Login link in the signup page to return to login.
-
-## 📸 Screenshots
-
-
-![Login Page](screenshots/login.png)
-![Signup Page](screenshots/signup.png)
-
