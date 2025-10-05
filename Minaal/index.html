@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: background 0.5s ease;
+        }
+
+        body.light {
+            background: linear-gradient(135deg, #e0f2fe 0%, #fae8ff 50%, #fce7f3 100%);
+        }
+
+        body.dark {
+            background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .theme-toggle.light {
+            background: #3b82f6;
+        }
+
+        .theme-toggle.light:hover {
+            background: #2563eb;
+        }
+
+        .theme-toggle.dark {
+            background: #9333ea;
+        }
+
+        .theme-toggle.dark:hover {
+            background: #7e22ce;
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.5s ease;
+        }
+
+        .auth-card.light {
+            background: white;
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-card.dark {
+            background: #1e293b;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .header.light h1 {
+            color: #1f2937;
+        }
+
+        .header.dark h1 {
+            color: white;
+        }
+
+        .header p {
+            transition: color 0.3s ease;
+        }
+
+        .header.light p {
+            color: #6b7280;
+        }
+
+        .header.dark p {
+            color: #d8b4fe;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .form-group.light label {
+            color: #374151;
+        }
+
+        .form-group.dark label {
+            color: #d1d5db;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
+            fill: none;
+            transition: stroke 0.3s ease;
+        }
+
+        .input-wrapper.light .input-icon {
+            stroke: #9ca3af;
+        }
+
+        .input-wrapper.dark .input-icon {
+            stroke: #c084fc;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 12px 12px 44px;
+            border-radius: 8px;
+            border: 1px solid;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-input.light {
+            background: white;
+            border-color: #d1d5db;
+            color: #1f2937;
+        }
+
+        .form-input.light:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-input.dark {
+            background: #334155;
+            border-color: rgba(147, 51, 234, 0.3);
+            color: white;
+        }
+
+        .form-input.dark:focus {
+            border-color: #9333ea;
+            box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1);
+        }
+
+        .input-with-toggle {
+            padding-right: 44px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle-password svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
+            fill: none;
+            transition: stroke 0.3s ease;
+        }
+
+        .toggle-password.light svg {
+            stroke: #9ca3af;
+        }
+
+        .toggle-password.dark svg {
+            stroke: #c084fc;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .forgot-password button {
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password.light button {
+            color: #2563eb;
+        }
+
+        .forgot-password.light button:hover {
+            color: #1d4ed8;
+        }
+
+        .forgot-password.dark button {
+            color: #c084fc;
+        }
+
+        .forgot-password.dark button:hover {
+            color: #a855f7;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-btn.light {
+            background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+        }
+
+        .submit-btn.light:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #9333ea 100%);
+            transform: scale(1.02);
+        }
+
+        .submit-btn.dark {
+            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
+        }
+
+        .submit-btn.dark:hover {
+            background: linear-gradient(135deg, #7e22ce 0%, #2563eb 100%);
+            transform: scale(1.02);
+        }
+
+        .toggle-auth {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+        }
+
+        .toggle-auth.light {
+            color: #6b7280;
+        }
+
+        .toggle-auth.dark {
+            color: #9ca3af;
+        }
+
+        .toggle-auth button {
+            background: none;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-auth.light button {
+            color: #2563eb;
+        }
+
+        .toggle-auth.light button:hover {
+            color: #1d4ed8;
+        }
+
+        .toggle-auth.dark button {
+            color: #c084fc;
+        }
+
+        .toggle-auth.dark button:hover {
+            color: #a855f7;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="light">
+    <button class="theme-toggle light" id="themeToggle">
+        <svg id="moonIcon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg id="sunIcon" class="hidden" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <div class="auth-card light">
+        <div class="header light">
+            <h1 id="headerTitle">Welcome Back</h1>
+            <p id="headerSubtitle">Sign in to continue</p>
+        </div>
+
+        <div>
+            <div class="form-group light" id="nameGroup">
+                <label>Full Name</label>
+                <div class="input-wrapper light">
+                    <svg class="input-icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <input type="text" class="form-input light" id="nameInput" placeholder="John Doe">
+                </div>
+            </div>
+
+            <div class="form-group light">
+                <label>Email Address</label>
+                <div class="input-wrapper light">
+                    <svg class="input-icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <input type="email" class="form-input light" id="emailInput" placeholder="you@example.com">
+                </div>
+            </div>
+
+            <div class="form-group light">
+                <label>Password</label>
+                <div class="input-wrapper light">
+                    <svg class="input-icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <input type="password" class="form-input input-with-toggle light" id="passwordInput" placeholder="••••••••">
+                    <button class="toggle-password light" id="togglePassword">
+                        <svg id="eyeIcon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <svg id="eyeOffIcon" class="hidden" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                            <line x1="1" y1="1" x2="23" y2="23"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group light" id="confirmPasswordGroup">
+                <label>Confirm Password</label>
+                <div class="input-wrapper light">
+                    <svg class="input-icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <input type="password" class="form-input light" id="confirmPasswordInput" placeholder="••••••••">
+                </div>
+            </div>
+
+            <div class="forgot-password light" id="forgotPassword">
+                <button>Forgot password?</button>
+            </div>
+
+            <button class="submit-btn light" id="submitBtn">Sign In</button>
+        </div>
+
+        <div class="toggle-auth light">
+            <span id="toggleText">Don't have an account? </span>
+            <button id="toggleAuthBtn">Sign Up</button>
+        </div>
+    </div>
+
+    <script>
+        let isDark = false;
+        let isLogin = true;
+        let showPassword = false;
+
+        const body = document.body;
+        const themeToggle = document.getElementById('themeToggle');
+        const moonIcon = document.getElementById('moonIcon');
+        const sunIcon = document.getElementById('sunIcon');
+        const authCard = document.querySelector('.auth-card');
+        const header = document.querySelector('.header');
+        const headerTitle = document.getElementById('headerTitle');
+        const headerSubtitle = document.getElementById('headerSubtitle');
+        const nameGroup = document.getElementById('nameGroup');
+        const confirmPasswordGroup = document.getElementById('confirmPasswordGroup');
+        const forgotPassword = document.getElementById('forgotPassword');
+        const submitBtn = document.getElementById('submitBtn');
+        const toggleAuthBtn = document.getElementById('toggleAuthBtn');
+        const toggleText = document.getElementById('toggleText');
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('passwordInput');
+        const eyeIcon = document.getElementById('eyeIcon');
+        const eyeOffIcon = document.getElementById('eyeOffIcon');
+
+        const formGroups = document.querySelectorAll('.form-group');
+        const formInputs = document.querySelectorAll('.form-input');
+        const inputWrappers = document.querySelectorAll('.input-wrapper');
+        const toggleAuth = document.querySelector('.toggle-auth');
+
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            
+            if (isDark) {
+                body.classList.remove('light');
+                body.classList.add('dark');
+                themeToggle.classList.remove('light');
+                themeToggle.classList.add('dark');
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
+                authCard.classList.remove('light');
+                authCard.classList.add('dark');
+                header.classList.remove('light');
+                header.classList.add('dark');
+                forgotPassword.classList.remove('light');
+                forgotPassword.classList.add('dark');
+                submitBtn.classList.remove('light');
+                submitBtn.classList.add('dark');
+                toggleAuth.classList.remove('light');
+                toggleAuth.classList.add('dark');
+                togglePassword.classList.remove('light');
+                togglePassword.classList.add('dark');
+
+                formGroups.forEach(group => {
+                    group.classList.remove('light');
+                    group.classList.add('dark');
+                });
+
+                formInputs.forEach(input => {
+                    input.classList.remove('light');
+                    input.classList.add('dark');
+                });
+
+                inputWrappers.forEach(wrapper => {
+                    wrapper.classList.remove('light');
+                    wrapper.classList.add('dark');
+                });
+            } else {
+                body.classList.remove('dark');
+                body.classList.add('light');
+                themeToggle.classList.remove('dark');
+                themeToggle.classList.add('light');
+                moonIcon.classList.remove('hidden');
+                sunIcon.classList.add('hidden');
+                authCard.classList.remove('dark');
+                authCard.classList.add('light');
+                header.classList.remove('dark');
+                header.classList.add('light');
+                forgotPassword.classList.remove('dark');
+                forgotPassword.classList.add('light');
+                submitBtn.classList.remove('dark');
+                submitBtn.classList.add('light');
+                toggleAuth.classList.remove('dark');
+                toggleAuth.classList.add('light');
+                togglePassword.classList.remove('dark');
+                togglePassword.classList.add('light');
+
+                formGroups.forEach(group => {
+                    group.classList.remove('dark');
+                    group.classList.add('light');
+                });
+
+                formInputs.forEach(input => {
+                    input.classList.remove('dark');
+                    input.classList.add('light');
+                });
+
+                inputWrappers.forEach(wrapper => {
+                    wrapper.classList.remove('dark');
+                    wrapper.classList.add('light');
+                });
+            }
+        });
+
+        toggleAuthBtn.addEventListener('click', () => {
+            isLogin = !isLogin;
+
+            if (isLogin) {
+                headerTitle.textContent = 'Welcome Back';
+                headerSubtitle.textContent = 'Sign in to continue';
+                nameGroup.classList.add('hidden');
+                confirmPasswordGroup.classList.add('hidden');
+                forgotPassword.classList.remove('hidden');
+                submitBtn.textContent = 'Sign In';
+                toggleText.textContent = "Don't have an account? ";
+                toggleAuthBtn.textContent = 'Sign Up';
+            } else {
+                headerTitle.textContent = 'Create Account';
+                headerSubtitle.textContent = 'Sign up to get started';
+                nameGroup.classList.remove('hidden');
+                confirmPasswordGroup.classList.remove('hidden');
+                forgotPassword.classList.add('hidden');
+                submitBtn.textContent = 'Create Account';
+                toggleText.textContent = 'Already have an account? ';
+                toggleAuthBtn.textContent = 'Sign In';
+            }
+        });
+
+        togglePassword.addEventListener('click', () => {
+            showPassword = !showPassword;
+            
+            if (showPassword) {
+                passwordInput.type = 'text';
+                eyeIcon.classList.add('hidden');
+                eyeOffIcon.classList.remove('hidden');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('hidden');
+                eyeOffIcon.classList.add('hidden');
+            }
+        });
+
+        submitBtn.addEventListener('click', function() {
+            var email = document.getElementById('emailInput').value;
+            var password = passwordInput.value;
+            var name = document.getElementById('nameInput').value;
+            var confirmPassword = document.getElementById('confirmPasswordInput').value;
+
+            var formData = {
+                mode: isLogin ? 'login' : 'signup',
+                email: email,
+                password: password
+            };
+            
+            if (!isLogin) {
+                formData.name = name;
+                formData.confirmPassword = confirmPassword;
+            }
+            
+            console.log('Form submitted:', formData);
+
+            alert(isLogin ? 'Login submitted!' : 'Sign up submitted!');
+        });
+
+        nameGroup.classList.add('hidden');
+        confirmPasswordGroup.classList.add('hidden');
+    </script>
+</body>
+</html>

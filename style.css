@@ -1,0 +1,161 @@
+/* --- NEW: Import a clean font from Google Fonts --- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* --- NEW: Animated Gradient Background --- */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #f0f0f0; /* Light text color for dark background */
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1c3d52);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  margin: 0;
+  padding: 30px;
+  min-height: 100vh;
+}
+
+/* --- UPDATED: Header with Gradient Text --- */
+header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  /* Creating the gradient text effect */
+  background: linear-gradient(90deg, #3498db, #9b59b6, #e91e63);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: #bdc3c7; /* Lighter grey for subtitles */
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Card container grid --- */
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 35px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- NEW: "Glassmorphism" Card Style --- */
+.template-card {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  backdrop-filter: blur(12px); /* The "frosty glass" effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  overflow: hidden;
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.template-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid #3498db; /* Bright blue border on hover */
+}
+
+/* --- Card image styling --- */
+.template-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --- Card title styling --- */
+.template-card h3 {
+  margin: 0;
+  padding: 20px;
+  font-size: 1.15em;
+  font-weight: 600;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contribution steps button */
+.contro-info {
+  padding: 8px;
+  border-radius: 0.5rem;
+  margin-bottom: 6px;
+  background-color: #ca93f7;
+
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.contro-info:hover {
+  cursor: pointer;
+}
+
+.popup {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.popup-content {
+  background-color: rgb(85, 34, 91);
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 700px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.popup-content h2 {
+  margin-top: 0;
+}
+.close-btn {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+code {
+  background: #000000;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+}

@@ -1,293 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login-Signup Templates Showcase</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup Templates</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Login / Signup Templates Showcase</h1>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
+      <button class="contro-info" aria-label="How to contribute">
+        How to contribute
+      </button>
 
-        /* Animated background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse at 10% 20%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 90% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-            z-index: 0;
-            animation: gradientShift 15s ease infinite;
-        }
+      <div
+        class="popup"
+        id="popup"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="popup-title"
+      >
+        <div class="popup-content">
+          <span class="close-btn" aria-label="Close">&times;</span>
+          <h2 id="popup-title">Contribution Steps</h2>
+          <p>
+            If you have a login or signup template you'd like to add, please
+            follow these steps:
+          </p>
 
-        @keyframes gradientShift {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.8;
-            }
-        }
+          <ol>
+            <li>
+              Inside the main directory, create a new folder with a descriptive
+              name (e.g., <code>Modern-Dark-Login</code>).
+            </li>
 
-        /* Particles */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.2), transparent),
-                radial-gradient(2px 2px at 60% 70%, rgba(255, 255, 255, 0.15), transparent),
-                radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.1), transparent),
-                radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.15), transparent),
-                radial-gradient(2px 2px at 90% 60%, rgba(255, 255, 255, 0.1), transparent),
-                radial-gradient(1px 1px at 33% 90%, rgba(255, 255, 255, 0.15), transparent);
-            background-size: 200% 200%;
-            background-position: 50% 50%;
-            animation: stars 20s ease infinite;
-            z-index: 0;
-        }
+            <li>
+              Add your code:<br />
+              Place all of your template's files (<code>index.html</code>,
+              <code>style.css</code>, <code>script.js</code>, etc.) inside the
+              folder you just created.
+            </li>
 
-        @keyframes stars {
-            0%, 100% {
-                background-position: 0% 0%;
-            }
-            50% {
-                background-position: 100% 100%;
-            }
-        }
+            <li>
+              Add a screenshot:
+              <ul>
+                <li>Take a screenshot of your template in action.</li>
+                <li>Save it as a <code>.png</code> file.</li>
+                <li>
+                  The filename must <strong>exactly match</strong> your folder's
+                  name (e.g., <code>Modern-Dark-Login.png</code>).
+                </li>
+                <li>
+                  Place your screenshot inside the main
+                  <code>screenshots</code> folder.
+                </li>
+              </ul>
+            </li>
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
+            <li>
+              Update the website:
+              <ul>
+                <li>
+                  Open the main <code>script.js</code> file at the root of the
+                  project.
+                </li>
+                <li>
+                  Find the <code>templateFolders</code> array at the top of the
+                  file.
+                </li>
+                <li>
+                  Add the name of your new folder to this list in alphabetical
+                  order.
+                </li>
+              </ul>
+            </li>
 
-        header {
-            text-align: center;
-            color: white;
-            padding: 40px 20px;
-        }
+            <li>
+              Commit and push your changes:<br />
+              <code>git add .</code><br />
+              <code>git commit -m "Add: Your Template Name"</code><br />
+              <code>git push origin feature/your-template-name</code>
+            </li>
 
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: none;
-            animation: glow 3s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
-            }
-            50% {
-                filter: drop-shadow(0 0 30px rgba(118, 75, 162, 0.8));
-            }
-        }
-
-        header p {
-            font-size: 1.2em;
-            opacity: 0.8;
-            color: #b8b8b8;
-        }
-
-        .templates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px;
-        }
-
-        .template-card {
-            background: rgba(20, 20, 20, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .template-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
-            border-color: rgba(102, 126, 234, 0.5);
-            background: rgba(30, 30, 30, 0.9);
-        }
-
-        .template-card h2 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-            text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
-        }
-
-        .template-card p {
-            color: #b8b8b8;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .template-card .features {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .template-card .features li {
-            padding: 8px 0;
-            color: #999;
-        }
-
-        .template-card .features li:before {
-            content: "✓ ";
-            color: #667eea;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        footer {
-            text-align: center;
-            color: #b8b8b8;
-            padding: 40px 20px;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #764ba2;
-            text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            .templates-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🔐 Login-Signup Templates</h1>
-            <p>A collection of beautiful, modern, and responsive authentication templates</p>
-        </header>
-
-        <div class="templates-grid">
-            <div class="template-card" onclick="window.location.href='templates/template1-modern/index.html'">
-                <h2>1. Modern Gradient</h2>
-                <p>A stunning design with vibrant gradient backgrounds and smooth animations.</p>
-                <ul class="features">
-                    <li>Gradient background</li>
-                    <li>Smooth transitions</li>
-                    <li>Form validation</li>
-                    <li>Responsive design</li>
-                </ul>
-                <a href="templates/template1-modern/index.html" class="btn">View Template</a>
-            </div>
-
-            <div class="template-card" onclick="window.location.href='templates/template2-glassmorphism/index.html'">
-                <h2>2. Glassmorphism</h2>
-                <p>Modern glass effect with blur and transparency for a sleek look.</p>
-                <ul class="features">
-                    <li>Glass morphism effect</li>
-                    <li>Backdrop blur</li>
-                    <li>Modern aesthetic</li>
-                    <li>Clean interface</li>
-                </ul>
-                <a href="templates/template2-glassmorphism/index.html" class="btn">View Template</a>
-            </div>
-
-            <div class="template-card" onclick="window.location.href='templates/template3-dev-portal/index.html'">
-                <h2>3. Dev Portal</h2>
-                <p>Developer-themed login with animated code background and terminal aesthetics.</p>
-                <ul class="features">
-                    <li>Animated code snippets</li>
-                    <li>Dark terminal theme</li>
-                    <li>Mac-style window</li>
-                    <li>Gradient buttons</li>
-                </ul>
-                <a href="templates/template3-dev-portal/index.html" class="btn">View Template</a>
-            </div>
-
-            <div class="template-card" onclick="window.location.href='templates/template4-animated/index.html'">
-                <h2>4. Animated Interactive</h2>
-                <p>Eye-catching animations and interactive elements for engagement.</p>
-                <ul class="features">
-                    <li>Smooth animations</li>
-                    <li>Interactive elements</li>
-                    <li>Engaging UX</li>
-                    <li>Dynamic effects</li>
-                </ul>
-                <a href="templates/template4-animated/index.html" class="btn">View Template</a>
-            </div>
-
-            <div class="template-card" onclick="window.location.href='templates/template5-split-screen/index.html'">
-                <h2>5. Split Screen</h2>
-                <p>Dual-panel layout with image showcase and form side by side.</p>
-                <ul class="features">
-                    <li>Split screen layout</li>
-                    <li>Image showcase</li>
-                    <li>Modern design</li>
-                    <li>Perfect for branding</li>
-                </ul>
-                <a href="templates/template5-split-screen/index.html" class="btn">View Template</a>
-            </div>
+            <li>
+              Create a Pull Request with a clear title, description, and a
+              screenshot or video demo. We will review it as soon as possible!
+            </li>
+          </ol>
         </div>
+      </div>
 
-        <footer>
-            <p>Created with ❤️ by <a href="https://github.com/Shikha-9125" target="_blank">Shikha-9125</a></p>
-            <p style="margin-top: 10px; opacity: 0.8;">⭐ Star this repository if you find it helpful!</p>
-        </footer>
-    </div>
-</body>
+      <p>A collection of templates submitted by open-source contributors.</p>
+    </header>
+
+    <main id="card-container"></main>
+
+    <script src="script.js"></script>
+  </body>
 </html>

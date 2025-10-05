@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.box {
+    width: 400px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Toggle Buttons */
+.toggle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.toggle button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: #eee;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-radius: 5px;
+}
+
+.toggle button.active {
+    background-color: rgb(125, 125, 224);
+    color: white;
+}
+
+/* Forms */
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(125, 125, 224);
+}
+
+label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: rgb(125, 125, 224);
+    box-shadow: 0 0 5px rgba(125, 125, 224, 0.5);
+}
+
+button[type="submit"] {
+    width: 100%;
+    height: 45px;
+    font-weight: 600;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(140, 140, 235);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: rgb(100, 100, 220);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}

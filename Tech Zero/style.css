@@ -1,0 +1,130 @@
+.image-container{
+    background: url('image/bg.jpg') center no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.form-container{
+    background-color: #fccc00;
+    display: flex;
+    justify-content: center;
+}
+
+.form-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.form-box h4{
+    font-weight: bold;
+    color: #fff;
+}
+
+.form-box .form-input{
+    position: relative;
+}
+
+.form-box .form-input input{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    border:none;
+    border-radius: 5px;
+    outline: none;
+    background: white;
+    padding-left: 45px;
+}
+
+.form-box .form-input span{
+    position: absolute;
+    top: 8px;
+    padding-left: 20px;
+    color: #777;
+}
+
+.form-box .form-input input::placeholder{
+    padding-left: 0px;
+}
+
+.form-box .form-input input:focus,
+.form-box .form-input input:valid{
+    border-bottom: 2px solid #48403d;
+}
+
+.form-box input[type="checkbox"]:not(:checked) + label:before{
+    background: transparent;
+    border: 2px solid #fff;
+    width: 15px;
+    height: 15px;
+}
+
+.form-box .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
+    background-color: #48403d;
+    border: 0px;
+}
+
+.forget-link, .register-link, .login-link{
+    color: #fff;
+    font-weight: bold;
+}
+
+.forget-link:hover, .register-link:hover, .login-link:hover{
+    color: #292525;
+}
+
+.form-box button[type="submit"]{
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    border-right: 5px;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.form-box button[type="submit"]:hover{
+    box-shadow: 0px 9px 10px -2px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 9px 10px -2px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 9px 10px -2px rgba(0,0,0,0.55);
+}
+
+.form-box .btn-social{
+    color: #fff;
+    border: 0px;
+    display: inline-block;
+    margin: 0px;
+    margin-right: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-box .btn-facebook{
+    background: #4866a8;
+}
+
+.form-box .btn-google{
+    background: #da3f34;
+}
+
+.form-box .btn-twitter{
+    background: #33ccff;
+}
+
+.form-box .btn-facebook:hover{
+    background: #3d5785;
+    color: #fff;
+}
+
+.form-box .btn-google:hover{
+    background: #bf3b31;
+    color: #fff;
+}
+
+.form-box .btn-twitter:hover{
+    background: #2eb7e5;
+    color: #fff;
+}
