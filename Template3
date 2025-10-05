@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Login & Signup</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 380px;
+      height: 520px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .form-box {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding: 40px;
+      transition: 0.8s ease-in-out;
+    }
+
+    .form-box.login {
+      left: 0;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .form-box.signup {
+      left: 100%;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .container.active .form-box.login {
+      left: -100%;
+    }
+
+    .container.active .form-box.signup {
+      left: 0;
+    }
+
+    h2 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .input-box {
+      position: relative;
+      width: 100%;
+      margin: 20px 0;
+      border-bottom: 2px solid #fff;
+    }
+
+    .input-box label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 1rem;
+      pointer-events: none;
+      transition: 0.4s;
+    }
+
+    .input-box input:focus ~ label,
+    .input-box input:valid ~ label {
+      top: -5px;
+      font-size: 0.8rem;
+      color: #ffeb3b;
+    }
+
+    .input-box input {
+      width: 100%;
+      height: 40px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 1rem;
+      padding: 0 5px;
+    }
+
+    .btn {
+      width: 100%;
+      height: 45px;
+      border: none;
+      background: #ffeb3b;
+      color: #333;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.4s;
+    }
+
+    .btn:hover {
+      background: #fff176;
+      transform: scale(1.05);
+    }
+
+    .toggle-link {
+      margin-top: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .toggle-link span {
+      color: #ffeb3b;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .toggle-link span:hover {
+      text-decoration: underline;
+    }
+
+    /* Animation floating circles */
+    .circles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .circles li {
+      position: absolute;
+      display: block;
+      list-style: none;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      animation: float 25s infinite;
+      bottom: -150px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    .circles li:nth-child(1) {
+      left: 25%;
+      width: 80px;
+      height: 80px;
+      animation-delay: 0s;
+    }
+    .circles li:nth-child(2) {
+      left: 10%;
+      width: 20px;
+      height: 20px;
+      animation-delay: 2s;
+      animation-duration: 12s;
+    }
+    .circles li:nth-child(3) {
+      left: 70%;
+      width: 20px;
+      height: 20px;
+      animation-delay: 4s;
+    }
+    .circles li:nth-child(4) {
+      left: 40%;
+      width: 60px;
+      height: 60px;
+      animation-delay: 0s;
+      animation-duration: 18s;
+    }
+    .circles li:nth-child(5) {
+      left: 65%;
+      width: 20px;
+      height: 20px;
+      animation-delay: 0s;
+    }
+    .circles li:nth-child(6) {
+      left: 75%;
+      width: 110px;
+      height: 110px;
+      animation-delay: 3s;
+    }
+    .circles li:nth-child(7) {
+      left: 35%;
+      width: 150px;
+      height: 150px;
+      animation-delay: 7s;
+    }
+    .circles li:nth-child(8) {
+      left: 50%;
+      width: 25px;
+      height: 25px;
+      animation-delay: 15s;
+      animation-duration: 45s;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="container">
+    <div class="form-box login">
+      <h2>Login</h2>
+      <form>
+        <div class="input-box">
+          <input type="text" required />
+          <label>Username</label>
+        </div>
+        <div class="input-box">
+          <input type="password" required />
+          <label>Password</label>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="toggle-link">
+          Don’t have an account? <span id="signupLink">Sign up</span>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-box signup">
+      <h2>Sign Up</h2>
+      <form>
+        <div class="input-box">
+          <input type="text" required />
+          <label>Username</label>
+        </div>
+        <div class="input-box">
+          <input type="email" required />
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <input type="password" required />
+          <label>Password</label>
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+        <div class="toggle-link">
+          Already have an account? <span id="loginLink">Login</span>
+        </div>
+      </form>
+    </div>
+
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+
+  <script>
+    const container = document.getElementById('container');
+    const signupLink = document.getElementById('signupLink');
+    const loginLink = document.getElementById('loginLink');
+
+    signupLink.addEventListener('click', () => {
+      container.classList.add('active');
+    });
+
+    loginLink.addEventListener('click', () => {
+      container.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
