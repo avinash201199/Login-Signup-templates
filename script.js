@@ -12,6 +12,7 @@ const templateFolders = [
     "Dhruva Bhat",
     "Foolish Developer",
     "Ivan Grozdic",
+    "Janavi-Pandole",
     "Modern Animated Template",
     "SaurabhMishra(edtech+ecommerce)",
     "Tech Zero",
@@ -22,6 +23,7 @@ const templateFolders = [
 // A list of only the templates that were working.
 const workingTemplates = [
     "SaurabhMishra(edtech+ecommerce)",
+    "Janavi-Pandole",
     "CodePenTemplate-1",
     "Bootsnipp",
     "Ayush",
