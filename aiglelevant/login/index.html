@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acme Inc | Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="transition-all duration-700 flex items-center justify-center min-h-screen font-[Inter]">
+
+    <div id="login-container"
+        class="relative w-[90%] max-w-[850px] rounded-3xl overflow-hidden flex flex-col md:flex-row backdrop-blur-xl shadow-2xl border border-white/10 transition-all duration-700">
+
+        <div
+            class="flex-1 px-8 py-10 md:px-10 md:py-12 flex flex-col justify-center transform transition-all duration-700 hover:scale-[1.02]">
+            <div class="text-2xl mb-6 font-semibold font-[Geist] tracking-wide">Acme Inc.</div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-2 font-[Geist] animate-fade-in">Welcome back</h2>
+            <p class="text-sm opacity-80 mb-6 animate-fade-in-delay">Please sign in to your account</p>
+
+            <form class="space-y-5 max-w-[340px]">
+                <div>
+                    <label class="block text-sm mb-1">Email</label>
+                    <input type="email" placeholder="you@acme.com"
+                        class="w-full px-5 py-3 rounded-full outline-none text-black placeholder-gray-400 transition-all duration-500 hover:scale-[1.01]"
+                        style="background: oklch(97.1% 0.013 17.38);" />
+                </div>
+
+                <div>
+                    <label class="block text-sm mb-1">Password</label>
+                    <input type="password" placeholder="********"
+                        class="w-full px-5 py-3 rounded-full outline-none text-black placeholder-gray-400 transition-all duration-500 hover:scale-[1.01]"
+                        style="background: oklch(97.1% 0.013 17.38);" />
+                </div>
+
+                <div class="flex justify-between items-center text-sm">
+                    <label class="flex items-center gap-2">
+                        <input type="checkbox" class="accent-[oklch(25.8%_0.092_26.042)]" /> Keep me logged in
+                    </label>
+                    <a href="#" class="hover:underline">Forgot Password</a>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-3 rounded-full font-semibold transition-transform hover:scale-105 hover:shadow-lg"
+                    style="background: oklch(25.8% 0.092 26.042); color: oklch(97.1% 0.013 17.38);">
+                    Sign in
+                </button>
+
+                <div class="flex justify-center items-center gap-4 pt-4">
+                    <button type="button"
+                        class="bg-white rounded-full p-2 hover:scale-110 transition-all shadow hover:shadow-lg">
+                        <img src="https://www.svgrepo.com/show/355037/google.svg" class="w-5" />
+                    </button>
+                    <button type="button"
+                        class="bg-white rounded-full p-2 hover:scale-110 transition-all shadow hover:shadow-lg">
+                        <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" class="w-5" />
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="flex-1 relative px-8 py-10 md:px-10 md:py-12 flex flex-col justify-between">
+            <div id="testimonial" class="animate-slide-up">
+                <h2 class="text-2xl font-bold mb-6 leading-snug font-[Geist]">What our <br />partners say.</h2>
+
+                <p id="quote" class="italic text-gray-200/90 mb-6 transition-all duration-700">
+                    “Acme’s tools made our workflow seamless — productivity skyrocketed!”
+                </p>
+
+                <p id="name" class="font-semibold">Evelyn Carter</p>
+                <p id="role" class="text-sm text-gray-300 mb-8">Customer, Founder of BrightLabs</p>
+
+                <div class="flex gap-3">
+                    <button id="prev"
+                        class="px-4 py-2 rounded-lg font-semibold hover:opacity-80 transition-all hover:scale-105"
+                        style="background: oklch(25.8% 0.092 26.042); color: oklch(97.1% 0.013 17.38);">←</button>
+                    <button id="next"
+                        class="px-4 py-2 rounded-lg font-semibold hover:opacity-80 transition-all hover:scale-105"
+                        style="background: oklch(25.8% 0.092 26.042); color: oklch(97.1% 0.013 17.38);">→</button>
+                </div>
+            </div>
+
+            <div class="absolute bottom-6 right-6 rounded-2xl w-64 text-sm shadow-lg p-5 hidden md:block animate-fade-in-delay"
+                style="background: oklch(97.1% 0.013 17.38); color: oklch(12.9% 0.042 264.695);">
+                <h3 class="font-semibold mb-1 text-base font-[Geist]">Empower your team with Acme Inc.</h3>
+                <p class="opacity-80 mb-3">
+                    Join thousands using Acme’s platform to build, scale, and grow their business effortlessly.
+                </p>
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg"
+                        class="w-7 h-7 rounded-full border-2 border-white -ml-0" />
+                    <img src="https://randomuser.me/api/portraits/men/46.jpg"
+                        class="w-7 h-7 rounded-full border-2 border-white -ml-2" />
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg"
+                        class="w-7 h-7 rounded-full border-2 border-white -ml-2" />
+                    <span class="ml-3 font-semibold">+2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="theme-toggle"
+        class="fixed bottom-4 right-4 px-4 py-2 rounded-full shadow-md font-semibold transition-all hover:scale-110 flex items-center gap-2"
+        style="background: oklch(25.8% 0.092 26.042); color: oklch(97.1% 0.013 17.38);">
+        <i id="theme-icon" data-lucide="moon"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

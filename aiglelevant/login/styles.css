@@ -1,0 +1,47 @@
+body {
+    background: linear-gradient(to bottom right,
+            oklch(97.1% 0.013 17.38),
+            oklch(25.8% 0.092 26.042));
+    transition: background 0.8s ease, color 0.5s ease;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease forwards;
+}
+
+.animate-fade-in-delay {
+    animation: fade-in 1.5s ease forwards;
+}
+
+.animate-slide-up {
+    animation: slide-up 1.2s ease forwards;
+}
+
+button,
+input {
+    transition: all 0.3s ease;
+}

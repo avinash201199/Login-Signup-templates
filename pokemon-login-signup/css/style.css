@@ -1,0 +1,394 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  transition: .5s;
+}
+
+body.light {
+  --main-color: #FFFFFF;
+  --secondary-color: #AC81F1;
+  --tertiary-color: #E3DFFB;
+  --text-color: #221A30;
+  --smooth-text-color: #5B507F;
+  --alert-color: #9417CC;
+
+  --input-color: #E3DFFB;
+  --input-hover-color: #AC81F1;
+  --label-color: #AC81F1;
+  --btn-hover-color: #8e4ef5ef;
+  --social-icon-color: #AC81F1;
+}
+
+body.dark {
+  --main-color: #070E25;
+  --secondary-color: #1FBAF7;
+  --tertiary-color: #0F3779;
+  --text-color: #ffffff;
+  --smooth-text-color: #879BBC;
+  --alert-color: #1363C5;
+
+  --input-color: rgb(255, 255, 255, 0.1);
+  --input-hover-color: #0F3779;
+  --label-color: rgb(255, 255, 255, 0.4);
+  --btn-hover-color: #028dc4;
+  --social-icon-color: rgb(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--main-color);
+}
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-container .left-section {
+  width: 30%;
+  height: 100%;
+  background: url(../assets/bg-light.png);
+  background-size: cover;
+}
+
+.main-container .left-section.light {
+  background-image: url(../assets/bg-light.png);
+}
+
+.main-container .left-section.dark {
+  background-image: url(../assets/bg-dark.png);
+}
+
+.main-container .right-section {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-section .form-section {
+  width: 55%;
+  height: auto;
+}
+
+.form-section .nav {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-section .nav h1 {
+  font-size: 32px;
+  font-weight: 800;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+}
+
+.form-section .nav span, .nav a {
+  color: var(--tertiary-color);
+}
+
+.form-section .toggle-btn input[type="checkbox"] {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--tertiary-color);
+  outline: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.toggle-btn input:checked[type="checkbox"] {
+  background-color: var(--tertiary-color);
+}
+
+.toggle-btn input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background: url(../assets/pokeball-light.svg);
+  background-size: contain;
+  transform: scale(1.3);
+  transition: .5s;
+}
+
+.toggle-btn input:checked[type="checkbox"]::before {
+  left: 25px;
+  background: url(../assets/pokeball-dark.svg);
+  background-size: contain;
+}
+
+.right-section .form {
+  width: 100%;
+  height: auto;
+  padding: 30px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-section .form .input-sec {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin: 5px 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-section .form .input-field {
+  width: 100%;
+  height: 100%;
+  padding: 0 4%;
+  color: var(--text-color);
+  background-color: var(--input-color);
+  outline: none;
+  border: none;
+}
+
+.right-section .form .input-field:focus {
+  border: 1px solid var(--alert-color);
+}
+
+.right-section .form .input-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  z-index: 50;
+}
+
+.right-section .form .icon {
+  color: var(--secondary-color);
+  width: 20px;
+  height: 20px;
+}
+
+.form .password {
+  cursor: pointer;
+}
+
+.right-section form label {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--label-color);
+}
+
+.agreeCheckbox {
+  width: 90%;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.agreeCheckbox p {
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  color: var(--smooth-text-color);
+}
+
+.agreeCheckbox p a {
+  font-weight: 800;
+  color: var(--alert-color);
+}
+
+.agreeCheckbox input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: var(--input-color);
+  cursor: pointer;
+  transition: .3s;
+}
+
+.agreeCheckbox input:checked[type="checkbox"] {
+  background: var(--input-hover-color);
+}
+
+input[type="button"] {
+  width: 100%;
+  height: 40px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  background-color: var(--secondary-color);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+}
+
+input[type="button"]:hover {
+  background-color: var(--btn-hover-color);
+}
+
+.social-networks {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-networks p {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--smooth-text-color);
+}
+
+.social-networks ul {
+  width: 80%;
+  height: 40px;
+  margin: 20px 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.social-networks ul li {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--social-icon-color);
+  transition: .5s;
+}
+
+.social-networks ul li:hover {
+  scale: 1.2;
+}
+
+.social-networks ul li a {
+  object-fit: contain;
+  display: grid;
+  place-items: center;
+}
+
+.social-networks ul li a,
+.social-networks li a img {
+  width: 100%;
+  height: 100%;
+}
+
+.form-section .login-link {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--smooth-text-color);
+  text-align: center;
+}
+
+.form-section .login-link a {
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--alert-color);
+}
+
+@media screen and (max-width: 1280px) {
+  .right-section .form-section {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .right-section .form-section {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-container .left-section {
+    width: 100%;
+    height: 45vh;
+    margin-top: -20px;
+    background-size: cover;
+    background-position: 0 -50px;
+  }
+  .main-container .right-section {
+    width: 100%;
+    height: auto;
+    padding: 0 8% 20px;
+  }
+  .right-section .form-section {
+    width: 100%;
+  }
+  .form-section .nav {
+    position: absolute;
+    padding: 0 8%;
+    top: 33vh;
+    right: 0;
+    justify-content: space-beetween;
+  }
+  .form-section .nav h1 {
+    color: #FFFFFF;
+  }
+  .form-section .nav h1 a,
+  .form-section .nav h1 span {
+    display: none;
+  }
+  .right-section .form .input-sec {
+    height: 35px;
+  }
+  .right-section .form .input-icon {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+  }
+  .right-section .form .icon {
+    width: 18px;
+    height: 18px;
+  }
+  .right-section form label {
+    font-size: 10px;
+  }
+  .agreeCheckbox p {
+    font-size: 10px;
+  }
+  .social-networks {
+    padding: 15px;
+  }
+  .social-networks ul {
+    padding: 0;
+    margin:10px;
+  }
+  .social-networks ul li {
+    width: 30px;
+    height: 30px;
+  }
+}

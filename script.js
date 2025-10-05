@@ -26,6 +26,28 @@ const templateFolders = [
   "Minaal",
   "Sahil-Kumar",
   "samim29",
+
+    "Abhinav Shukla",
+    "Amit Raj Sharm",
+    "Avinash",
+    "Ayush",
+    "Baveja Template",
+    "Bootsnipp",
+    "CodePenTemplate-1",
+    "Coding Nepal",
+    "colorlib Template",
+    "Dhruva Bhat",
+    "Foolish Developer",
+    "Ivan Grozdic",
+    "Himanshu",
+    "Janavi-Pandole",
+    "Modern Animated Template",
+    "SaurabhMishra(edtech+ecommerce)",
+    "Tech Zero",
+    "Template 1",
+    "Template 2"
+
+
 ];
 
 // A list of only the templates that were working.
@@ -56,6 +78,13 @@ const workingTemplates = [
   "Minaal",
   "Sahil-Kumar",
   "samim29",
+
+    "SaurabhMishra(edtech+ecommerce)",
+    "Janavi-Pandole",
+    "CodePenTemplate-1",
+    "Bootsnipp",
+    "Ayush",
+    "Avinash"
 ];
 
 //container element from the HTML
@@ -94,4 +123,24 @@ templateFolders.forEach((folderName) => {
 
   // Adding the completed card to the container
   cardContainer.appendChild(card);
+});
+
+// how to contribute info code
+const controInfo = document.querySelector(".contro-info");
+
+const popup = document.getElementById("popup");
+const closeBtn = document.querySelector(".close-btn");
+
+controInfo.addEventListener("click", () => {
+  popup.style.display = "block";
+});
+
+closeBtn.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
 });

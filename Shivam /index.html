@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login & Signup Form</title>
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a, #111);
+}
+
+
+.form-container {
+    background: #1c1c1c;
+    padding: 40px 30px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    text-align: center;
+    position: relative;
+}
+
+
+.tab-labels {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.tab-label {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #ccc;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+
+#login-tab,
+#signup-tab {
+    display: none;
+}
+
+
+#login-tab:checked ~ .tab-labels label[for="login-tab"],
+#signup-tab:checked ~ .tab-labels label[for="signup-tab"] {
+    color: #fff;
+    border-bottom: 2px solid #7a5cff;
+}
+
+
+.forms {
+    position: relative;
+}
+
+.form {
+    display: none;
+    flex-direction: column;
+}
+
+#login-tab:checked ~ .forms .login-form {
+    display: flex;
+}
+
+#signup-tab:checked ~ .forms .signup-form {
+    display: flex;
+}
+
+.form h2 {
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    color: #7a5cff;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 35px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #111;
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #7a5cff;
+    box-shadow: 0 0 8px rgba(122, 92, 255, 0.5);
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #7a5cff;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #5c42d1;
+}
+</style>
+</head>
+<body>
+
+<div class="form-container">
+
+   
+    <input type="radio" name="tab" id="login-tab" checked>
+    <input type="radio" name="tab" id="signup-tab">
+
+    
+    <div class="tab-labels">
+        <label for="login-tab" class="tab-label">Login</label>
+        <label for="signup-tab" class="tab-label">Signup</label>
+    </div>
+
+   
+    <div class="forms">
+
+       
+        <form class="form login-form">
+            <h2>Login</h2>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <form class="form signup-form">
+            <h2>Signup</h2>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn">Signup</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
+
