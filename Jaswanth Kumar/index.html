@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jaswanth Kumar — Tech Login / Signup</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="scene">
+      <canvas id="particles"></canvas>
+
+      <main class="wrap">
+        <header class="logo">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"></rect>
+            <path d="M7 12h10M12 7v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+          <h1>Auth Portal</h1>
+        </header>
+
+        <section class="card" id="auth-card">
+          <nav class="segmented" role="tablist" aria-label="Sign in or Register">
+            <div class="seg-track">
+              <button id="login-tab" class="seg-item active" role="tab" aria-selected="true" data-mode="login">Sign in</button>
+              <button id="signup-tab" class="seg-item" role="tab" aria-selected="false" data-mode="signup">Register</button>
+              <div class="seg-indicator" aria-hidden></div>
+            </div>
+          </nav>
+
+          <div class="forms">
+            <div class="reveal" id="reveal" aria-hidden="true"></div>
+            <form id="login-form" class="form active" autocomplete="on">
+              <div class="field">
+                <input id="login-email" name="email" type="email" required>
+                <label for="login-email">Email address</label>
+              </div>
+              <div class="field">
+                <input id="login-pass" name="password" type="password" required minlength="6">
+                <label for="login-pass">Password</label>
+                <div class="pw-meter" data-target="login-pass">
+                  <div class="pw-bar"></div>
+                  <div class="pw-bar"></div>
+                  <div class="pw-bar"></div>
+                  <div class="pw-bar"></div>
+                </div>
+                <div class="pw-label" data-target="login-pass">&nbsp;</div>
+              </div>
+              <div class="actions">
+                <button class="btn primary" type="submit">Sign in</button>
+                <button class="btn ghost" type="button" id="demo-fill">Fill demo</button>
+              </div>
+            </form>
+
+            <form id="signup-form" class="form" autocomplete="on">
+              <div class="field">
+                <input id="signup-name" name="fullname" type="text" required>
+                <label for="signup-name">Full name</label>
+              </div>
+              <div class="field">
+                <input id="signup-email" name="email" type="email" required>
+                <label for="signup-email">Email address</label>
+              </div>
+              <div class="field">
+                <input id="signup-pass" name="password" type="password" required minlength="6">
+                <label for="signup-pass">Create password</label>
+                <div class="pw-meter" data-target="signup-pass">
+                  <div class="pw-bar"></div>
+                  <div class="pw-bar"></div>
+                  <div class="pw-bar"></div>
+                  <div class="pw-bar"></div>
+                </div>
+                <div class="pw-label" data-target="signup-pass">&nbsp;</div>
+              </div>
+              <div class="actions">
+                <button class="btn primary" type="submit">Create account</button>
+              </div>
+            </form>
+
+            <div class="success" id="success-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="success-icon" aria-hidden>
+                <path d="M20 6L9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+              </svg>
+              <p class="success-text">Success! Redirecting…</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
