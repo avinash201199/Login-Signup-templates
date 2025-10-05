@@ -12,6 +12,7 @@ const templateFolders = [
     "Dhruva Bhat",
     "Foolish Developer",
     "Ivan Grozdic",
+    "Himanshu",
     "Modern Animated Template",
     "SaurabhMishra(edtech+ecommerce)",
     "Tech Zero",
