@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <title>Sign Up Page</title>
+  <link rel="shortcut icon" href="./assets/pokebal.ico" type="image/x-icon">
+</head>
+
+<body id="body" class="light">
+
+  <header class="main-container">
+    <section class="left-section"></section>
+    <section class="right-section">
+      <div class="form-section">
+        <div class="nav">
+          <h1 class="mainTitle">Sign Up <span>/ <a href="login-page.html">Login</a></span></h1>
+          <div class="toggle-btn">
+            <input type="checkbox" name="toggle" id="toggle" onclick="changeTheme()">
+          </div>
+        </div>
+        <form action="" class="form">
+
+          <label for="username">Username</label>
+          <div class="input-sec">
+            <input type="text" name="username" id="username" class="input-field">
+            <div class="input-icon"><i data-feather="user" class="icon"></i></div>
+          </div>
+
+          <label for="email">Email Address</label>
+          <div class="input-sec">
+            <input type="email" name="email" id="email" class="input-field">
+            <div class="input-icon"><i data-feather="mail" class="icon"></i></div>
+          </div>
+
+          <label for="password">Password</label>
+          <div class="input-sec">
+            <input type="password" name="password" id="password" class="input-field" aria-hidden="true">
+            <div class="input-icon"><i data-feather="eye" class="icon password" id="eye" onclick="togglePW()"></i></div>
+          </div>
+
+          <label class="agreeCheckbox">
+            <input type="checkbox" name="checkbox" id="checkbox">
+            <p>I agree with the <a href="#">Terms of Service</a></p>
+          </label>
+
+          <input type="button" value="SIGN UP">
+
+        </form>
+        <div class="login-link">Already have an account? <a href="login-page.html">login</a></div>
+      </div>
+    </section>
+  </header>
+
+  <script>
+    feather.replace()
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+  <script src="./js/script.js"></script>
+
+</body>
+
+</html>
