@@ -22,6 +22,7 @@ const templateFolders = [
   "Tech Zero",
   "Template 1",
   "Template 2",
+
     "Abhinav Shukla",
     "Amit Raj Sharm",
     "Avinash",
@@ -34,12 +35,14 @@ const templateFolders = [
     "Dhruva Bhat",
     "Foolish Developer",
     "Ivan Grozdic",
+    "Himanshu",
     "Janavi-Pandole",
     "Modern Animated Template",
     "SaurabhMishra(edtech+ecommerce)",
     "Tech Zero",
     "Template 1",
     "Template 2"
+
 
 ];
 
