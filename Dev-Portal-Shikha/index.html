@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Portal - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Code Background */
+        .code-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .code-line {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #3d4f66;
+            white-space: nowrap;
+            line-height: 1.8;
+            animation: gentle-float 8s ease-in-out infinite;
+        }
+
+        .code-line.static {
+            animation: gentle-float 8s ease-in-out infinite;
+        }
+
+        @keyframes gentle-float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-20px) translateX(10px);
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes float-code {
+            0% {
+                transform: translateY(100vh) translateX(0);
+            }
+            100% {
+                transform: translateY(-100px) translateX(50px);
+            }
+        }
+
+        /* Glowing dots */
+        .dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            animation: float-dot 15s ease-in-out infinite;
+        }
+
+        @keyframes float-dot {
+            0%, 100% {
+                transform: translate(0, 0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(100px, -100px);
+                opacity: 0.8;
+            }
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 420px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .mac-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .mac-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .mac-btn.red { background: #ff5f56; }
+        .mac-btn.yellow { background: #ffbd2e; }
+        .mac-btn.green { background: #27c93f; }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            color: #718096;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        /* Card */
+        .card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        /* Tab Buttons */
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: rgba(100, 116, 139, 0.2);
+            color: #94a3b8;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: rgba(100, 116, 139, 0.3);
+        }
+
+        /* Form */
+        .form-content {
+            display: none;
+        }
+
+        .form-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #cbd5e0;
+            font-size: 13px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 10px;
+            color: #e2e8f0;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: #64748b;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            background: rgba(30, 41, 59, 0.8);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(100, 116, 139, 0.3);
+        }
+
+        .divider span {
+            padding: 0 15px;
+        }
+
+        /* Social Buttons */
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 14px;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 10px;
+            color: #e2e8f0;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .social-btn:hover {
+            background: rgba(30, 41, 59, 0.8);
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        .social-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #64748b;
+            font-size: 13px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .card {
+                padding: 30px 25px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Code Background -->
+    <div class="code-background" id="codeBackground"></div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="mac-buttons">
+                <div class="mac-btn red"></div>
+                <div class="mac-btn yellow"></div>
+                <div class="mac-btn green"></div>
+            </div>
+            <h1>DEV_PORTAL</h1>
+            <p>&gt; return true;</p>
+        </div>
+
+        <!-- Card -->
+        <div class="card">
+            <!-- Tab Buttons -->
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchTab('signin')">SIGN.IN()</button>
+                <button class="tab-btn" onclick="switchTab('signup')">SIGN.UP()</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <div id="signin" class="form-content active">
+                <form id="signinForm" onsubmit="handleSignIn(event)">
+                    <div class="form-group">
+                        <label>email</label>
+                        <input type="email" placeholder="dev@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="signinPassword" placeholder="••••••••••" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword('signinPassword')">
+                                👁️
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">ACCESS_SYSTEM()</button>
+                </form>
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <div class="social-buttons">
+                    <button class="social-btn" onclick="socialLogin('github')">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GITHUB
+                    </button>
+                    <button class="social-btn" onclick="socialLogin('google')">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                        GOOGLE
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signup" class="form-content">
+                <form id="signupForm" onsubmit="handleSignUp(event)">
+                    <div class="form-group">
+                        <label>username</label>
+                        <input type="text" placeholder="dev_user" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>email</label>
+                        <input type="email" placeholder="dev@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="signupPassword" placeholder="••••••••••" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword('signupPassword')">
+                                👁️
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>confirm_password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="confirmPassword" placeholder="••••••••••" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                                👁️
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">CREATE_ACCOUNT()</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            © 2024 DEV_PORTAL v2.0.1
+        </div>
+    </div>
+
+    <script>
+        // Generate animated code background
+        function createCodeBackground() {
+            const container = document.getElementById('codeBackground');
+            const codeSnippets = [
+                'const auth = await signIn();',
+                'function validate() {',
+                '  return true;',
+                '}',
+                'if (user.loggedIn) {',
+                '  dashboard.show();',
+                '}',
+                'const token = jwt.sign(payload);',
+                'app.use(middleware);',
+                'async function authenticate() {',
+                'router.get("/api/user");',
+                'export default connect();',
+                'const password = hash(input);',
+                'setTimeout(() => {',
+                '  console.log("success");',
+                '}, 1000);',
+                'import { User } from "./models";',
+                'try { await login(); }',
+                'catch(err) { handle(err); }',
+                'return true;',
+                'await signIn();',
+                'if (user.exists) {',
+                'export { auth };',
+                'const user = new User();',
+                'function handleError() {',
+                'app.listen(3000);',
+                'router.post("/login");',
+                'const data = await fetch();',
+                'console.log("authenticated");',
+                'return response.json();',
+                'module.exports = auth;',
+            ];
+
+            // Create static code lines spread across the screen
+            const positions = [];
+            for (let i = 0; i < 50; i++) {
+                const codeLine = document.createElement('div');
+                codeLine.className = 'code-line static';
+                codeLine.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+                
+                // Spread them evenly across screen
+                const left = (Math.random() * 90) + 5; // 5-95%
+                const top = (Math.random() * 90) + 5;  // 5-95%
+                
+                codeLine.style.left = left + '%';
+                codeLine.style.top = top + '%';
+                codeLine.style.animationDelay = (Math.random() * 5) + 's';
+                codeLine.style.animationDuration = (6 + Math.random() * 4) + 's';
+                container.appendChild(codeLine);
+            }
+
+            // Create floating dots
+            for (let i = 0; i < 30; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                dot.style.left = Math.random() * 100 + '%';
+                dot.style.top = Math.random() * 100 + '%';
+                dot.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(dot);
+            }
+        }
+
+        // Switch between tabs
+        function switchTab(tab) {
+            // Update buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update forms
+            const forms = document.querySelectorAll('.form-content');
+            forms.forEach(form => form.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+        }
+
+        // Toggle password visibility
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+
+        // Handle sign in
+        function handleSignIn(event) {
+            event.preventDefault();
+            showNotification('Authenticating...', 'success');
+            // Add your sign in logic here
+        }
+
+        // Handle sign up
+        function handleSignUp(event) {
+            event.preventDefault();
+            const password = document.getElementById('signupPassword').value;
+            const confirm = document.getElementById('confirmPassword').value;
+
+            if (password !== confirm) {
+                showNotification('Passwords do not match!', 'error');
+                return;
+            }
+
+            showNotification('Account created successfully!', 'success');
+            // Add your sign up logic here
+        }
+
+        // Social login
+        function socialLogin(provider) {
+            showNotification(`Connecting to ${provider}...`, 'success');
+            // Add your social login logic here
+        }
+
+        // Show notification
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 25px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : '#ef4444'};
+                color: white;
+                border-radius: 10px;
+                font-weight: 600;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Initialize
+        createCodeBackground();
+    </script>
+</body>
+</html>

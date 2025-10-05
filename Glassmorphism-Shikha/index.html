@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Login - Template 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="container">
+        <form class="glass-form" id="loginForm">
+            <h2>Welcome</h2>
+            <p class="subtitle">Enter your credentials</p>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+
+            <div class="remember-forgot">
+                <label class="remember">
+                    <input type="checkbox">
+                    <span>Remember me</span>
+                </label>
+                <a href="#" class="forgot">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-login">Login</button>
+
+            <div class="signup-link">
+                <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+            </div>
+
+            <div class="social-login">
+                <p>Or continue with</p>
+                <div class="social-buttons">
+                    <button type="button" class="social-btn">G</button>
+                    <button type="button" class="social-btn">f</button>
+                    <button type="button" class="social-btn">in</button>
+                </div>
+            </div>
+        </form>
+
+        <form class="glass-form" id="signupForm" style="display: none;">
+            <h2>Create Account</h2>
+            <p class="subtitle">Join us today</p>
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="signupName" placeholder="Enter your name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="signupEmail" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="signupPassword" placeholder="Create a password" required>
+            </div>
+
+            <div class="input-group">
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+            </div>
+
+            <label class="remember">
+                <input type="checkbox" required>
+                <span>I agree to Terms & Conditions</span>
+            </label>
+
+            <button type="submit" class="btn-login">Sign Up</button>
+
+            <div class="signup-link">
+                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
