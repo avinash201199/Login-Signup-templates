@@ -3,7 +3,6 @@ const templateFolders = [
 
     "Abhinav Shukla",
     "Amit Raj Sharm",
-    "Animated-Waves-Shikha",
     "Avinash",
     "Ayush",
     "Baveja Template",
@@ -14,12 +13,10 @@ const templateFolders = [
     "Dev-Portal-Shikha",
     "Dhruva Bhat",
     "Foolish Developer",
-    "Glassmorphism-Shikha",
     "Ivan Grozdic",
     "Himanshu",
     "Janavi-Pandole",
     "Modern Animated Template",
-    "Modern-Gradient-Shikha",
     "SaurabhMishra(edtech+ecommerce)",
     "Split-Screen-Dark-Shikha",
     "Tech Zero",
@@ -38,10 +35,7 @@ const workingTemplates = [
     "Bootsnipp",
     "Ayush",
     "Avinash",
-    "Animated-Waves-Shikha",
     "Dev-Portal-Shikha",
-    "Glassmorphism-Shikha",
-    "Modern-Gradient-Shikha",
     "Split-Screen-Dark-Shikha"
 ];
 
