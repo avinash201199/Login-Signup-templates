@@ -14,6 +14,7 @@ const templateFolders = [
     "Foolish Developer",
     "Ivan Grozdic",
     "Himanshu",
+    "Janavi-Pandole",
     "Modern Animated Template",
     "SaurabhMishra(edtech+ecommerce)",
     "Tech Zero",
@@ -25,11 +26,13 @@ const templateFolders = [
 
 // A list of only the templates that were working.
 const workingTemplates = [
-  "SaurabhMishra(edtech+ecommerce)",
-  "CodePenTemplate-1",
-  "Bootsnipp",
-  "Ayush",
-  "Avinash",
+
+    "SaurabhMishra(edtech+ecommerce)",
+    "Janavi-Pandole",
+    "CodePenTemplate-1",
+    "Bootsnipp",
+    "Ayush",
+    "Avinash"
 ];
 
 //container element from the HTML
