@@ -22,6 +22,25 @@ const templateFolders = [
   "Tech Zero",
   "Template 1",
   "Template 2",
+    "Abhinav Shukla",
+    "Amit Raj Sharm",
+    "Avinash",
+    "Ayush",
+    "Baveja Template",
+    "Bootsnipp",
+    "CodePenTemplate-1",
+    "Coding Nepal",
+    "colorlib Template",
+    "Dhruva Bhat",
+    "Foolish Developer",
+    "Ivan Grozdic",
+    "Janavi-Pandole",
+    "Modern Animated Template",
+    "SaurabhMishra(edtech+ecommerce)",
+    "Tech Zero",
+    "Template 1",
+    "Template 2"
+
 ];
 
 // A list of only the templates that were working.
@@ -36,6 +55,13 @@ const workingTemplates = [
   "Modern-Gradient-Shikha",
   "SaurabhMishra(edtech+ecommerce)",
   "Split-Screen-Dark-Shikha",
+
+    "SaurabhMishra(edtech+ecommerce)",
+    "Janavi-Pandole",
+    "CodePenTemplate-1",
+    "Bootsnipp",
+    "Ayush",
+    "Avinash"
 ];
 
 //container element from the HTML
