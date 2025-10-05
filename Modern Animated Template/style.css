@@ -107,10 +107,13 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px) rotate(0deg);
         opacity: 0.8;
     }
+
     50% {
         transform: translateY(-20px) rotate(180deg);
         opacity: 1;
@@ -165,6 +168,7 @@ body {
         opacity: 0;
         transform: translateX(30px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -176,6 +180,7 @@ body {
         opacity: 1;
         transform: translateX(0);
     }
+
     to {
         opacity: 0;
         transform: translateX(-30px);
@@ -243,8 +248,8 @@ body {
     transform: translateY(-2px);
 }
 
-.input-wrapper input:focus + label,
-.input-wrapper input:not(:placeholder-shown) + label {
+.input-wrapper input:focus+label,
+.input-wrapper input:not(:placeholder-shown)+label {
     transform: translateY(-12px) translateX(-10px) scale(0.85);
     color: var(--primary-color);
     background: var(--bg-primary);
@@ -333,12 +338,12 @@ body {
     transform: scale(1.05);
 }
 
-.checkbox-container input:checked + .checkmark {
+.checkbox-container input:checked+.checkmark {
     background: var(--gradient-primary);
     border-color: var(--primary-color);
 }
 
-.checkbox-container input:checked + .checkmark::after {
+.checkbox-container input:checked+.checkmark::after {
     content: '\2713';
     color: white;
     font-size: 12px;
@@ -429,7 +434,7 @@ body {
 }
 
 .divider span {
-    background: var(--bg-primary);
+    background: #f8f7fc;
     padding: 0 15px;
     color: var(--text-light);
     font-size: 0.9rem;
@@ -558,6 +563,7 @@ body {
         opacity: 0;
         transform: scale(0.5);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
@@ -565,9 +571,12 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.05);
     }
@@ -578,43 +587,43 @@ body {
     .container {
         padding: 10px;
     }
-    
+
     .auth-container {
         padding: 30px 20px;
         border-radius: 20px;
     }
-    
+
     .input-row {
         grid-template-columns: 1fr;
         gap: 0;
     }
-    
+
     .form-options {
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
     }
-    
+
     .form-header h2 {
         font-size: 1.75rem;
     }
-    
+
     .input-wrapper input {
         padding: 14px 18px 14px 45px;
     }
-    
+
     .input-icon {
         left: 15px;
     }
-    
+
     .input-wrapper label {
         left: 45px;
     }
-    
+
     .submit-btn {
         padding: 14px 20px;
     }
-    
+
     .social-btn {
         padding: 12px 18px;
     }
@@ -641,8 +650,13 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 /* Dark theme support */
