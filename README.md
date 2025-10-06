@@ -63,31 +63,48 @@ Before you start contributing, please ensure you have reviewed the existing temp
      git checkout -b feature/your-template-name
      ```
     Replace your name instead of your-template-name
+   
 4. **Add Your Template:**
    - Add your template files to the appropriate category (if applicable) or create a new category if needed.
    - Ensure that your code follows best practices, is well-documented, and includes necessary files (HTML, CSS, JavaScript).
+  
+5.  **Create Your Folder:** Inside the main directory, create a new folder. Please give it a descriptive name (e.g., `Your-Name`).
 
-5. **Documentation:**
+6.  **Add Your Code:** Place all of your template's files (`index.html`, `style.css`, `script.js`, etc.) inside the folder you just created.
+
+7.  **Add a Screenshot:**
+
+    - Take a screenshot of your template in action.
+    - Save it as a `Your-Name.png` file.
+    - The filename must **exactly match** your folder's name (e.g., if your folder is `Your-Name`, your screenshot must be named `Your-Name.png`).
+    - Place your screenshot inside the main `screenshots` folder.
+
+8.  **Update the Website:**
+
+    - Open the main `script.js` file at the root of the project.
+    - Find the `templateFolders` array at the top of the file.
+    - Add the name of your new folder to this list. The list is alphabetical, so please place yours in the correct order.
+
+
+9. **Documentation:**
    - Provide a clear and concise README within your template's directory.
    - Include details about your template, any dependencies, and instructions on how to integrate it into a project.
 
-6. **Update README:**
-   - Add a brief description of your template in the main README under the "How to Use" section.
 
-7. **Commit Your Changes:**
+10. **Commit Your Changes:**
    - Commit your changes with a meaningful commit message.
      ```bash
      git add .
      git commit -m "Add: Your Template Name"
      ```
 
-8. **Push to Your Fork:**
+12. **Push to Your Fork:**
    - Push your changes to your GitHub fork.
      ```bash
      git push origin feature/your-template-name
      ```
 
-9. **Submit a Pull Request:**
+13. **Submit a Pull Request:**
    - Open a pull request from your fork to the main repository.
    - Ensure you provide a clear title and description for your pull request, attach the screenshot of the website or a vedio on the deployed website.
 
