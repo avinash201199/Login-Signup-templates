@@ -6,6 +6,7 @@ const templateFolders = [
   "Ayush",
   "Baveja Template",
   "Bootsnipp",
+  "Chanakya",
   "CodePenTemplate-1",
   "Coding Nepal",
   "colorlib Template",
@@ -13,6 +14,7 @@ const templateFolders = [
   "Foolish Developer",
   "Ivan Grozdic",
   "Modern Animated Template",
+  "Parth",
   "SaurabhMishra(edtech+ecommerce)",
   "Tech Zero",
   "Template 1",
@@ -29,13 +31,16 @@ const templateFolders = [
 
     "Abhinav Shukla",
     "Amit Raj Sharm",
+    "Anuradha",
     "Avinash",
     "Ayush",
     "Baveja Template",
     "Bootsnipp",
+    "Chanakya",
     "CodePenTemplate-1",
     "Coding Nepal",
     "colorlib Template",
+    "Dev-Portal-Shikha",
     "Dhruva Bhat",
     "Foolish Developer",
     "Ivan Grozdic",
@@ -43,6 +48,7 @@ const templateFolders = [
     "Janavi-Pandole",
     "Modern Animated Template",
     "SaurabhMishra(edtech+ecommerce)",
+    "Split-Screen-Dark-Shikha",
     "Tech Zero",
     "Template 1",
     "Template 2"
@@ -60,6 +66,7 @@ const workingTemplates = [
   "Abhinav Shukla",
   "Amit Raj Sharm",
   "Baveja Template",
+  "Chanakya",
   "Coding Nepal",
   "colorlib Template",
   "Dhruva Bhat",
@@ -84,7 +91,9 @@ const workingTemplates = [
     "CodePenTemplate-1",
     "Bootsnipp",
     "Ayush",
-    "Avinash"
+    "Avinash",
+    "Dev-Portal-Shikha",
+    "Split-Screen-Dark-Shikha"
 ];
 
 //container element from the HTML
