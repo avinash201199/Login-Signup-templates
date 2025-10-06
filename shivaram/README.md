@@ -53,4 +53,8 @@ logInButton.addEventListener('click', () => {
     container.classList.remove("active");
 });
 ```
+<img width="1919" height="906" alt="shivaram1" src="https://github.com/user-attachments/assets/269c893b-6f4c-44c3-a762-94f7411b1b29" />
+
+<img width="1919" height="903" alt="shivaram2" src="https://github.com/user-attachments/assets/63d2b7d8-7f5e-4c4f-afa9-45a8917ec89c" />
+
 ---
