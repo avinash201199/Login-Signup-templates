@@ -29,6 +29,7 @@ const templateFolders = [
 
     "Abhinav Shukla",
     "Amit Raj Sharm",
+    "Anuradha",
     "Avinash",
     "Ayush",
     "Baveja Template",
