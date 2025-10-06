@@ -44,7 +44,7 @@ Welcome to the Login-Signup Templates repository! We appreciate your interest in
 
 Before you start contributing, please ensure you have reviewed the existing templates to avoid duplication. If you have a new and unique template to add, we encourage your creativity! Follow these guidelines to ensure a smooth contribution process.
 
-## Check StepsToAddTemplate.md file for steps to add template
+## [Check StepsToAddTemplate.md file for steps to add new templates](https://github.com/avinash201199/Login-Signup-templates/blob/main/StepsToAddTemplate.md)
 
 ### How to Contribute
 
