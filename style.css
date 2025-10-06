@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(90deg,rgba(38, 25, 84, 0.929) 0%, rgb(92, 44, 147) 100%);
+}
+.logi{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    gap: 50px;
+}
+form{
+    border: 2px solid black;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+.username, .password{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    width: 300px;
+}
+.username label, .password label{
+    font-size: 16px;
+    font-weight: 500;
+}
+.username input, .password input{
+    width: 100%;
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.button{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button button{
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.regis{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 300px;
+    margin-top: 10px;
+}
+.regis label{
+    color: #7d7777
+}
+h1{
+    color: white;
+}
+.button a{
+    text-decoration: none;
+    color: white;
+}
+button:hover{
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}

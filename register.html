@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="regi.css">
+</head>
+<body>
+    <div class="register-container">
+        <header><h1>Register Now</h1></header>
+        
+        <form action="submit" method="post">
+            <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            
+            <div class="form-field">
+                <label for="age">Age</label>
+                <input type="number" name="age" id="age" required>
+            </div>
+            
+            <div class="form-field">
+                <label>Gender</label>
+                <div class="gender-options">
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="male" required> Male
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="female" required> Female
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            
+            <div class="form-field">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            
+            <div class="form-field">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            
+            <div class="form-field">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" name="confirm-password" id="confirm-password" required>
+            </div>
+            
+            <div class="button">
+                <button type="submit">Register</button>
+            </div>
+            
+            <div class="login-link">
+                <label>Already have an account?</label>
+                <div class="button">
+                    <button type="button"><a href="login.html">Login</a></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
