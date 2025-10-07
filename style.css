@@ -159,3 +159,27 @@ code {
   border-radius: 4px;
   font-family: monospace;
 }
+
+
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #9b59b6;
+    color: white; /* The SVG stroke will inherit this color */
+    cursor: pointer;
+    padding: 12px; /* Adjusted padding for the icon */
+    border-radius: 10px;
+    /* font-size: 20px;  <-- REMOVE THIS LINE */
+    transition: background-color 0.3s, transform 0.3s;
+    line-height: 0; /* Helps vertically align the SVG */
+}
+
+#scrollToTopBtn:hover {
+  background-color: #ca93f7;
+  transform: scale(1.1);
+}

@@ -153,3 +153,34 @@ window.addEventListener("click", (e) => {
     popup.style.display = "none";
   }
 });
+
+// Scroll to top function 
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+// Function to check scroll position and toggle button visibility
+const scrollFunction = () => {
+  // If the user has scrolled down more than 100px from the top
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    // Show the button
+    scrollToTopBtn.style.display = "block";
+  } else {
+    // Otherwise, hide the button
+    scrollToTopBtn.style.display = "none";
+  }
+};
+
+// Function to scroll smoothly to the top of the page
+const topFunction = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // This enables smooth scrolling
+  });
+};
+
+// Add an event listener that calls scrollFunction() whenever the user scrolls
+window.onscroll = () => {
+  scrollFunction();
+};
+
+// Add an event listener that calls topFunction() when the button is clicked
+scrollToTopBtn.addEventListener("click", topFunction);
