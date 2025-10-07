@@ -48,6 +48,7 @@ const templateFolders = [
     "Janavi-Pandole",
     "Modern Animated Template",
     "SaurabhMishra(edtech+ecommerce)",
+    "Shaiqin",
     "Split-Screen-Dark-Shikha",
     "Tech Zero",
     "Template 1",
@@ -87,6 +88,7 @@ const workingTemplates = [
   "samim29",
 
     "SaurabhMishra(edtech+ecommerce)",
+    "Shaiqin",
     "Janavi-Pandole",
     "CodePenTemplate-1",
     "Bootsnipp",
