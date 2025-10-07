@@ -157,7 +157,7 @@ animated-login-register_form_tcw/
 ---
 
 ## 📸 Screenshots
-> *(Add your screenshots here)*  
+> ![alt text](Shaiqin.png)
 - Login Form View  
 - Register Form View  
 - 3D Background Animation  
@@ -197,15 +197,7 @@ This project is licensed under the **MIT License** — feel free to use and modi
 - [BoxIcons](https://boxicons.com/) – Modern icon set  
 - [CSS-Tricks](https://css-tricks.com/) – Animation inspirations  
 
----
 
-## 📧 Contact
-
-- **Project Link:** [Add your repository link]  
-- **Author:** [Your Name]  
-- **Email:** [Your Email]  
-
----
 
 ## 🚀 Experience the Future of Web Forms
 
