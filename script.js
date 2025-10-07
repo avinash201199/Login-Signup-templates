@@ -184,3 +184,26 @@ window.onscroll = () => {
 
 // Add an event listener that calls topFunction() when the button is clicked
 scrollToTopBtn.addEventListener("click", topFunction);
+
+    // --- NEW: THEME SWITCHER LOGIC ---
+    const themeToggle = document.querySelector('#theme-checkbox');
+    const currentTheme = localStorage.getItem('theme');
+
+    // On page load, apply the saved theme
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
+        if (currentTheme === 'light-mode') {
+            themeToggle.checked = true;
+        }
+    }
+
+    // Add event listener for the toggle switch
+    themeToggle.addEventListener('change', function () {
+        if (this.checked) {
+            document.body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light-mode');
+        } else {
+            document.body.classList.remove('light-mode');
+            localStorage.setItem('theme', ''); // When unchecked, it's the default dark mode
+        }
+    });
