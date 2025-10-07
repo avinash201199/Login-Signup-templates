@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Login Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
+    <style>
+        body {
+            background-image: url('https://media.giphy.com/media/l378b2eCkQV5m3eN2/giphy.gif');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .form-bg {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .form-bg:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .btn {
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #007BFF;
+        }
+    </style>
+</head>
+<body class="bg-gray-200 dark:bg-gray-800">
+    <div class="w-full max-w-xs mx-auto mt-20">
+        <form class="form-bg dark:bg-gray-900 shadow-xl rounded px-3.5 pt-11 pb-9 mb-4">
+            <div class="mb-4">
+                <label class="block text-gray-700 dark:text-gray-200 text-sm font-bold mb-2" for="username">
+                    <i class="ri-user-line"></i> Username
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" required>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 dark:text-gray-200 text-sm font-bold mb-2" for="password">
+                    <i class="ri-lock-line"></i> Password
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" required>
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    <i class="ri-login-box-line"></i> Sign In
+                </button>
+                <a class="inline-block align-baseline font-bold text-sm text-red-700 hover:text-white-800" href="#">
+                    Forgot Password?
+                </a>
+            </div>
+        </form>
+        <p class="text-center text-gray-500 dark:text-gray-400 text-xs">
+            &copy; Dhruva Bhat. All rights reserved.
+        </p>
+    </div>
+</body>
+</html>

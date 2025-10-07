@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login & Signup Page</title>
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6b73ff, #000dff);
+    margin: 0;
+  }
+  .container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    width: 350px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #6b73ff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover {
+    background-color: #000dff;
+  }
+  .toggle {
+    margin-top: 15px;
+    color: #555;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .error {
+    color: red;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2 id="form-title">Login</h2>
+  <div id="form-error" class="error"></div>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <input type="email" id="email" placeholder="Email (Signup only)" style="display:none;">
+  <button id="submit-btn">Login</button>
+  <div class="toggle" id="toggle-form">Don't have an account? Signup</div>
+</div>
+
+<script>
+  const toggleForm = document.getElementById('toggle-form');
+  const formTitle = document.getElementById('form-title');
+  const emailInput = document.getElementById('email');
+  const submitBtn = document.getElementById('submit-btn');
+  const formError = document.getElementById('form-error');
+
+  let isLogin = true;
+
+  toggleForm.addEventListener('click', () => {
+    isLogin = !isLogin;
+    if(isLogin){
+      formTitle.innerText = 'Login';
+      emailInput.style.display = 'none';
+      submitBtn.innerText = 'Login';
+      toggleForm.innerText = "Don't have an account? Signup";
+    } else {
+      formTitle.innerText = 'Signup';
+      emailInput.style.display = 'block';
+      submitBtn.innerText = 'Signup';
+      toggleForm.innerText = "Already have an account? Login";
+    }
+    formError.innerText = '';
+  });
+
+  submitBtn.addEventListener('click', () => {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    if(username === '' || password === '' || (!isLogin && email === '')){
+      formError.innerText = 'Please fill in all required fields';
+      return;
+    }
+
+    if(!isLogin && !validateEmail(email)){
+      formError.innerText = 'Invalid email address';
+      return;
+    }
+
+    formError.innerText = '';
+    alert(isLogin ? `Logged in as ${username}` : `Account created for ${username}`);
+    
+    // Clear fields
+    document.getElementById('username').value = '';
+    document.getElementById('password').value = '';
+    emailInput.value = '';
+  });
+
+  function validateEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+</script>
+
+</body>
+</html>
