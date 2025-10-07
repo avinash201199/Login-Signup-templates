@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,99 +7,70 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="dark-theme">
+    <div class="video-background">
+        <video id="darkVideo" class="active" autoplay muted loop playsinline>
+            <source src="https://www.pexels.com/download/video/6527135" type="video/mp4">
+        </video>
+        <video id="lightVideo" autoplay muted loop playsinline>
+            <source src="https://www.pexels.com/download/video/9974341" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
 
-    <header>
-      <h1>Login / Signup Templates Showcase</h1>
+    <div class="content-wrapper">
+        <header>
+            <div class="theme-toggle">
+                <div class="toggle-switch" id="themeToggle">
+                    <div class="toggle-slider"></div>
+                </div>
+            </div>
 
-      <button class="contro-info" aria-label="How to contribute">
-        How to contribute
-      </button>
+            <h1>Login / Signup Templates Showcase</h1>
 
-      <div
-        class="popup"
-        id="popup"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="popup-title"
-      >
+            <button class="contro-info" aria-label="How to contribute">
+                How to contribute
+            </button>
+
+            <p>A collection of templates submitted by open-source contributors.</p>
+        </header>
+        <main id="card-container"></main>
+    </div>
+
+
+    <div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
         <div class="popup-content">
-          <span class="close-btn" aria-label="Close">&times;</span>
-          <h2 id="popup-title">Contribution Steps</h2>
-          <p>
-            If you have a login or signup template you'd like to add, please
-            follow these steps:
-          </p>
+            <span class="close-btn" aria-label="Close">&times;</span>
+            <h2 id="popup-title">Contribution Steps</h2>
+            <p>If you have a login or signup template you'd like to add, please follow these steps:</p>
 
-          <ol>
-            <li>
-              Inside the main directory, create a new folder with a descriptive
-              name (e.g., <code>Modern-Dark-Login</code>).
-            </li>
-
-            <li>
-              Add your code:<br />
-              Place all of your template's files (<code>index.html</code>,
-              <code>style.css</code>, <code>script.js</code>, etc.) inside the
-              folder you just created.
-            </li>
-
-            <li>
-              Add a screenshot:
-              <ul>
-                <li>Take a screenshot of your template in action.</li>
-                <li>Save it as a <code>.png</code> file.</li>
-                <li>
-                  The filename must <strong>exactly match</strong> your folder's
-                  name (e.g., <code>Modern-Dark-Login.png</code>).
+            <ol>
+                <li>Inside the main directory, create a new folder with a descriptive name (e.g., <code>Modern-Dark-Login</code>).</li>
+                <li>Add your code:<br>Place all of your template's files (<code>index.html</code>, <code>style.css</code>, <code>script.js</code>, etc.) inside the folder you just created.</li>
+                <li>Add a screenshot:
+                    <ul>
+                        <li>Take a screenshot of your template in action.</li>
+                        <li>Save it as a <code>.png</code> file.</li>
+                        <li>The filename must <strong>exactly match</strong> your folder's name (e.g., <code>Modern-Dark-Login.png</code>).</li>
+                        <li>Place your screenshot inside the main <code>screenshots</code> folder.</li>
+                    </ul>
                 </li>
-                <li>
-                  Place your screenshot inside the main
-                  <code>screenshots</code> folder.
+                <li>Update the website:
+                    <ul>
+                        <li>Open the main <code>script.js</code> file at the root of the project.</li>
+                        <li>Find the <code>templateFolders</code> array at the top of the file.</li>
+                        <li>Add the name of your new folder to this list in alphabetical order.</li>
+                    </ul>
                 </li>
-              </ul>
-            </li>
-
-            <li>
-              Update the website:
-              <ul>
-                <li>
-                  Open the main <code>script.js</code> file at the root of the
-                  project.
+                <li>Commit and push your changes:<br>
+                    <code>git add .</code><br>
+                    <code>git commit -m "Add: Your Template Name"</code><br>
+                    <code>git push origin feature/your-template-name</code>
                 </li>
-                <li>
-                  Find the <code>templateFolders</code> array at the top of the
-                  file.
-                </li>
-                <li>
-                  Add the name of your new folder to this list in alphabetical
-                  order.
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              Commit and push your changes:<br />
-              <code>git add .</code><br />
-              <code>git commit -m "Add: Your Template Name"</code><br />
-              <code>git push origin feature/your-template-name</code>
-            </li>
-
-            <li>
-              Create a Pull Request with a clear title, description, and a
-              screenshot or video demo. We will review it as soon as possible!
-            </li>
-          </ol>
+                <li>Create a Pull Request with a clear title, description, and a screenshot or video demo. We will review it as soon as possible!</li>
+            </ol>
         </div>
-      </div>
-
-      <p>A collection of templates submitted by open-source contributors.</p>
-    </header>
-
-    <main id="card-container">
-    </main>
-
+    </div>
     <script src="script.js"></script>
 </body>
-
 </html>

@@ -25,12 +25,120 @@ body {
   min-height: 100vh;
 }
 
+/* Video Background */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.video-background video.active {
+  opacity: 1;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: background 0.3s ease;
+}
+
+/* Dark theme overlay */
+body.dark-theme .video-overlay {
+  background: rgba(15, 12, 41, 0.7);
+}
+
+/* Light theme overlay */
+body.light-theme .video-overlay {
+  background: rgba(255, 255, 255, 0.041);
+}
+
+/* Content wrapper */
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 30px;
+}
 /* --- UPDATED: Header with Gradient Text --- */
 header {
   text-align: center;
   margin-bottom: 60px;
 }
 
+/* Theme Toggle Switch */
+.theme-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+body.light-theme .toggle-switch {
+  background: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+body.light-theme .toggle-slider {
+  transform: translateX(30px);
+  background: #ffd93d;
+}
+
+.toggle-slider::before {
+  content: "🌙";
+}
+
+body.light-theme .toggle-slider::before {
+  content: "☀️";
+}
+/* Header Title */
 header h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -42,14 +150,53 @@ header h1 {
   -webkit-text-fill-color: transparent;
 }
 
+body.light-theme header h1 {
+  background: linear-gradient(90deg, #2980b9, #8e44ad, #c0392b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 header p {
   font-size: 1.1rem;
   color: #bdc3c7; /* Lighter grey for subtitles */
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
 }
 
-/* --- Card container grid --- */
+body.light-theme header p {
+  color: #555;
+}
+
+/* Contribution Button */
+.contro-info {
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: rgba(202, 147, 247, 0.9);
+  color: white;
+  font-size: medium;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contro-info:hover {
+  background: rgba(202, 147, 247, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(202, 147, 247, 0.4);
+}
+
+body.light-theme .contro-info {
+  background: #8e44ad;
+}
+
+body.light-theme .contro-info:hover {
+  background: #9b59b6;
+}
+
+/* Card Container */
 #card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -58,7 +205,7 @@ header p {
   margin: 0 auto;
 }
 
-/* --- NEW: "Glassmorphism" Card Style --- */
+/* Card Styling */
 .template-card {
   background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
   backdrop-filter: blur(12px); /* The "frosty glass" effect */
@@ -73,13 +220,23 @@ header p {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
+body.light-theme .template-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
 .template-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-  border: 1px solid #3498db; /* Bright blue border on hover */
+  border: 1px solid #3498db;
 }
 
-/* --- Card image styling --- */
+body.light-theme .template-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
 .template-card img {
   width: 100%;
   height: 240px;
@@ -101,61 +258,90 @@ header p {
   justify-content: center;
 }
 
-/* Contribution steps button */
-.contro-info {
-  padding: 8px;
-  border-radius: 0.5rem;
-  margin-bottom: 6px;
-  background-color: #ca93f7;
-
-  font-size: medium;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-}
-
-.contro-info:hover {
-  cursor: pointer;
-}
-
+/* Popup */
 .popup {
   display: none; /* hidden by default */
   position: fixed;
-  z-index: 10;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
 }
+
 .popup-content {
-  background-color: rgb(85, 34, 91);
+  background: rgba(85, 34, 91, 0.95);
   margin: 5% auto;
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 15px;
   width: 80%;
   max-width: 700px;
   text-align: left;
   line-height: 1.6;
+  color: white;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+body.light-theme .popup-content {
+  background: rgba(255, 255, 255, 0.98);
+  color: #333;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
 }
 
 .popup-content h2 {
   margin-top: 0;
+  margin-bottom: 20px;
 }
+
 .close-btn {
   float: right;
   font-size: 1.5rem;
   font-weight: bold;
   color: #ffffff;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+body.light-theme .close-btn {
+  color: #333;
 }
 
 .close-btn:hover {
-  color: red;
+  color: #e74c3c;
 }
 
 code {
-  background: #000000;
-  padding: 2px 4px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
   border-radius: 4px;
   font-family: monospace;
+}
+
+body.light-theme code {
+  background: rgba(0, 0, 0, 0.08);
+  color: #c0392b;
+}
+
+ol,
+ul {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .theme-toggle {
+    position: relative;
+    margin: 20px auto;
+    justify-content: center;
+  }
 }

@@ -28,32 +28,29 @@ const templateFolders = [
   "Minaal",
   "Sahil-Kumar",
   "samim29",
-
-    "Abhinav Shukla",
-    "Amit Raj Sharm",
-    "Anuradha",
-    "Avinash",
-    "Ayush",
-    "Baveja Template",
-    "Bootsnipp",
-    "Chanakya",
-    "CodePenTemplate-1",
-    "Coding Nepal",
-    "colorlib Template",
-    "Dev-Portal-Shikha",
-    "Dhruva Bhat",
-    "Foolish Developer",
-    "Ivan Grozdic",
-    "Himanshu",
-    "Janavi-Pandole",
-    "Modern Animated Template",
-    "SaurabhMishra(edtech+ecommerce)",
-    "Split-Screen-Dark-Shikha",
-    "Tech Zero",
-    "Template 1",
-    "Template 2"
-
-
+  "Abhinav Shukla",
+  "Amit Raj Sharm",
+  "Anuradha",
+  "Avinash",
+  "Ayush",
+  "Baveja Template",
+  "Bootsnipp",
+  "Chanakya",
+  "CodePenTemplate-1",
+  "Coding Nepal",
+  "colorlib Template",
+  "Dev-Portal-Shikha",
+  "Dhruva Bhat",
+  "Foolish Developer",
+  "Ivan Grozdic",
+  "Himanshu",
+  "Janavi-Pandole",
+  "Modern Animated Template",
+  "SaurabhMishra(edtech+ecommerce)",
+  "Split-Screen-Dark-Shikha",
+  "Tech Zero",
+  "Template 1",
+  "Template 2",
 ];
 
 // A list of only the templates that were working.
@@ -85,15 +82,14 @@ const workingTemplates = [
   "Minaal",
   "Sahil-Kumar",
   "samim29",
-
-    "SaurabhMishra(edtech+ecommerce)",
-    "Janavi-Pandole",
-    "CodePenTemplate-1",
-    "Bootsnipp",
-    "Ayush",
-    "Avinash",
-    "Dev-Portal-Shikha",
-    "Split-Screen-Dark-Shikha"
+  "SaurabhMishra(edtech+ecommerce)",
+  "Janavi-Pandole",
+  "CodePenTemplate-1",
+  "Bootsnipp",
+  "Ayush",
+  "Avinash",
+  "Dev-Portal-Shikha",
+  "Split-Screen-Dark-Shikha",
 ];
 
 //container element from the HTML
@@ -153,3 +149,34 @@ window.addEventListener("click", (e) => {
     popup.style.display = "none";
   }
 });
+
+// Theme Toggle
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
+const darkVideo = document.getElementById("darkVideo");
+const lightVideo = document.getElementById("lightVideo");
+
+// Load saved theme
+const savedTheme = localStorage.getItem("theme") || "dark";
+setTheme(savedTheme);
+
+themeToggle.addEventListener("click", () => {
+  const currentTheme = body.classList.contains("dark-theme") ? "dark" : "light";
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  setTheme(newTheme);
+  localStorage.setItem("theme", newTheme);
+});
+
+function setTheme(theme) {
+  if (theme === "light") {
+    body.classList.remove("dark-theme");
+    body.classList.add("light-theme");
+    darkVideo.classList.remove("active");
+    lightVideo.classList.add("active");
+  } else {
+    body.classList.remove("light-theme");
+    body.classList.add("dark-theme");
+    lightVideo.classList.remove("active");
+    darkVideo.classList.add("active");
+  }
+}
