@@ -28,7 +28,7 @@ const templateFolders = [
   "Minaal",
   "Sahil-Kumar",
   "samim29",
-
+"shivaram",
     "Abhinav Shukla",
     "Amit Raj Sharm",
     "Anuradha",
@@ -48,6 +48,7 @@ const templateFolders = [
     "Janavi-Pandole",
     "Modern Animated Template",
     "SaurabhMishra(edtech+ecommerce)",
+  "shivaram",
     "Split-Screen-Dark-Shikha",
     "Tech Zero",
     "Template 1",
