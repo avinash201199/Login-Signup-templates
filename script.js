@@ -27,36 +27,35 @@ const templateFolders = [
   "Jaswanth-Kumar",
   "Kartik Tripathi",
   "Marvel-template1",
+  "Kruti Amrutiya",
   "Minaal",
   "Sahil-Kumar",
   "samim29",
-"shivaram",
-    "Abhinav Shukla",
-    "Amit Raj Sharm",
-    "Anuradha",
-    "Avinash",
-    "Ayush",
-    "Baveja Template",
-    "Bootsnipp",
-    "Chanakya",
-    "CodePenTemplate-1",
-    "Coding Nepal",
-    "colorlib Template",
-    "Dev-Portal-Shikha",
-    "Dhruva Bhat",
-    "Foolish Developer",
-    "Ivan Grozdic",
-    "Himanshu",
-    "Janavi-Pandole",
-    "Modern Animated Template",
-    "SaurabhMishra(edtech+ecommerce)",
   "shivaram",
-    "Split-Screen-Dark-Shikha",
-    "Tech Zero",
-    "Template 1",
-    "Template 2"
-
-
+  "Abhinav Shukla",
+  "Amit Raj Sharm",
+  "Anuradha",
+  "Avinash",
+  "Ayush",
+  "Baveja Template",
+  "Bootsnipp",
+  "Chanakya",
+  "CodePenTemplate-1",
+  "Coding Nepal",
+  "colorlib Template",
+  "Dev-Portal-Shikha",
+  "Dhruva Bhat",
+  "Foolish Developer",
+  "Ivan Grozdic",
+  "Himanshu",
+  "Janavi-Pandole",
+  "Modern Animated Template",
+  "SaurabhMishra(edtech+ecommerce)",
+  "shivaram",
+  "Split-Screen-Dark-Shikha",
+  "Tech Zero",
+  "Template 1",
+  "Template 2",
 ];
 
 // A list of only the templates that were working.
@@ -86,18 +85,18 @@ const workingTemplates = [
   "Glassmorphism-adiprem73",
   "Jaswanth-Kumar",
   "Kartik Tripathi",
+  "Kruti Amrutiya",
   "Minaal",
   "Sahil-Kumar",
   "samim29",
-
-    "SaurabhMishra(edtech+ecommerce)",
-    "Janavi-Pandole",
-    "CodePenTemplate-1",
-    "Bootsnipp",
-    "Ayush",
-    "Avinash",
-    "Dev-Portal-Shikha",
-    "Split-Screen-Dark-Shikha"
+  "SaurabhMishra(edtech+ecommerce)",
+  "Janavi-Pandole",
+  "CodePenTemplate-1",
+  "Bootsnipp",
+  "Ayush",
+  "Avinash",
+  "Dev-Portal-Shikha",
+  "Split-Screen-Dark-Shikha",
 ];
 
 //container element from the HTML
@@ -158,13 +157,16 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// Scroll to top function 
+// Scroll to top function
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
 // Function to check scroll position and toggle button visibility
 const scrollFunction = () => {
   // If the user has scrolled down more than 100px from the top
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
     // Show the button
     scrollToTopBtn.style.display = "block";
   } else {
@@ -177,7 +179,7 @@ const scrollFunction = () => {
 const topFunction = () => {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth' // This enables smooth scrolling
+    behavior: "smooth", // This enables smooth scrolling
   });
 };
 
@@ -189,25 +191,25 @@ window.onscroll = () => {
 // Add an event listener that calls topFunction() when the button is clicked
 scrollToTopBtn.addEventListener("click", topFunction);
 
-    // --- NEW: THEME SWITCHER LOGIC ---
-    const themeToggle = document.querySelector('#theme-checkbox');
-    const currentTheme = localStorage.getItem('theme');
+// --- NEW: THEME SWITCHER LOGIC ---
+const themeToggle = document.querySelector("#theme-checkbox");
+const currentTheme = localStorage.getItem("theme");
 
-    // On page load, apply the saved theme
-    if (currentTheme) {
-        document.body.classList.add(currentTheme);
-        if (currentTheme === 'light-mode') {
-            themeToggle.checked = true;
-        }
-    }
+// On page load, apply the saved theme
+if (currentTheme) {
+  document.body.classList.add(currentTheme);
+  if (currentTheme === "light-mode") {
+    themeToggle.checked = true;
+  }
+}
 
-    // Add event listener for the toggle switch
-    themeToggle.addEventListener('change', function () {
-        if (this.checked) {
-            document.body.classList.add('light-mode');
-            localStorage.setItem('theme', 'light-mode');
-        } else {
-            document.body.classList.remove('light-mode');
-            localStorage.setItem('theme', ''); // When unchecked, it's the default dark mode
-        }
-    });
+// Add event listener for the toggle switch
+themeToggle.addEventListener("change", function () {
+  if (this.checked) {
+    document.body.classList.add("light-mode");
+    localStorage.setItem("theme", "light-mode");
+  } else {
+    document.body.classList.remove("light-mode");
+    localStorage.setItem("theme", ""); // When unchecked, it's the default dark mode
+  }
+});

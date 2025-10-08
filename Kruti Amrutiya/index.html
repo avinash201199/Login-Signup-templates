@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card" id="auth-card">
+        <!-- LOGIN FORM -->
+        <div class="form login-form">
+          <h2>Welcome Back!</h2>
+          <p class="subtitle">Login to continue</p>
+          <form id="login-form">
+            <div class="input-field">
+              <input type="email" id="login-email" placeholder=" " required />
+              <label>Email</label>
+              <span class="error-field" id="login-email-error"></span>
+            </div>
+
+            <div class="input-field">
+              <input
+                type="password"
+                id="login-password"
+                placeholder=" "
+                required
+              />
+              <label>Password</label>
+              <i
+                class="fa-solid fa-eye toggle-password"
+                data-target="login-password"
+              ></i>
+              <span class="error-field" id="login-password-error"></span>
+            </div>
+            <div class="remember">
+              <label
+                ><input type="checkbox" id="remember-me" /> Remember me</label
+              >
+            </div>
+            <button type="submit" class="btn">Login</button>
+
+            <!-- Social login section -->
+            <div class="social-login">
+              <p>Or login with</p>
+              <div class="social-login-buttons">
+                <button type="button" class="social-btn btn-google">
+                  <img
+                    src="https://img.icons8.com/color/48/google-logo.png"
+                    alt="Google"
+                  />
+                  Google
+                </button>
+                <button type="button" class="social-btn btn-github">
+                  <img
+                    src="https://img.icons8.com/ios-glyphs/48/github.png"
+                    alt="GitHub"
+                  />
+                  GitHub
+                </button>
+              </div>
+            </div>
+
+            <p class="switch">
+              Don’t have an account? <a href="#" id="flip-to-signup">Sign up</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- SIGNUP FORM -->
+        <div class="form signup-form">
+          <h2>Create Account</h2>
+          <p class="subtitle">Join us today</p>
+          <form id="signup-form">
+            <div class="input-field">
+              <input type="text" id="signup-name" placeholder=" " required />
+              <label>Full Name</label>
+              <span class="error-field" id="signup-name-error"></span>
+            </div>
+            <div class="input-field">
+              <input type="email" id="signup-email" placeholder=" " required />
+              <label>Email</label>
+              <span class="error-field" id="signup-email-error"></span>
+            </div>
+            <div class="input-field">
+              <input
+                type="password"
+                id="signup-password"
+                placeholder=" "
+                required
+              />
+              <label>Password</label>
+              <i
+                class="fa-solid fa-eye toggle-password"
+                data-target="signup-password"
+              ></i>
+              <span class="error-field" id="signup-password-error"></span>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+            <p class="switch">
+              Already have an account? <a href="#" id="flip-to-login">Login</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- Firebase SDK -->
+    <script type="module">
+      // Import Firebase SDKs
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+      import {
+        getAuth,
+        signInWithPopup,
+        GoogleAuthProvider,
+        GithubAuthProvider,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID",
+        measurementId: "YOUR_MEASUREMENT_ID",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Providers
+      const googleProvider = new GoogleAuthProvider();
+      const githubProvider = new GithubAuthProvider();
+
+      // Social login buttons
+      document
+        .querySelector(".btn-google")
+        .addEventListener("click", async () => {
+          try {
+            const result = await signInWithPopup(auth, googleProvider);
+            const user = result.user;
+            alert(`Welcome ${user.displayName} (Google Login Successful!)`);
+            console.log("Google User:", user);
+          } catch (error) {
+            console.error(error);
+            alert("Google login failed!");
+          }
+        });
+
+      document
+        .querySelector(".btn-github")
+        .addEventListener("click", async () => {
+          try {
+            const result = await signInWithPopup(auth, githubProvider);
+            const user = result.user;
+            alert(`Welcome ${user.displayName} (GitHub Login Successful!)`);
+            console.log("GitHub User:", user);
+          } catch (error) {
+            console.error(error);
+            alert("GitHub login failed!");
+          }
+        });
+    </script>
+  </body>
+</html>
