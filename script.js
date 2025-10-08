@@ -28,6 +28,7 @@ const templateFolders = [
   "Kartik Tripathi",
   "Marvel-template1",
   "Marvel-template2",
+  "Marvel-template3",
   "Minaal",
   "Sahil-Kumar",
   "samim29",
