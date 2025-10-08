@@ -28,6 +28,7 @@ const templateFolders = [
   "Kartik Tripathi",
   "Kruti Amrutiya",
   "Marvel-black",
+  "Marvel-white",
   "Minaal",
   "Sahil-Kumar",
   "samim29",
