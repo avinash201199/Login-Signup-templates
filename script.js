@@ -26,6 +26,7 @@ const templateFolders = [
   "Glassmorphism-adiprem73",
   "Jaswanth-Kumar",
   "Kartik Tripathi",
+  "Marvel-template1",
   "Minaal",
   "Sahil-Kumar",
   "samim29",
