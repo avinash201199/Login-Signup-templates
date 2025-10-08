@@ -13,6 +13,7 @@ const templateFolders = [
   "Dhruva Bhat",
   "Divyansh-Raj-Template",
   "Foolish Developer",
+  "HimanshuDubey",
   "Ivan Grozdic",
   "Modern Animated Template",
   "Parth",
@@ -30,30 +31,30 @@ const templateFolders = [
   "Minaal",
   "Sahil-Kumar",
   "samim29",
+"shivaram",
+    "Abhinav Shukla",
+    "Amit Raj Sharm",
+    "Anuradha",
+    "Avinash",
+    "Ayush",
+    "Baveja Template",
+    "Bootsnipp",
+    "Chanakya",
+    "CodePenTemplate-1",
+    "Coding Nepal",
+    "colorlib Template",
+    "Dev-Portal-Shikha",
+    "Dhruva Bhat",
+    "Foolish Developer",
+    "Ivan Grozdic",
+    "Himanshu",
+    "Janavi-Pandole",
+    "Modern Animated Template",
+    "SaurabhMishra(edtech+ecommerce)",
   "shivaram",
-  "Abhinav Shukla",
-  "Amit Raj Sharm",
-  "Anuradha",
-  "Avinash",
-  "Ayush",
-  "Baveja Template",
-  "Bootsnipp",
-  "Chanakya",
-  "CodePenTemplate-1",
-  "Coding Nepal",
-  "colorlib Template",
-  "Dev-Portal-Shikha",
-  "Dhruva Bhat",
-  "Foolish Developer",
-  "Ivan Grozdic",
-  "Himanshu",
-  "Janavi-Pandole",
-  "Modern Animated Template",
-  "SaurabhMishra(edtech+ecommerce)",
-  "shivaram",
-  "Split-Screen-Dark-Shikha",
-  "Tech Zero",
-  "Template 1",
+    "Split-Screen-Dark-Shikha",
+    "Tech Zero",
+    "Template 1",
   "Template 2",
 ];
 
@@ -88,13 +89,13 @@ const workingTemplates = [
   "Minaal",
   "Sahil-Kumar",
   "samim29",
-  "SaurabhMishra(edtech+ecommerce)",
-  "Janavi-Pandole",
-  "CodePenTemplate-1",
-  "Bootsnipp",
-  "Ayush",
-  "Avinash",
-  "Dev-Portal-Shikha",
+    "SaurabhMishra(edtech+ecommerce)",
+    "Janavi-Pandole",
+    "CodePenTemplate-1",
+    "Bootsnipp",
+    "Ayush",
+    "Avinash",
+    "Dev-Portal-Shikha",
   "Split-Screen-Dark-Shikha",
 ];
 
@@ -156,7 +157,7 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// Scroll to top function
+// Scroll to top function 
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
 // Function to check scroll position and toggle button visibility
@@ -190,25 +191,26 @@ window.onscroll = () => {
 // Add an event listener that calls topFunction() when the button is clicked
 scrollToTopBtn.addEventListener("click", topFunction);
 
-// --- NEW: THEME SWITCHER LOGIC ---
+    // --- NEW: THEME SWITCHER LOGIC ---
 const themeToggle = document.querySelector("#theme-checkbox");
 const currentTheme = localStorage.getItem("theme");
 
-// On page load, apply the saved theme
-if (currentTheme) {
-  document.body.classList.add(currentTheme);
+    // On page load, apply the saved theme
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
   if (currentTheme === "light-mode") {
-    themeToggle.checked = true;
-  }
-}
+            themeToggle.checked = true;
+        }
+    }
 
-// Add event listener for the toggle switch
+    // Add event listener for the toggle switch
 themeToggle.addEventListener("change", function () {
-  if (this.checked) {
+        if (this.checked) {
     document.body.classList.add("light-mode");
     localStorage.setItem("theme", "light-mode");
-  } else {
+        } else {
     document.body.classList.remove("light-mode");
     localStorage.setItem("theme", ""); // When unchecked, it's the default dark mode
-  }
-});
+        }
+    });
+    
