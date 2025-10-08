@@ -1,0 +1,176 @@
+/* Base reset */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: #111827;
+    background: #0f172a;
+    overflow: hidden;
+}
+
+/* Background image with blur */
+.bg {
+    position: fixed;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1699891730676-037bed3c1bed?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2Vic2l0ZSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D') center/cover no-repeat;
+    filter: blur(2px) saturate(110%);
+    transform: scale(1.05);
+}
+
+.container {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: 24px;
+}
+
+/* Decorative blobs 
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(12px) saturate(140%);
+    opacity: 0.9;
+}
+
+.container::before {
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle at 30% 30%, #3b82f6, #1e40af);
+    top: 36px;
+    left: 28%;
+}
+
+.container::after {
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle at 30% 30%, #fb923c, #c2410c);
+    bottom: 24px;
+    right: 22%;
+}*/
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 40px 36px 28px;
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.title {
+    margin: 0 0 20px;
+    color: #f8fafc;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.form {
+    display: grid;
+    gap: 12px;
+}
+
+.label {
+    color: #e5e7eb;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(17, 24, 39, 0.35);
+    color: #f3f4f6;
+    outline: none;
+}
+
+.input::placeholder {
+    color: #94a3b8;
+}
+
+.input:focus {
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
+}
+
+.primary-btn {
+    margin-top: 12px;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #f8fafc;
+    color: #111827;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    filter: brightness(0.95);
+}
+
+.providers {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.provider-btn {
+    padding: 12px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(248, 250, 252, 0.85);
+    color: #111827;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.provider-btn:hover {
+    filter: brightness(0.95);
+}
+
+.hint {
+    margin: 18px 0 0;
+    text-align: center;
+    color: #e5e7eb;
+}
+
+.hint a {
+    color: #93c5fd;
+    text-decoration: none;
+}
+
+.hint a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    margin: 8px 0 0;
+    color: #fecaca;
+    font-size: 14px;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 28px 20px;
+    }
+}
