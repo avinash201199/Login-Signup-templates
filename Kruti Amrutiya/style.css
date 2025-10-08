@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fad0c4, #c99b8e, #a18cd1, #8c7c9b);
+  background-size: cover;
+  overflow: hidden;
+}
+
+.container {
+  perspective: 1000px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  position: relative;
+  width: 400px;
+  height: 520px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 40px 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backface-visibility: hidden;
+}
+
+.signup-form {
+  transform: rotateY(180deg);
+}
+
+h2 {
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.8;
+  margin-bottom: 25px;
+}
+
+.input-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 14px 40px 14px 12px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  color: #333;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.input-field label {
+  position: absolute;
+  top: 40%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  padding: 0 4px;
+}
+
+.input-field input:focus+label,
+.input-field input:not(:placeholder-shown)+label {
+  top: -10px;
+  left: 8px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.remember {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #4f426d, #fad0c4);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.social-login {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.social-login p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.3px;
+}
+
+.social-login-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-google {
+  background: linear-gradient(90deg, #ea4335, #ff7676);
+}
+
+.btn-github {
+  background: linear-gradient(90deg, #333, #555);
+}
+
+.btn-google:hover {
+  background: linear-gradient(90deg, #d93025, #ff5c5c);
+}
+
+.btn-github:hover {
+  background: linear-gradient(90deg, #302e2e, #4e4b4b);
+}
+
+.switch {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.switch a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.switch a:hover {
+  color: #ffd6ff;
+}
+
+
+.error-field {
+  display: block;
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  min-height: 18px;
+}
+
+@media (max-width: 430px) {
+  .card {
+    width: 90%;
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
