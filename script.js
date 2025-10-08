@@ -50,6 +50,7 @@ const templateFolders = [
     "Modern Animated Template",
     "SaurabhMishra(edtech+ecommerce)",
   "shivaram",
+    "Shr3y4sm_firebase_auth_signup",
     "Split-Screen-Dark-Shikha",
     "Tech Zero",
     "Template 1",
@@ -96,6 +97,7 @@ const workingTemplates = [
     "Ayush",
     "Avinash",
     "Dev-Portal-Shikha",
+    "Shr3y4sm_firebase_auth_signup",
     "Split-Screen-Dark-Shikha"
 ];
 
