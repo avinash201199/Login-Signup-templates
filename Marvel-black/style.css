@@ -1,0 +1,213 @@
+:root {
+    --bg-color: #1a1a2e;
+    --card-bg-color: rgba(22, 22, 40, 0.45);
+    --text-primary: #f0f0f0;
+    --text-secondary: #a0a0c0;
+    --accent-primary: #8A2BE2; /* BlueViolet */
+    --accent-secondary: #4169E1; /* RoyalBlue */
+    --glow-primary: rgba(138, 43, 226, 0.5);
+    --glow-secondary: rgba(65, 105, 225, 0.5);
+    --border-color: rgba(138, 43, 226, 0.2);
+    --input-bg: rgba(0, 0, 10, 0.4);
+    --font-family: 'Inter', sans-serif;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 30px var(--glow-primary), 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 45px var(--glow-primary), 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 30px var(--glow-primary), 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#background-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.login-card {
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    animation: pulse 5s infinite;
+    transition: box-shadow 0.3s ease;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-shadow: 0 0 10px var(--glow-primary);
+}
+
+.form-header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    transition: color 0.3s;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-secondary);
+    box-shadow: 0 0 15px var(--glow-secondary);
+}
+
+input:focus + .input-icon {
+    color: var(--accent-secondary);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.85rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+}
+
+#remember-me {
+    accent-color: var(--accent-primary);
+}
+
+.forgot-password {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    transition: text-shadow 0.3s;
+}
+.forgot-password:hover { 
+    text-decoration: underline;
+    text-shadow: 0 0 5px var(--glow-secondary);
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    color: #fff;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px var(--glow-primary);
+}
+.btn-primary:hover {
+    box-shadow: 0 0 25px var(--glow-primary);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-secondary);
+    box-shadow: 0 0 15px var(--glow-secondary);
+}
+
+.signup-prompt {
+    text-align: center;
+    margin-top: 25px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+.signup-prompt a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-shadow 0.3s;
+}
+.signup-prompt a:hover { 
+    text-decoration: underline;
+    text-shadow: 0 0 5px var(--glow-secondary);
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px;
+    }
+}
