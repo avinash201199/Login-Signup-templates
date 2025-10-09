@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Dark Neon UI</title>
+ 
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="bg-glow"></div>
+
+  <div class="login-card">
+    <h2>Login</h2>
+    <form action="/login" method="POST">
+      <div class="input-field">
+        <input type="email" name="email" placeholder="Email address" required />
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+      <div class="input-field">
+        <input type="password" name="password" placeholder="Password" required />
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <button class="login-btn" type="submit">Sign In</button>
+    </form>
+
+    <div class="links">
+      <p><a href="#">Forgot Password?</a></p>
+      <p>Don’t have an account? <a href="#">Register</a></p>
+    </div>
+  </div>
+</body>
+</html>
