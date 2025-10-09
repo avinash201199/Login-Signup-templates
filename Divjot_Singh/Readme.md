@@ -19,10 +19,10 @@ It features smooth tab transitions, a clean modern layout, and a glassmorphism a
 ## 🖼️ Screenshots
 
 ### 🔹 Login Screen
-![Login Screen](Login_page.png)
+![Login Screen](Screenshot%202025-10-06%20at%2011.46.21 PM.png)
 
 ### 🔹 Sign Up Screen
-![Sign Up Screen](Sign_up_page.png)
+![Sign Up Screen](Screenshot%202025-10-06%20at%2011.46.28 PM.png)
 
 ---
 
