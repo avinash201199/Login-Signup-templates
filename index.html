@@ -2,105 +2,112 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Signup Templates</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup Templates</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-      <h1>Login / Signup Templates Showcase</h1>
+  <header>
 
-      <button class="contro-info" aria-label="How to contribute">
-        How to contribute
-      </button>
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="theme-checkbox">
+        <input type="checkbox" id="theme-checkbox" />
+        <div class="slider round"></div>
+      </label>
+    </div>
 
-      <div
-        class="popup"
-        id="popup"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="popup-title"
-      >
-        <div class="popup-content">
-          <span class="close-btn" aria-label="Close">&times;</span>
-          <h2 id="popup-title">Contribution Steps</h2>
-          <p>
-            If you have a login or signup template you'd like to add, please
-            follow these steps:
-          </p>
+    <h1>Login / Signup Templates Showcase</h1>
 
-          <ol>
-            <li>
-              Inside the main directory, create a new folder with a descriptive
-              name (e.g., <code>Modern-Dark-Login</code>).
-            </li>
+    <button class="contro-info" aria-label="How to contribute">
+      How to contribute
+    </button>
 
-            <li>
-              Add your code:<br />
-              Place all of your template's files (<code>index.html</code>,
-              <code>style.css</code>, <code>script.js</code>, etc.) inside the
-              folder you just created.
-            </li>
+    <div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+      <div class="popup-content">
+        <span class="close-btn" aria-label="Close">&times;</span>
+        <h2 id="popup-title">Contribution Steps</h2>
+        <p>
+          If you have a login or signup template you'd like to add, please
+          follow these steps:
+        </p>
 
-            <li>
-              Add a screenshot:
-              <ul>
-                <li>Take a screenshot of your template in action.</li>
-                <li>Save it as a <code>.png</code> file.</li>
-                <li>
-                  The filename must <strong>exactly match</strong> your folder's
-                  name (e.g., <code>Modern-Dark-Login.png</code>).
-                </li>
-                <li>
-                  Place your screenshot inside the main
-                  <code>screenshots</code> folder.
-                </li>
-              </ul>
-            </li>
+        <ol>
+          <li>
+            Inside the main directory, create a new folder with a descriptive
+            name (e.g., <code>Modern-Dark-Login</code>).
+          </li>
 
-            <li>
-              Update the website:
-              <ul>
-                <li>
-                  Open the main <code>script.js</code> file at the root of the
-                  project.
-                </li>
-                <li>
-                  Find the <code>templateFolders</code> array at the top of the
-                  file.
-                </li>
-                <li>
-                  Add the name of your new folder to this list in alphabetical
-                  order.
-                </li>
-              </ul>
-            </li>
+          <li>
+            Add your code:<br />
+            Place all of your template's files (<code>index.html</code>,
+            <code>style.css</code>, <code>script.js</code>, etc.) inside the
+            folder you just created.
+          </li>
 
-            <li>
-              Commit and push your changes:<br />
-              <code>git add .</code><br />
-              <code>git commit -m "Add: Your Template Name"</code><br />
-              <code>git push origin feature/your-template-name</code>
-            </li>
+          <li>
+            Add a screenshot:
+            <ul>
+              <li>Take a screenshot of your template in action.</li>
+              <li>Save it as a <code>.png</code> file.</li>
+              <li>
+                The filename must <strong>exactly match</strong> your folder's
+                name (e.g., <code>Modern-Dark-Login.png</code>).
+              </li>
+              <li>
+                Place your screenshot inside the main
+                <code>screenshots</code> folder.
+              </li>
+            </ul>
+          </li>
 
-            <li>
-              Create a Pull Request with a clear title, description, and a
-              screenshot or video demo. We will review it as soon as possible!
-            </li>
-          </ol>
-        </div>
+          <li>
+            Update the website:
+            <ul>
+              <li>
+                Open the main <code>script.js</code> file at the root of the
+                project.
+              </li>
+              <li>
+                Find the <code>templateFolders</code> array at the top of the
+                file.
+              </li>
+              <li>
+                Add the name of your new folder to this list in alphabetical
+                order.
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            Commit and push your changes:<br />
+            <code>git add .</code><br />
+            <code>git commit -m "Add: Your Template Name"</code><br />
+            <code>git push origin feature/your-template-name</code>
+          </li>
+
+          <li>
+            Create a Pull Request with a clear title, description, and a
+            screenshot or video demo. We will review it as soon as possible!
+          </li>
+        </ol>
       </div>
+    </div>
 
-      <p>A collection of templates submitted by open-source contributors.</p>
-    </header>
+    <p>A collection of templates submitted by open-source contributors.</p>
+  </header>
 
-    <main id="card-container">
-    </main>
-
-    <script src="script.js"></script>
+  <main id="card-container">
+  </main>
+  <button id="scrollToTopBtn" title="Go to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+  <script src="script.js"></script>
 </body>
 
 </html>
