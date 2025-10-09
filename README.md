@@ -77,7 +77,7 @@ Before you start contributing, please ensure you have reviewed the existing temp
     - Take a screenshot of your template in action.
     - Save it as a `Your-Name.png` file.
     - The filename must **exactly match** your folder's name (e.g., if your folder is `Your-Name`, your screenshot must be named `Your-Name.png`).
-    - Place your screenshot inside the main `screenshots` folder.
+    - Place your screenshot inside the main `screenshots` folder of main diretory not in yours!
 
 8.  **Update the Website:**
 
