@@ -2,10 +2,10 @@
 const templateFolders = [
   "Abhinav Shukla",
   "Amit Raj Sharm",
+  "Aurora-Glass-Auth",
   "Avinash",
   "Ayush",
   "Baveja Template",
-  "Aurora-Glass-Auth",
   "Bootsnipp",
   "Chanakya",
   "CodePenTemplate-1",
@@ -17,6 +17,7 @@ const templateFolders = [
   "Ivan Grozdic",
   "Modern Animated Template",
   "Parth",
+  "QuantumNeon-Auth",
   "SaurabhMishra(edtech+ecommerce)",
   "Tech Zero",
   "Template 1",
@@ -61,6 +62,7 @@ const templateFolders = [
 // A list of only the templates that were working.
 const workingTemplates = [
   "Aurora-Glass-Auth",
+  "QuantumNeon-Auth",
   "SaurabhMishra(edtech+ecommerce)",
   "CodePenTemplate-1",
   "Bootsnipp",
