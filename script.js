@@ -5,6 +5,7 @@ const templateFolders = [
   "Avinash",
   "Ayush",
   "Baveja Template",
+  "Aurora-Glass-Auth",
   "Bootsnipp",
   "Chanakya",
   "CodePenTemplate-1",
@@ -59,6 +60,7 @@ const templateFolders = [
 
 // A list of only the templates that were working.
 const workingTemplates = [
+  "Aurora-Glass-Auth",
   "SaurabhMishra(edtech+ecommerce)",
   "CodePenTemplate-1",
   "Bootsnipp",
