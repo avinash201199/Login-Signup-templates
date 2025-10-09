@@ -1,4 +1,4 @@
-/* General Body */
+
 body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #1f1c2c, #928dab);
@@ -8,7 +8,7 @@ body {
   justify-content: center;
 }
 
-/* Card Style */
+
 .card {
   backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.08);
@@ -18,14 +18,14 @@ body {
   transition: all 0.4s ease;
 }
 
-/* Tabs */
+
 .tab-active {
   background: linear-gradient(90deg, #6366F1, #3B82F6);
   color: white !important;
   box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
-/* Input Fields */
+
 .input-field {
   width: 100%;
   padding: 12px;
@@ -47,7 +47,7 @@ body {
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
 }
 
-/* Buttons */
+
 .btn-primary {
   width: 100%;
   padding: 12px;
@@ -64,7 +64,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* Social Buttons */
+
 .social-btn {
   display: flex;
   align-items: center;
@@ -88,12 +88,12 @@ body {
   height: 18px;
 }
 
-/* Transitions */
+
 .fade {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Smooth form transition animations */
+
 .slide-in {
   animation: slideIn 0.4s ease forwards;
 }
@@ -124,7 +124,7 @@ body {
   }
 }
 
-/* Ripple button effect */
+
 button {
   position: relative;
   overflow: hidden;
@@ -145,4 +145,3 @@ button .ripple {
     opacity: 0;
   }
 }
-

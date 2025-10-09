@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("loginForm");
   const signupForm = document.getElementById("signupForm");
 
-  // Function to show login form with animation
+
   loginTab.addEventListener("click", () => {
     if (loginTab.classList.contains("tab-active")) return; // prevent re-click animation
 
     loginTab.classList.add("tab-active");
     signupTab.classList.remove("tab-active");
 
-    // Animate form transitions
+
     signupForm.classList.add("slide-out");
     setTimeout(() => {
       signupForm.classList.add("hidden");
