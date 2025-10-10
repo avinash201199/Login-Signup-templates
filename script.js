@@ -10,6 +10,7 @@ const templateFolders = [
   "CodePenTemplate-1",
   "Coding Nepal",
   "colorlib Template",
+  "Cursor Following",
   "Dhruva Bhat",
   "Divyansh-Raj-Template",
   "Foolish Developer",
