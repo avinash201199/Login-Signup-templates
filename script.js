@@ -1,5 +1,6 @@
 //A list of all the template folder names.
 const templateFolders = [
+  "Aerospace-Prog",
   "Abhinav Shukla",
   "Amit Raj Sharm",
   "Avinash",
@@ -60,6 +61,7 @@ const templateFolders = [
 
 // A list of only the templates that were working.
 const workingTemplates = [
+  "Aerospace-Prog",
   "SaurabhMishra(edtech+ecommerce)",
   "CodePenTemplate-1",
   "Bootsnipp",
