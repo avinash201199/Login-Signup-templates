@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #ffffff;
+            transition: background 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .card {
+            background: #2d2d2d;
+            box-shadow: 16px 16px 32px #1a1a1a,
+                -16px -16px 32px #404040;
+        }
+
+        body.dark-mode .signin,
+        body.dark-mode .inputBox span,
+        body.dark-mode .inputBox1 span,
+        body.dark-mode .inputBox input,
+        body.dark-mode .inputBox1 input {
+            color: #ffffff;
+        }
+
+        body.dark-mode .inputBox input,
+        body.dark-mode .inputBox1 input {
+            border-left: 2px solid #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        body.dark-mode .inputBox input:valid,
+        body.dark-mode .inputBox input:focus,
+        body.dark-mode .inputBox1 input:valid,
+        body.dark-mode .inputBox1 input:focus {
+            border: 2px solid #ffffff;
+        }
+
+        body.dark-mode .inputBox input:valid~span,
+        body.dark-mode .inputBox input:focus~span,
+        body.dark-mode .inputBox1 input:valid~span,
+        body.dark-mode .inputBox1 input:focus~span {
+            background: #ffffff;
+            color: #000;
+        }
+
+        body.dark-mode .enter {
+            border: 2px solid #ffffff;
+            color: #ffffff;
+        }
+
+        body.dark-mode .enter:hover {
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        body.dark-mode .signup-link {
+            color: #ffffff;
+        }
+
+        body.dark-mode .signup-link a {
+            color: #ccc;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 30px;
+            background: #ccc;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border: none;
+            outline: none;
+        }
+
+        .dark-mode-toggle::before {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #fff;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        body.dark-mode .dark-mode-toggle {
+            background: #4a4a4a;
+        }
+
+        body.dark-mode .dark-mode-toggle::before {
+            transform: translateX(30px);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .signin {
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            font-weight: bold;
+            font-size: x-large;
+            margin-top: 1.5em;
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 350px;
+            width: 300px;
+            flex-direction: column;
+            gap: 35px;
+            border-radius: 15px;
+            background: #e3e3e3;
+            box-shadow: 16px 16px 32px #c8c8c8,
+                -16px -16px 32px #fefefe;
+            border-radius: 8px;
+        }
+
+        .inputBox,
+        .inputBox1 {
+            position: relative;
+            width: 250px;
+        }
+
+        .inputBox input,
+        .inputBox1 input {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+            border: none;
+            color: #000;
+            font-size: 1em;
+            background: transparent;
+            border-left: 2px solid #000;
+            border-bottom: 2px solid #000;
+            transition: 0.1s;
+            border-bottom-left-radius: 8px;
+        }
+
+        .inputBox span,
+        .inputBox1 span {
+            margin-top: 5px;
+            position: absolute;
+            left: 0;
+            transform: translateY(-4px);
+            margin-left: 10px;
+            padding: 10px;
+            pointer-events: none;
+            font-size: 12px;
+            color: #000;
+            text-transform: uppercase;
+            transition: 0.5s;
+            letter-spacing: 3px;
+            border-radius: 8px;
+        }
+
+        .inputBox input:valid~span,
+        .inputBox input:focus~span {
+            transform: translateX(130px) translateY(-15px);
+            font-size: 0.8em;
+            padding: 5px 10px;
+            background: #000;
+            letter-spacing: 0.2em;
+            color: #fff;
+            border: 2px;
+        }
+
+        .inputBox1 input:valid~span,
+        .inputBox1 input:focus~span {
+            transform: translateX(156px) translateY(-15px);
+            font-size: 0.8em;
+            padding: 5px 10px;
+            background: #000;
+            letter-spacing: 0.2em;
+            color: #fff;
+            border: 2px;
+        }
+
+        .inputBox input:valid,
+        .inputBox input:focus,
+        .inputBox1 input:valid,
+        .inputBox1 input:focus {
+            border: 2px solid #000;
+            border-radius: 8px;
+        }
+
+        .enter {
+            height: 45px;
+            width: 100px;
+            border-radius: 5px;
+            border: 2px solid #000;
+            cursor: pointer;
+            background-color: transparent;
+            transition: 0.5s;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .enter:hover {
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+
+        .signup-link {
+            font-size: 14px;
+            color: #000;
+            margin-bottom: 2em;
+        }
+
+        .signup-link a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode"></button>
+    <div class="container">
+        <div class="card">
+            <a class="signin">Sign In</a>
+            <div class="inputBox1">
+                <input type="text" required="required">
+                <span class="user">Email</span>
+            </div>
+            <div class="inputBox">
+                <input type="password" required="required">
+                <span>Password</span>
+            </div>
+            <button class="enter">Enter</button>
+            <div class="signup-link">
+                Don't have an account? <a href="index.html">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
