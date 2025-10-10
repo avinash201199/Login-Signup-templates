@@ -1,4 +1,4 @@
-// A list of all the template folder names.
+//A list of all the template folder names.
 const templateFolders = [
   "Abhinav Shukla",
   "Amit Raj Sharm",
@@ -15,6 +15,7 @@ const templateFolders = [
   "Foolish Developer",
   "Ivan Grozdic",
   "Modern Animated Template",
+  "Pranilash",
   "Parth",
   "SaurabhMishra(edtech+ecommerce)",
   "Tech Zero",
@@ -75,6 +76,7 @@ const workingTemplates = [
   "Foolish Developer",
   "Ivan Grozdic",
   "Modern Animated Template",
+  "Pranilash",
   "Tech Zero",
   "Template 1",
   "Template 2",
