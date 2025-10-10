@@ -15,8 +15,6 @@ const validatePassword = (password) => {
 const displaySnackBar = (message) => {
     const snackbar = document.getElementById("snackbar")
 
-    snackbar.innerHTML = ""
-
     const textNode = document.createTextNode(message)
     snackbar.append(textNode)
 
@@ -91,9 +89,10 @@ const signup = () => {
 
 function main() {
 
-    const pathname = window.location.pathname
+    const arr = window.location.pathname.split("/")
+    const pathname = arr[arr.length-1]
 
-    if (pathname === "/index.html") {
+    if (pathname === "index.html") {
         login()
     }
     else {
