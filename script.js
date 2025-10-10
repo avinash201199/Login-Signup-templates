@@ -32,6 +32,13 @@ const templateFolders = [
   "Sahil-Kumar",
   "samim29",
   "shivaram",
+    "Shr3y4sm_firebase_auth_signup",
+    "Split-Screen-Dark-Shikha",
+    "Tech Zero",
+    "Template 1",
+    "Template 2"
+
+
   "Abhinav Shukla",
   "Amit Raj Sharm",
   "Anuradha",
@@ -90,6 +97,16 @@ const workingTemplates = [
   "Minaal",
   "Sahil-Kumar",
   "samim29",
+
+    "SaurabhMishra(edtech+ecommerce)",
+    "Janavi-Pandole",
+    "CodePenTemplate-1",
+    "Bootsnipp",
+    "Ayush",
+    "Avinash",
+    "Dev-Portal-Shikha",
+    "Shr3y4sm_firebase_auth_signup",
+    "Split-Screen-Dark-Shikha"
   "SaurabhMishra(edtech+ecommerce)",
   "Janavi-Pandole",
   "CodePenTemplate-1",
