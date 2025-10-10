@@ -141,23 +141,37 @@ templateFolders.forEach((folderName) => {
 
 // how to contribute info code
 const controInfo = document.querySelector(".contro-info");
-
 const popup = document.getElementById("popup");
 const closeBtn = document.querySelector(".close-btn");
 
-controInfo.addEventListener("click", () => {
-  popup.style.display = "block";
-});
+// Safety guards in case elements are missing
+if (popup) {
+  // Ensure popup is hidden on load (use the boolean hidden attribute)
+  popup.hidden = true;
 
-closeBtn.addEventListener("click", () => {
-  popup.style.display = "none";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === popup) {
-    popup.style.display = "none";
+  if (controInfo) {
+    controInfo.addEventListener("click", () => {
+      popup.hidden = false;
+      // move focus into the dialog for accessibility
+      const firstHeading = popup.querySelector('#popup-title');
+      if (firstHeading) firstHeading.focus({ preventScroll: true });
+    });
   }
-});
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      popup.hidden = true;
+      if (controInfo) controInfo.focus({ preventScroll: true });
+    });
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.hidden = true;
+      if (controInfo) controInfo.focus({ preventScroll: true });
+    }
+  });
+}
 
 // Scroll to top function 
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
