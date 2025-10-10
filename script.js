@@ -55,6 +55,7 @@ const templateFolders = [
   "Tech Zero",
   "Template 1",
   "Template 2",
+  "OnkarJondhale"
 ];
 
 // A list of only the templates that were working.
@@ -96,6 +97,7 @@ const workingTemplates = [
   "Avinash",
   "Dev-Portal-Shikha",
   "Split-Screen-Dark-Shikha",
+  "OnkarJondhale"
 ];
 
 //container element from the HTML
