@@ -2,6 +2,7 @@
 const templateFolders = [
   "Abhinav Shukla",
   "Amit Raj Sharm",
+  "Aniruddha Dwivedi",
   "Aurora-Glass-Auth",
   "Avinash",
   "Ayush",
