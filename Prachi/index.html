@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Login / Signup</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main" aria-labelledby="authTitle">
+      <div class="panel-left" aria-hidden="true">
+        <div class="brand">MySite</div>
+        <div class="lead">Fast, minimal authentication demo — Login or create an account in seconds. This is a front-end demo only (no real server).</div>
+        <img class="illustration" src="data:image/svg+xml;utf8,
+          <svg xmlns='http://www.w3.org/2000/svg' width='400' height='220' viewBox='0 0 400 220'><rect rx='18' width='400' height='220' fill='%23ffffff' opacity='.03'/><g fill='none' stroke='%234a90e2' stroke-width='3' opacity='.9'><path d='M30 160 C80 80 220 40 360 140' stroke-linecap='round'/><circle cx='80' cy='110' r='6'/><circle cx='260' cy='80' r='6'/></g></svg>" alt="">
+      </div>
+
+      <div class="panel-right">
+        <div class="tabs" role="tablist">
+          <button class="tab active" id="tab-login" role="tab" aria-selected="true">Login</button>
+          <button class="tab" id="tab-signup" role="tab" aria-selected="false">Signup</button>
+        </div>
+
+        <div id="messages"></div>
+
+        <!-- LOGIN FORM -->
+        <form id="login-form" autocomplete="on" novalidate>
+          <h1 id="authTitle" style="color: blueviolet;">Welcome back</h1>
+          <p class="sub">Log in with your username and password.</p>
+
+          <div>
+            <label for="login-username">Username</label>
+            <input id="login-username" name="username" type="text" inputmode="text" required placeholder="e.g. prachi123">
+          </div>
+
+          <div>
+            <label for="login-password">Password</label>
+            <div style="display:flex;gap:8px;align-items:center">
+              <input id="login-password" name="password" type="password" required placeholder="Your password">
+              <button type="button" class="toggle-pass" data-target="login-password" aria-label="toggle password">Show</button>
+            </div>
+          </div>
+
+          <div class="row" style="align-items:center;margin-top:6px">
+            <button class="btn" type="submit">Log in</button>
+            <button type="button" class="btn secondary" id="demo-fill">Fill demo</button>
+          </div>
+
+          <p class="small">Don't have an account? Click <strong>Signup</strong> above to create one.</p>
+        </form>
+
+        <!-- SIGNUP FORM -->
+        <form id="signup-form" style="display:none" autocomplete="on" novalidate>
+          <h1  style="color: blueviolet;">Create account</h1>
+          <p class="sub">Enter your details to sign up.</p>
+
+          <div>
+            <label for="signup-username">Username</label>
+            <input id="signup-username" name="username" type="text" required placeholder="Choose a username">
+          </div>
+
+          <div>
+            <label for="signup-email">Email</label>
+            <input id="signup-email" name="email" type="email" required placeholder="you@example.com">
+          </div>
+
+          <div>
+            <label for="signup-password">Password</label>
+            <div style="display:flex;gap:8px;align-items:center">
+              <input id="signup-password" name="password" type="password" required placeholder="At least 6 characters">
+              <button type="button" class="toggle-pass" data-target="signup-password" aria-label="toggle password">Show</button>
+            </div>
+          </div>
+
+          <div>
+            <label for="signup-confirm">Confirm password</label>
+            <input id="signup-confirm" name="confirm" type="password" required placeholder="Repeat password">
+          </div>
+
+          <div class="row" style="align-items:center;margin-top:6px">
+            <button class="btn" type="submit">Create account</button>
+            <button type="button" class="btn secondary" id="clear-storage">Clear demo</button>
+          </div>
+
+          <p class="small">By signing up you accept this demo's terms (this is not a real production signup).</p>
+        </form>
+
+      </div> <!-- panel-right -->
+    </div> <!-- card -->
+  </div> <!-- wrap -->
+
+  <script src="./script.js">
+  
+  </script>
+</body>
+</html>
