@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Signup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-box">
+      <div class="switch-tabs">
+        <button id="login-tab" class="tab active">Login</button>
+        <button id="signup-tab" class="tab">Signup</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" class="form active">
+        <h2>Welcome Back 🚀</h2>
+        <p class="subtext">Log in to continue your journey</p>
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Password" required />
+        <button type="submit" class="btn">Login</button>
+        <p class="msg" id="login-msg"></p>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signup-form" class="form">
+        <h2>Join Us 🌟</h2>
+        <p class="subtext">Create your account in seconds</p>
+        <input type="text" id="signup-name" placeholder="Full Name" required />
+        <input type="email" id="signup-email" placeholder="Email" required />
+        <input type="password" id="signup-password" placeholder="Password" required />
+        <button type="submit" class="btn">Sign Up</button>
+        <p class="msg" id="signup-msg"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

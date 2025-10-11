@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top left, #1e1e2f, #0d0d16);
+  overflow: hidden;
+}
+
+/* Animated background circles */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6ec7, #7873f5);
+  filter: blur(100px);
+  animation: float 8s infinite alternate ease-in-out;
+}
+body::after {
+  background: linear-gradient(135deg, #4ade80, #60a5fa);
+  top: auto;
+  bottom: 0;
+  right: 0;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+}
+
+/* Auth Box */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  width: 100%;
+}
+
+.auth-box {
+  width: 400px;
+  padding: 40px 35px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-align: center;
+  animation: popIn 0.8s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Tabs */
+.switch-tabs {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.tab.active {
+  background: linear-gradient(90deg, #ff6ec7, #7873f5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Forms */
+.form {
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form.active {
+  display: flex;
+}
+
+h2 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+input {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 15px;
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px #7873f5;
+}
+
+.btn {
+  background: linear-gradient(90deg, #ff6ec7, #7873f5);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+}
+
+.msg {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #f8d7da;
+}
