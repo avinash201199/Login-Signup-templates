@@ -1,0 +1,908 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap");
+
+/* CSS Variables for Quantum Theme */
+:root {
+    --quantum-primary: #00ffff;
+    --quantum-secondary: #ff00ff;
+    --quantum-accent: #ffff00;
+    --quantum-bg: #0a0a0f;
+    --quantum-card: rgba(15, 15, 25, 0.95);
+    --quantum-text: #ffffff;
+    --quantum-text-muted: #a0a0a0;
+    --quantum-border: rgba(0, 255, 255, 0.3);
+    --quantum-glow: 0 0 20px rgba(0, 255, 255, 0.5);
+    --quantum-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    --quantum-gradient: linear-gradient(135deg, 
+        rgba(0, 255, 255, 0.1) 0%, 
+        rgba(255, 0, 255, 0.1) 50%, 
+        rgba(255, 255, 0, 0.1) 100%);
+}
+
+/* Light Mode Support */
+body.light-mode {
+    --quantum-primary: #0099cc;
+    --quantum-secondary: #cc0099;
+    --quantum-accent: #cc9900;
+    --quantum-bg: #f0f0f5;
+    --quantum-card: rgba(255, 255, 255, 0.95);
+    --quantum-text: #1a1a1a;
+    --quantum-text-muted: #666666;
+    --quantum-border: rgba(0, 153, 204, 0.3);
+    --quantum-glow: 0 0 20px rgba(0, 153, 204, 0.3);
+    --quantum-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--quantum-bg);
+    color: var(--quantum-text);
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Particle Background */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    background: var(--quantum-primary);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Neural Network Canvas */
+.neural-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.3;
+}
+
+/* Audio Visualization Canvas */
+.audio-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.2;
+}
+
+/* Main Container */
+.quantum-container {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: radial-gradient(ellipse at center, 
+        rgba(0, 255, 255, 0.05) 0%, 
+        transparent 50%);
+}
+
+/* Brand Header */
+.quantum-brand {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 3D Logo Cube */
+.logo-cube {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 10s linear infinite;
+}
+
+.cube-face {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--quantum-gradient);
+    border: 2px solid var(--quantum-primary);
+    box-shadow: var(--quantum-glow);
+}
+
+.cube-face.front { transform: rotateY(0deg) translateZ(25px); }
+.cube-face.back { transform: rotateY(180deg) translateZ(25px); }
+.cube-face.right { transform: rotateY(90deg) translateZ(25px); }
+.cube-face.left { transform: rotateY(-90deg) translateZ(25px); }
+.cube-face.top { transform: rotateX(90deg) translateZ(25px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(25px); }
+
+@keyframes rotateCube {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.brand-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.brand-quantum {
+    background: linear-gradient(45deg, var(--quantum-primary), var(--quantum-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px var(--quantum-primary);
+}
+
+.brand-neon {
+    background: linear-gradient(45deg, var(--quantum-secondary), var(--quantum-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px var(--quantum-secondary);
+}
+
+.brand-tagline {
+    font-size: 0.9rem;
+    color: var(--quantum-text-muted);
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Authentication Card */
+.auth-card {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    background: var(--quantum-card);
+    border: 1px solid var(--quantum-border);
+    border-radius: 20px;
+    box-shadow: var(--quantum-shadow);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    padding: 2rem;
+}
+
+/* Holographic Overlay */
+.holographic-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(0, 255, 255, 0.1) 50%, 
+        transparent 70%);
+    transform: translateX(-100%);
+    animation: holographicSweep 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes holographicSweep {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Mode Toggle */
+.mode-toggle {
+    position: relative;
+    display: flex;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--quantum-border);
+}
+
+.mode-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    color: var(--quantum-text-muted);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.mode-btn.active {
+    color: var(--quantum-text);
+    text-shadow: 0 0 10px currentColor;
+}
+
+.mode-slider {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: calc(50% - 0.5rem);
+    height: calc(100% - 1rem);
+    background: var(--quantum-gradient);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: var(--quantum-glow);
+}
+
+.mode-toggle[data-active="signup"] .mode-slider {
+    transform: translateX(100%);
+}
+
+/* Forms */
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, var(--quantum-primary), var(--quantum-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.form-subtitle {
+    color: var(--quantum-text-muted);
+    font-size: 0.9rem;
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.name-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.input-group.half {
+    margin-bottom: 0;
+}
+
+/* Floating Inputs */
+.floating-input {
+    position: relative;
+}
+
+.floating-input input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--quantum-border);
+    border-radius: 12px;
+    color: var(--quantum-text);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.floating-input input:focus {
+    border-color: var(--quantum-primary);
+    box-shadow: var(--quantum-glow);
+    background: rgba(0, 255, 255, 0.05);
+}
+
+.floating-input input:focus + label,
+.floating-input input:not(:placeholder-shown) + label {
+    transform: translateY(-1.5rem) scale(0.85);
+    color: var(--quantum-primary);
+    background: var(--quantum-card);
+    padding: 0 0.5rem;
+    font-weight: 600;
+}
+
+.floating-input label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: var(--quantum-text-muted);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform-origin: left top;
+}
+
+.input-highlight {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--quantum-primary), var(--quantum-secondary));
+    transition: width 0.3s ease;
+}
+
+.floating-input input:focus ~ .input-highlight {
+    width: 100%;
+}
+
+/* Password Toggle */
+.password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--quantum-text-muted);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: var(--quantum-primary);
+}
+
+/* Validation Icons */
+.validation-icon {
+    position: absolute;
+    right: 3.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: none;
+}
+
+.validation-icon.valid {
+    display: block;
+    background: #00ff00;
+    position: relative;
+}
+
+.validation-icon.valid::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.validation-icon.invalid {
+    display: block;
+    background: #ff0000;
+    position: relative;
+}
+
+.validation-icon.invalid::after {
+    content: '✕';
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Password Strength */
+.password-strength {
+    margin-top: 0.5rem;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.strength-text {
+    font-size: 0.8rem;
+    color: var(--quantum-text-muted);
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Quantum Checkbox */
+.quantum-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.quantum-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--quantum-border);
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.quantum-checkbox input:checked + .checkmark {
+    background: var(--quantum-primary);
+    border-color: var(--quantum-primary);
+    box-shadow: var(--quantum-glow);
+}
+
+.quantum-checkbox input:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkbox-text a {
+    color: var(--quantum-primary);
+    text-decoration: none;
+}
+
+.checkbox-text a:hover {
+    text-decoration: underline;
+}
+
+/* Links */
+.forgot-link {
+    color: var(--quantum-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+    color: var(--quantum-secondary);
+    text-shadow: 0 0 5px currentColor;
+}
+
+/* Quantum Button */
+.quantum-btn {
+    position: relative;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, var(--quantum-primary), var(--quantum-secondary));
+    border: none;
+    border-radius: 12px;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.quantum-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+}
+
+.quantum-btn:active {
+    transform: translateY(0);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.btn-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.6s ease;
+}
+
+.quantum-btn:hover .btn-glow {
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* Social Authentication */
+.social-auth {
+    margin-top: 1.5rem;
+}
+
+.divider {
+    position: relative;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--quantum-border);
+}
+
+.divider span {
+    background: var(--quantum-card);
+    padding: 0 1rem;
+    color: var(--quantum-text-muted);
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.social-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--quantum-border);
+    border-radius: 8px;
+    color: var(--quantum-text);
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.social-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--quantum-primary);
+    transform: translateY(-1px);
+}
+
+.social-icon {
+    font-size: 1.2rem;
+}
+
+/* Footer */
+.quantum-footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--quantum-text-muted);
+    font-size: 0.8rem;
+}
+
+/* Success Overlay */
+.success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.success-overlay.active {
+    display: flex;
+    animation: fadeIn 0.5s ease;
+}
+
+.success-animation {
+    text-align: center;
+    color: var(--quantum-text);
+}
+
+.success-checkmark {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #00ff00;
+    stroke-miterlimit: 10;
+    margin: 0 auto 1rem;
+    box-shadow: inset 0px 0px 0px #00ff00;
+    animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+    position: relative;
+}
+
+.success-checkmark .check-icon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    display: block;
+    border: 2px solid #00ff00;
+    overflow: hidden;
+}
+
+.icon-line {
+    height: 3px;
+    background-color: #00ff00;
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+}
+
+.icon-line.line-tip {
+    top: 46px;
+    left: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+    animation: icon-line-tip 0.75s;
+}
+
+.icon-line.line-long {
+    top: 38px;
+    right: 8px;
+    width: 47px;
+    transform: rotate(-45deg);
+    animation: icon-line-long 0.75s;
+}
+
+.icon-circle {
+    top: -2px;
+    left: -2px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    border: 2px solid #00ff00;
+}
+
+.icon-fix {
+    top: 8px;
+    width: 5px;
+    left: 26px;
+    z-index: 1;
+    height: 85px;
+    position: absolute;
+    transform: rotate(-45deg);
+    background-color: var(--quantum-card);
+}
+
+@keyframes icon-line-tip {
+    0% {
+        width: 0;
+        left: 1px;
+        top: 19px;
+    }
+    54% {
+        width: 0;
+        left: 1px;
+        top: 19px;
+    }
+    70% {
+        width: 50px;
+        left: -8px;
+        top: 37px;
+    }
+    84% {
+        width: 17px;
+        left: 21px;
+        top: 48px;
+    }
+    100% {
+        width: 25px;
+        left: 14px;
+        top: 45px;
+    }
+}
+
+@keyframes icon-line-long {
+    0% {
+        width: 0;
+        right: 46px;
+        top: 54px;
+    }
+    65% {
+        width: 0;
+        right: 46px;
+        top: 54px;
+    }
+    84% {
+        width: 55px;
+        right: 0px;
+        top: 35px;
+    }
+    100% {
+        width: 47px;
+        right: 8px;
+        top: 38px;
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 60px #00ff00;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+.success-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, var(--quantum-primary), var(--quantum-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.success-message {
+    color: var(--quantum-text-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quantum-container {
+        padding: 1rem;
+    }
+    
+    .auth-card {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+    
+    .brand-text {
+        font-size: 2rem;
+    }
+    
+    .logo-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .name-group {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .social-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-text {
+        font-size: 1.5rem;
+    }
+    
+    .form-title {
+        font-size: 1.5rem;
+    }
+    
+    .auth-card {
+        padding: 1rem;
+    }
+}

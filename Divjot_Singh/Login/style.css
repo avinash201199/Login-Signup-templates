@@ -1,0 +1,147 @@
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.card {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  transition: all 0.4s ease;
+}
+
+
+.tab-active {
+  background: linear-gradient(90deg, #6366F1, #3B82F6);
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: rgba(31, 41, 55, 0.6);
+  border: 1px solid #4b5563;
+  color: #f3f4f6;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.input-field::placeholder {
+  color: #9ca3af;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #6366F1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #6366F1;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #4F46E5;
+  transform: translateY(-1px);
+}
+
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f3f4f6;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.social-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.social-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+
+.fade {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+
+.slide-in {
+  animation: slideIn 0.4s ease forwards;
+}
+
+.slide-out {
+  animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+}
+
+
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button .ripple {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

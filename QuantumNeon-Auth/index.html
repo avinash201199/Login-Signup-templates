@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumNeon Auth - Next-Gen Authentication</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- Neural Network Background -->
+    <canvas id="neural-network" class="neural-canvas"></canvas>
+    
+    <!-- Audio Visualization -->
+    <canvas id="audio-viz" class="audio-canvas"></canvas>
+    
+    <!-- Main Container -->
+    <main class="quantum-container">
+        <!-- Brand Header -->
+        <header class="quantum-brand">
+            <div class="logo-container">
+                <div class="logo-cube">
+                    <div class="cube-face front"></div>
+                    <div class="cube-face back"></div>
+                    <div class="cube-face right"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
+                </div>
+                <h1 class="brand-text">
+                    <span class="brand-quantum">Quantum</span>
+                    <span class="brand-neon">Neon</span>
+                </h1>
+            </div>
+            <p class="brand-tagline">Next-Generation Authentication Experience</p>
+        </header>
+
+        <!-- Authentication Card -->
+        <section class="auth-card" role="main">
+            <!-- Holographic Effect Overlay -->
+            <div class="holographic-overlay"></div>
+            
+            <!-- Mode Toggle -->
+            <div class="mode-toggle">
+                <button class="mode-btn active" data-mode="login" aria-label="Login Mode">
+                    <span class="mode-icon">🔐</span>
+                    <span class="mode-text">Sign In</span>
+                </button>
+                <button class="mode-btn" data-mode="signup" aria-label="Signup Mode">
+                    <span class="mode-icon">🚀</span>
+                    <span class="mode-text">Join Us</span>
+                </button>
+                <div class="mode-slider"></div>
+            </div>
+
+            <!-- Login Form -->
+            <form class="auth-form login-form active" id="loginForm" autocomplete="on">
+                <div class="form-header">
+                    <h2 class="form-title">Welcome Back</h2>
+                    <p class="form-subtitle">Access your quantum dashboard</p>
+                </div>
+
+                <div class="input-group">
+                    <div class="floating-input">
+                        <input type="email" id="loginEmail" name="email" required autocomplete="email">
+                        <label for="loginEmail">Email Address</label>
+                        <div class="input-highlight"></div>
+                        <div class="validation-icon"></div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="floating-input">
+                        <input type="password" id="loginPassword" name="password" required autocomplete="current-password">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-highlight"></div>
+                        <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                            <span class="eye-icon">👁️</span>
+                        </button>
+                        <div class="validation-icon"></div>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="quantum-checkbox">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="quantum-btn primary">
+                    <span class="btn-text">Sign In</span>
+                    <div class="btn-particles"></div>
+                    <div class="btn-glow"></div>
+                </button>
+
+                <div class="social-auth">
+                    <div class="divider">
+                        <span>or continue with</span>
+                    </div>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn google">
+                            <span class="social-icon">G</span>
+                            <span class="social-text">Google</span>
+                        </button>
+                        <button type="button" class="social-btn github">
+                            <span class="social-icon">⚡</span>
+                            <span class="social-text">GitHub</span>
+                        </button>
+                        <button type="button" class="social-btn apple">
+                            <span class="social-icon">🍎</span>
+                            <span class="social-text">Apple</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Signup Form -->
+            <form class="auth-form signup-form" id="signupForm" autocomplete="on">
+                <div class="form-header">
+                    <h2 class="form-title">Join the Future</h2>
+                    <p class="form-subtitle">Create your quantum account</p>
+                </div>
+
+                <div class="name-group">
+                    <div class="input-group half">
+                        <div class="floating-input">
+                            <input type="text" id="firstName" name="firstName" required autocomplete="given-name">
+                            <label for="firstName">First Name</label>
+                            <div class="input-highlight"></div>
+                            <div class="validation-icon"></div>
+                        </div>
+                    </div>
+                    <div class="input-group half">
+                        <div class="floating-input">
+                            <input type="text" id="lastName" name="lastName" required autocomplete="family-name">
+                            <label for="lastName">Last Name</label>
+                            <div class="input-highlight"></div>
+                            <div class="validation-icon"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="floating-input">
+                        <input type="email" id="signupEmail" name="email" required autocomplete="email">
+                        <label for="signupEmail">Email Address</label>
+                        <div class="input-highlight"></div>
+                        <div class="validation-icon"></div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="floating-input">
+                        <input type="password" id="signupPassword" name="password" required autocomplete="new-password" minlength="8">
+                        <label for="signupPassword">Password</label>
+                        <div class="input-highlight"></div>
+                        <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                            <span class="eye-icon">👁️</span>
+                        </button>
+                        <div class="validation-icon"></div>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-fill"></div>
+                        </div>
+                        <span class="strength-text">Password strength</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="floating-input">
+                        <input type="password" id="confirmPassword" name="confirmPassword" required autocomplete="new-password">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-highlight"></div>
+                        <div class="validation-icon"></div>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="quantum-checkbox">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="privacy-link">Privacy Policy</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="quantum-btn primary">
+                    <span class="btn-text">Create Account</span>
+                    <div class="btn-particles"></div>
+                    <div class="btn-glow"></div>
+                </button>
+
+                <div class="social-auth">
+                    <div class="divider">
+                        <span>or sign up with</span>
+                    </div>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn google">
+                            <span class="social-icon">G</span>
+                            <span class="social-text">Google</span>
+                        </button>
+                        <button type="button" class="social-btn github">
+                            <span class="social-icon">⚡</span>
+                            <span class="social-text">GitHub</span>
+                        </button>
+                        <button type="button" class="social-btn apple">
+                            <span class="social-icon">🍎</span>
+                            <span class="social-text">Apple</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="quantum-footer">
+            <p>&copy; 2025 QuantumNeon. Securing the future, one login at a time.</p>
+        </footer>
+    </main>
+
+    <!-- Success Animation -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-animation">
+            <div class="success-checkmark">
+                <div class="check-icon">
+                    <span class="icon-line line-tip"></span>
+                    <span class="icon-line line-long"></span>
+                    <div class="icon-circle"></div>
+                    <div class="icon-fix"></div>
+                </div>
+            </div>
+            <h3 class="success-title">Welcome to the Future!</h3>
+            <p class="success-message">Your quantum journey begins now.</p>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
