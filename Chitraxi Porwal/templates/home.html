@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head><title>Home</title></head>
+<body>
+  <h1>Welcome, {{ user.name or user.email }}</h1>
+  <p>Email: {{ user.email }}</p>
+  <p>Source: {{ user.source }}</p>
+  <a href="/logout">Logout</a>
+</body>
+</html>
