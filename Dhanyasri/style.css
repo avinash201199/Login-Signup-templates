@@ -1,0 +1,114 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap')*/
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif; 
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #56046e, #784c9e);
+}
+.container{
+    position: relative;
+    
+}
+.login-box{
+    width: 500px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+h2{
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.input-box{
+    position: relative;
+    margin-bottom: 15px;
+}
+.input-box input{
+    width: 350px;
+    padding: 12px;
+    padding-left: 40px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+.input-box i{
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+.remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 14px;
+    margin: 20px 0;
+}
+.remember-forgot a{
+    color: white;
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    color: white;
+    text-decoration: underline;
+}
+.login-btn{
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    background: white;
+    color: #56046e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.login-btn:hover{
+    background: #ddd;
+}
+.register-text{
+    margin-top: 10px;
+    color: white;
+    font-size: 14px;
+}
+.register-text a{
+    color: white;
+    text-decoration: none;
+}
+.register-text a:hover{
+    text-decoration: underline;
+}
+.corner{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1));
+    border-radius: 50%;
+    filter: blur(5px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    
+}
+.top-left{
+    top: -350px;
+    left: -32px;
+}
+.bottom-right{
+    bottom: 130px;
+    right: -450px;
+}
