@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <title>Advanced Login & Signup</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900">
+
+    <main class="min-h-screen flex flex-col md:flex-row items-center justify-center">
+
+        <div class="relative hidden md:flex w-full md:w-1/2 h-64  rounded-3xl md:hx-screen items-center ml-3 justify-center gradient-bg overflow-hidden">
+            <div class="text-white text-center  p-8 z-10">
+                <h1 class="text-5xl font-bold mb-4 tracking-tight">Welcome Back!</h1>
+                <p class="text-lg max-w-md">
+                    Connect with your community. Share your moments. Discover new possibilities. We're glad to have you here.
+                </p>
+            </div>
+
+            <div class="absolute top-0 -left-16 w-64 h-64 bg-white/10 rounded-full mix-blend-screen filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute bottom-0 -right-10 w-72 h-72 bg-white/10 rounded-full mix-blend-screen filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <!-- Right Side: Form -->
+        <div class="w-full md:w-1/2 flex items-center justify-center p-6 md:p-12 bg-gray-900">
+            <div class="w-full max-w-md">
+
+                <!-- Toggle Buttons -->
+                <div class="flex justify-center mb-8">
+                    <div class="bg-gray-800 p-1 rounded-full flex items-center space-x-1">
+                         <button id="show-login" class="px-6 py-2 rounded-full text-sm font-semibold transition-colors bg-indigo-600 text-white">Login</button>
+                         <button id="show-signup" class="px-6 py-2 rounded-full text-sm font-semibold transition-colors text-gray-400 hover:text-white">Sign Up</button>
+                    </div>
+                </div>
+
+                <!-- Form Wrapper for Transitions -->
+                <div class="relative">
+                    <!-- Login Form -->
+                    <div id="login-form" class="form-container form-visible">
+                        <div class="glass-effect p-8 rounded-2xl shadow-lg">
+                            <h2 class="text-3xl font-bold text-white mb-2 text-center">Login to Your Account</h2>
+                            <p class="text-center text-gray-400 mb-8">Enter your credentials to access your account.</p>
+
+                            <form>
+                                <div class="mb-4">
+                                    <label for="login-email" class="block text-gray-300 text-sm font-medium mb-2">Email</label>
+                                    <input type="email" id="login-email" class="w-full bg-gray-800/50 text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" placeholder="you@example.com">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="login-password" class="block text-gray-300 text-sm font-medium mb-2">Password</label>
+                                    <input type="password" id="login-password" class="w-full bg-gray-800/50 text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" placeholder="••••••••">
+                                </div>
+                                <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-300">Login</button>
+                                <p class="text-center text-gray-500 text-sm mt-6">
+                                    <a href="#" class="hover:text-indigo-400">Forgot Password?</a>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Signup Form -->
+                    <div id="signup-form" class="form-container form-hidden">
+                        <div class="glass-effect p-8 rounded-2xl shadow-lg">
+                            <h2 class="text-3xl font-bold text-white mb-2 text-center">Create a New Account</h2>
+                            <p class="text-center text-gray-400 mb-8">Join us today! It takes only a few seconds.</p>
+
+                            <form>
+                                <div class="mb-4">
+                                    <label for="signup-name" class="block text-gray-300 text-sm font-medium mb-2">Full Name</label>
+                                    <input type="text" id="signup-name" class="w-full bg-gray-800/50 text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" placeholder="John Doe">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="signup-email" class="block text-gray-300 text-sm font-medium mb-2">Email</label>
+                                    <input type="email" id="signup-email" class="w-full bg-gray-800/50 text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" placeholder="you@example.com">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="signup-password" class="block text-gray-300 text-sm font-medium mb-2">Password</label>
+                                    <input type="password" id="signup-password" class="w-full bg-gray-800/50 text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" placeholder="••••••••">
+                                </div>
+                                <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-300">Create Account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Login Divider -->
+                <div class="flex items-center my-8">
+                    <hr class="w-full border-gray-700">
+                    <p class="px-4 text-gray-500 font-semibold text-sm">OR</p>
+                    <hr class="w-full border-gray-700">
+                </div>
+
+                <!-- Social Login Buttons -->
+                <div class="flex items-center justify-center gap-4">
+                    <button title="Continue with Google" class="w-12 h-12 flex items-center justify-center bg-gray-800 border border-gray-700 rounded-full hover:bg-gray-700 transition-colors duration-300">
+                        <svg class="w-6 h-6" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.574l6.19,5.238C42.022,35.244,44,30.036,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+                    </button>
+                    <button title="Continue with Facebook" class="w-12 h-12 flex items-center justify-center bg-gray-800 border border-gray-700 rounded-full hover:bg-gray-700 transition-colors duration-300">
+                         <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg>
+                    </button>
+                    <button title="Continue with Twitter" class="w-12 h-12 flex items-center justify-center bg-gray-800 border border-gray-700 rounded-full hover:bg-gray-700 transition-colors duration-300">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+<script src="scripts.js"></script>
+</html>
