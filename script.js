@@ -64,7 +64,7 @@ const templateFolders = [
     "Tech Zero",
     "Template 1",
   "Template 2",
-  "OnkarJondhale"
+  "OnkarJondhale",
   "Kanishka",
 ];
 
@@ -112,12 +112,39 @@ const workingTemplates = [
     "Avinash",
     "Dev-Portal-Shikha",
   "Split-Screen-Dark-Shikha",
-  "OnkarJondhale"
+  "OnkarJondhale",
   "Kanishka",
 ];
 
 //container element from the HTML
 const cardContainer = document.getElementById("card-container");
+
+// --- ADD: single Feedback Templates redirect button ---
+(function addFeedbackRedirectButton(){
+  const feedbackHref = './Feedback-Templates/'; // target folder/page
+  // create a visible button-like link
+  const feedbackBtn = document.createElement('a');
+  feedbackBtn.href = feedbackHref;
+  feedbackBtn.textContent = 'Feedback Templates';
+  feedbackBtn.setAttribute('role','button');
+  feedbackBtn.className = 'feedback-templates-btn';
+  // minimal inline styling so it looks like a button out-of-the-box
+  feedbackBtn.style.display = 'inline-block';
+  feedbackBtn.style.margin = '50px 25px';
+  feedbackBtn.style.padding = '10px 16px';
+  feedbackBtn.style.background = 'linear-gradient(90deg,#06b6d4,#0ea5a4)';
+  feedbackBtn.style.color = '#04202a';
+  feedbackBtn.style.borderRadius = '8px';
+  feedbackBtn.style.fontWeight = '600';
+  feedbackBtn.style.textDecoration = 'none';
+
+  if (cardContainer && cardContainer.parentNode) {
+    cardContainer.parentNode.insertBefore(feedbackBtn, cardContainer);
+  } else {
+    // fallback if container not found
+    document.body.insertBefore(feedbackBtn, document.body.firstChild);
+  }
+})();
 
 // Loop through each folder name and creating a card for it
 templateFolders.forEach((folderName) => {

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elegant Feedback — Template</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <header class="card-header">
+        <h1>We value your feedback</h1>
+        <p class="lead">Short, simple form to tell us what's on your mind.</p>
+      </header>
+
+      <form id="feedbackForm" novalidate>
+        <div class="row">
+          <label class="field">
+            <span>Name</span>
+            <input name="name" type="text" placeholder="Jane Doe" required />
+            <small class="error" data-for="name"></small>
+          </label>
+
+          <label class="field">
+            <span>Email</span>
+            <input name="email" type="email" placeholder="you@example.com" required />
+            <small class="error" data-for="email"></small>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Category</span>
+          <select name="category" aria-label="Feedback category">
+            <option>General</option>
+            <option>Bug</option>
+            <option>Feature Request</option>
+            <option>Other</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Message</span>
+          <textarea name="message" rows="6" placeholder="Tell us about your experience..." required></textarea>
+          <small class="error" data-for="message"></small>
+        </label>
+
+        <div class="controls">
+          <label class="consent">
+            <input type="checkbox" name="consent" checked />
+            Allow us to follow up by email
+          </label>
+
+          <button type="submit" class="btn">Send Feedback</button>
+        </div>
+
+        <div id="alert" role="status" aria-live="polite" class="alert" hidden></div>
+        <p class="back"><a href="../">← Back to feedback templates</a></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="form.js"></script>
+</body>
+</html>
