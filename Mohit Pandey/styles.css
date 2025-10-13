@@ -1,0 +1,436 @@
+/* 8-Bit Retro Login Form Styles */
+/* Color Palette: #00ff00 (bright green), #00cc00 (medium green), #008800 (dark green), #000000 (black), #ffffff (white) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace;
+    background: linear-gradient(45deg, #000000 0%, #001100 50%, #000000 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated background scan lines */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 0, 0.03) 2px,
+        rgba(0, 255, 0, 0.03) 4px
+    );
+    pointer-events: none;
+    animation: scanline 0.1s linear infinite;
+    z-index: 1;
+}
+
+@keyframes scanline {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+}
+
+.retro-container {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    width: 100%;
+    margin: 20px;
+}
+
+/* Main pixel frame with authentic 8-bit border */
+.pixel-frame {
+    background: #000000;
+    border: 4px solid #00ff00;
+    border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><rect width="4" height="4" fill="%2300ff00"/><rect x="4" width="4" height="4" fill="%23000000"/><rect x="8" width="4" height="4" fill="%2300ff00"/><rect y="4" width="4" height="4" fill="%23000000"/><rect x="4" y="4" width="4" height="4" fill="%2300ff00"/><rect x="8" y="4" width="4" height="4" fill="%23000000"/><rect y="8" width="4" height="4" fill="%2300ff00"/><rect x="4" y="8" width="4" height="4" fill="%23000000"/><rect x="8" y="8" width="4" height="4" fill="%2300ff00"/></svg>') 4;
+    padding: 30px 25px;
+    position: relative;
+    box-shadow: 
+        0 0 0 2px #00cc00,
+        0 0 20px rgba(0, 255, 0, 0.3),
+        inset 0 0 20px rgba(0, 255, 0, 0.1);
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Pixelated corner decorations */
+.pixel-frame::before,
+.pixel-frame::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #00ff00;
+    image-rendering: pixelated;
+}
+
+.pixel-frame::before {
+    top: -8px;
+    left: -8px;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.pixel-frame::after {
+    bottom: -8px;
+    right: -8px;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* Header styling */
+.retro-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.pixel-title {
+    color: #00ff00;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    text-shadow: 
+        2px 0 0 #00cc00,
+        0 2px 0 #00cc00,
+        -2px 0 0 #00cc00,
+        0 -2px 0 #00cc00;
+    letter-spacing: 2px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 
+        2px 0 0 #00cc00,
+        0 2px 0 #00cc00,
+        -2px 0 0 #00cc00,
+        0 -2px 0 #00cc00,
+        0 0 5px #00ff00; }
+    to { text-shadow: 
+        2px 0 0 #00cc00,
+        0 2px 0 #00cc00,
+        -2px 0 0 #00cc00,
+        0 -2px 0 #00cc00,
+        0 0 10px #00ff00,
+        0 0 15px #00ff00; }
+}
+
+.pixel-subtitle {
+    color: #00cc00;
+    font-size: 0.6em;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* Form styling */
+.retro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pixel-label {
+    color: #00ff00;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Input container with pixelated styling */
+.input-container {
+    position: relative;
+    background: #000000;
+    border: 3px solid #00cc00;
+    padding: 4px;
+    image-rendering: pixelated;
+    transition: all 0.2s ease;
+}
+
+.input-container:hover {
+    border-color: #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.input-container.focused {
+    border-color: #00ff00;
+    box-shadow: 
+        0 0 15px rgba(0, 255, 0, 0.5),
+        inset 0 0 10px rgba(0, 255, 0, 0.1);
+    animation: pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    from { box-shadow: 
+        0 0 15px rgba(0, 255, 0, 0.5),
+        inset 0 0 10px rgba(0, 255, 0, 0.1); }
+    to { box-shadow: 
+        0 0 20px rgba(0, 255, 0, 0.7),
+        inset 0 0 15px rgba(0, 255, 0, 0.2); }
+}
+
+.pixel-input {
+    width: 100%;
+    background: #000000;
+    color: #00ff00;
+    border: none;
+    padding: 12px 8px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6em;
+    letter-spacing: 1px;
+    outline: none;
+    text-transform: uppercase;
+    image-rendering: pixelated;
+}
+
+.pixel-input::placeholder {
+    color: #008800;
+    opacity: 0.7;
+}
+
+.pixel-input:focus::placeholder {
+    opacity: 0.3;
+}
+
+/* Animated cursor */
+.pixel-cursor {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 16px;
+    background: #00ff00;
+    animation: blink 1s infinite;
+    display: none;
+}
+
+.input-container.typing .pixel-cursor {
+    display: block;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Button styling */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.pixel-button {
+    background: #000000;
+    border: 4px solid #00cc00;
+    color: #00ff00;
+    padding: 15px 30px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    image-rendering: pixelated;
+    overflow: hidden;
+}
+
+.pixel-button:hover {
+    border-color: #00ff00;
+    color: #ffffff;
+    box-shadow: 
+        0 0 20px rgba(0, 255, 0, 0.6),
+        inset 0 0 20px rgba(0, 255, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.pixel-button:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 0 10px rgba(0, 255, 0, 0.4),
+        inset 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+.pixel-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.button-text {
+    position: relative;
+    z-index: 2;
+    transition: all 0.2s ease;
+}
+
+.button-pixel {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.pixel-button:hover .button-pixel {
+    left: 100%;
+}
+
+/* Error messages with pixelated styling */
+.error-message {
+    color: #ff0000;
+    font-size: 0.5em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    min-height: 1.2em;
+    animation: errorGlow 0.5s ease-in-out;
+}
+
+.error-message.success {
+    color: #00ff00;
+    animation: successGlow 0.5s ease-in-out;
+}
+
+@keyframes errorGlow {
+    0% { opacity: 0; transform: translateX(-10px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes successGlow {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.form-error {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.6em;
+}
+
+/* Footer styling */
+.retro-footer {
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.pixel-text {
+    color: #00cc00;
+    font-size: 0.5em;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.scan-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff00, transparent);
+    animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .retro-container {
+        margin: 10px;
+        max-width: none;
+    }
+    
+    .pixel-frame {
+        padding: 20px 15px;
+    }
+    
+    .pixel-title {
+        font-size: 1em;
+    }
+    
+    .pixel-input {
+        font-size: 0.5em;
+        padding: 10px 6px;
+    }
+    
+    .pixel-button {
+        font-size: 0.6em;
+        padding: 12px 25px;
+    }
+    
+    .pixel-label {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 480px) {
+    .pixel-title {
+        font-size: 0.8em;
+    }
+    
+    .pixel-input {
+        font-size: 0.45em;
+    }
+    
+    .pixel-button {
+        font-size: 0.5em;
+        padding: 10px 20px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .pixel-frame {
+        border-color: #ffffff;
+        box-shadow: 
+            0 0 0 2px #ffffff,
+            0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    
+    .pixel-title,
+    .pixel-label {
+        color: #ffffff;
+    }
+    
+    .pixel-input {
+        color: #ffffff;
+        border-color: #ffffff;
+    }
+    
+    .pixel-button {
+        border-color: #ffffff;
+        color: #ffffff;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    body::before {
+        animation: none;
+    }
+}

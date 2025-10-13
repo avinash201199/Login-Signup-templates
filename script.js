@@ -36,6 +36,7 @@ const templateFolders = [
   "Kartik Tripathi",
   "Kruti Amrutiya",
   "Minaal",
+  "Mohit Pandey",
   "Sahil-Kumar",
   "samim29",
 "shivaram",
@@ -64,7 +65,7 @@ const templateFolders = [
     "Tech Zero",
     "Template 1",
   "Template 2",
-  "OnkarJondhale"
+  "OnkarJondhale",
   "Kanishka",
 ];
 
@@ -102,6 +103,7 @@ const workingTemplates = [
   "Kartik Tripathi",
   "Kruti Amrutiya",
   "Minaal",
+  "Mohit Pandey",
   "Sahil-Kumar",
   "samim29",
     "SaurabhMishra(edtech+ecommerce)",
@@ -112,7 +114,7 @@ const workingTemplates = [
     "Avinash",
     "Dev-Portal-Shikha",
   "Split-Screen-Dark-Shikha",
-  "OnkarJondhale"
+  "OnkarJondhale",
   "Kanishka",
 ];
 

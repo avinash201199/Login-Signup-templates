@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Bit Retro Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="retro-container">
+        <div class="pixel-frame">
+            <header class="retro-header">
+                <h1 class="pixel-title">SYSTEM LOGIN</h1>
+                <div class="pixel-subtitle">ACCESS TERMINAL</div>
+            </header>
+            
+            <form class="retro-form" id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="username" class="pixel-label">USERNAME:</label>
+                    <div class="input-container">
+                        <input 
+                            type="text" 
+                            id="username" 
+                            name="username" 
+                            class="pixel-input" 
+                            placeholder="ENTER USERNAME"
+                            required
+                            autocomplete="username"
+                            aria-describedby="username-error"
+                        >
+                        <div class="pixel-cursor"></div>
+                    </div>
+                    <div id="username-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="pixel-label">PASSWORD:</label>
+                    <div class="input-container">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            class="pixel-input" 
+                            placeholder="ENTER PASSWORD"
+                            required
+                            autocomplete="current-password"
+                            aria-describedby="password-error"
+                        >
+                        <div class="pixel-cursor"></div>
+                    </div>
+                    <div id="password-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit" class="pixel-button" id="loginButton">
+                        <span class="button-text">LOGIN</span>
+                        <div class="button-pixel"></div>
+                    </button>
+                </div>
+
+                <div id="form-error" class="error-message form-error" role="alert" aria-live="polite"></div>
+            </form>
+
+            <footer class="retro-footer">
+                <div class="pixel-text">SYSTEM STATUS: READY</div>
+                <div class="scan-line"></div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Form validation and interaction
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username');
+            const password = document.getElementById('password');
+            const usernameError = document.getElementById('username-error');
+            const passwordError = document.getElementById('password-error');
+            const formError = document.getElementById('form-error');
+            const loginButton = document.getElementById('loginButton');
+            
+            // Clear previous errors
+            usernameError.textContent = '';
+            passwordError.textContent = '';
+            formError.textContent = '';
+            
+            let isValid = true;
+            
+            // Validate username
+            if (!username.value.trim()) {
+                usernameError.textContent = 'ERROR: USERNAME REQUIRED';
+                isValid = false;
+            } else if (username.value.trim().length < 3) {
+                usernameError.textContent = 'ERROR: USERNAME TOO SHORT';
+                isValid = false;
+            }
+            
+            // Validate password
+            if (!password.value.trim()) {
+                passwordError.textContent = 'ERROR: PASSWORD REQUIRED';
+                isValid = false;
+            } else if (password.value.trim().length < 6) {
+                passwordError.textContent = 'ERROR: PASSWORD TOO SHORT';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Simulate login process
+                loginButton.innerHTML = '<span class="button-text">AUTHENTICATING...</span><div class="button-pixel"></div>';
+                loginButton.disabled = true;
+                
+                setTimeout(() => {
+                    formError.textContent = 'LOGIN SUCCESSFUL! WELCOME TO THE SYSTEM.';
+                    formError.classList.add('success');
+                    loginButton.innerHTML = '<span class="button-text">ACCESS GRANTED</span><div class="button-pixel"></div>';
+                }, 2000);
+            } else {
+                formError.textContent = 'AUTHENTICATION FAILED. CHECK YOUR CREDENTIALS.';
+            }
+        });
+
+        // Add pixel-style focus effects
+        document.querySelectorAll('.pixel-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
+            });
+        });
+
+        // Add typing animation effect
+        document.querySelectorAll('.pixel-input').forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value.length > 0) {
+                    this.parentElement.classList.add('typing');
+                } else {
+                    this.parentElement.classList.remove('typing');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
