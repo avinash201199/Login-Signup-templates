@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce Login & Signup</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 360px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .forms {
+      display: flex;
+      width: 200%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    form {
+      width: 50%;
+      padding: 40px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .input-field {
+      width: 100%;
+      margin: 10px 0;
+      position: relative;
+    }
+
+    .input-field input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-field input:focus {
+      border-color: #667eea;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #667eea;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #5a6fd1;
+    }
+
+    .toggle-text {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .toggle-text a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .toggle-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* Transition classes */
+    .container.signup-active .forms {
+      transform: translateX(-50%);
+    }
+
+    /* Small screen */
+    @media (max-width: 420px) {
+      .container {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="container">
+    <div class="forms">
+      <!-- Login Form -->
+      <form id="login-form">
+        <h2>Login</h2>
+        <div class="input-field">
+          <input type="text" id="login-email" placeholder="Email" required />
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" placeholder="Password" required />
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="toggle-text">
+          Don't have an account?
+          <a id="to-signup">Sign Up</a>
+        </div>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signup-form">
+        <h2>Sign Up</h2>
+        <div class="input-field">
+          <input type="text" id="signup-name" placeholder="Full Name" required />
+        </div>
+        <div class="input-field">
+          <input type="email" id="signup-email" placeholder="Email" required />
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" placeholder="Password" required />
+        </div>
+        <button type="submit" class="btn">Create Account</button>
+        <div class="toggle-text">
+          Already have an account?
+          <a id="to-login">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById("container");
+    const toSignup = document.getElementById("to-signup");
+    const toLogin = document.getElementById("to-login");
+
+    toSignup.addEventListener("click", () => {
+      container.classList.add("signup-active");
+    });
+
+    toLogin.addEventListener("click", () => {
+      container.classList.remove("signup-active");
+    });
+
+    // Optional JS logic for alerts/demo
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Login successful (demo)");
+    });
+
+    document.getElementById("signup-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Signup successful (demo)");
+    });
+  </script>
+</body>
+</html>
