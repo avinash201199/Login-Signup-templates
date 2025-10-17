@@ -54,6 +54,7 @@ const templateFolders = [
     "colorlib Template",
     "Dev-Portal-Shikha",
     "Dhruva Bhat",
+    "Mohit Pandey",
     "Foolish Developer",
     "Ivan Grozdic",
     "Himanshu",
@@ -94,6 +95,7 @@ const workingTemplates = [
   "Foolish Developer",
   "Ivan Grozdic",
   "Modern Animated Template",
+  "Mohit Pandey",
   "Pranilash",
   "Tech Zero",
   "Template 1",
@@ -116,7 +118,7 @@ const workingTemplates = [
     "Avinash",
     "Dev-Portal-Shikha",
   "Split-Screen-Dark-Shikha",
-  "OnkarJondhale"
+  "OnkarJondhale",
   "Kanishka",
 ];
 
