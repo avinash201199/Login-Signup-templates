@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Signup | Hacktoberfest</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- Toggle Panel to Signin -->
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel">
+                    <h1>Welcome Back!</h1>
+                    <p>Already have an account? Sign in to access all the site features.</p>
+                    <a href="index.html" class="hidden-button" id="login">Sign In</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="form-container">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon" aria-label="Sign up with Google"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon" aria-label="Sign up with GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" aria-label="Name">
+                <input type="email" placeholder="Email" aria-label="Email">
+                <div class="password-container">
+                    <input type="password" id="signup-password" placeholder="Password" aria-label="Password">
+                    <i class="fa-solid fa-eye-slash" id="toggle-signup-password" role="button" aria-label="Toggle password visibility"></i>
+                </div>
+                <div class="password-strength">
+                    <div class="strength-bar"></div>
+                    <p>Password strength</p>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" role="button" aria-label="Toggle Dark/Light Mode">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

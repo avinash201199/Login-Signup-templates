@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Theme Colors */
+    --primary-color: #512da8;
+    --secondary-color: #ff4081;
+
+    /* Light Mode Variables */
+    --background-color-light: #f5f5f5;
+    --text-color-light: #333;
+    --container-background-light: #fff;
+    --input-background-light: #eee;
+    --icon-border-light: #ccc;
+    
+    /* Dark Mode Variables */
+    --background-color-dark: #121212;
+    --text-color-dark: #f5f5f5;
+    --container-background-dark: #1e1e1e;
+    --input-background-dark: #333;
+    --icon-border-dark: #555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
+    transition: background-color 0.4s ease;
+    /* Set default variables */
+    --text-color: var(--text-color-light);
+    --container-bg: var(--container-background-light);
+    --input-bg: var(--input-background-light);
+    --icon-border: var(--icon-border-light);
+}
+
+body.dark-mode {
+    background: #000;
+    /* Override variables for dark mode */
+    --text-color: var(--text-color-dark);
+    --container-bg: var(--container-background-dark);
+    --input-bg: var(--input-background-dark);
+    --icon-border: var(--icon-border-dark);
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    display: flex;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    border-radius: 30px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.form-container, .toggle-container {
+    width: 50%;
+    padding: 0 40px;
+}
+
+.container form {
+    background-color: var(--container-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    transition: background-color 0.4s ease;
+}
+
+.container h1 { font-weight: bold; margin: 0; }
+.container p { font-size: 14px; line-height: 20px; letter-spacing: 0.5px; margin: 20px 0 30px; }
+.container span { font-size: 12px; margin: 15px 0; }
+.container a { color: var(--text-color); font-size: 13px; text-decoration: none; margin: 15px 0; }
+
+.container input {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: none;
+    margin: 8px 0;
+    padding: 12px 15px;
+    font-size: 14px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+button, .hidden-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 12px;
+    padding: 12px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 80ms ease-in, box-shadow 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .hidden-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(81, 45, 168, 0.4);
+}
+
+.hidden-button { background-color: transparent; border-color: #fff; }
+.hidden-button:hover { box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); }
+
+.social-icons { margin: 20px 0; }
+.social-icons a {
+    border: 1px solid var(--icon-border);
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icons a:hover { background-color: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+
+.toggle-container { padding: 0; overflow: hidden; }
+.toggle { background: linear-gradient(to right, var(--secondary-color), var(--primary-color)); color: #fff; height: 100%; width: 100%; display: flex; align-items: center; justify-content: center; }
+.toggle-panel { width: 100%; padding: 0 40px; text-align: center; }
+
+.password-container { position: relative; width: 100%; }
+.password-container input { padding-right: 45px; }
+.password-container i { position: absolute; top: 50%; right: 15px; transform: translateY(-50%); cursor: pointer; color: #888; }
+
+.password-strength { width: 100%; margin-top: 5px; }
+.strength-bar { width: 100%; height: 10px; background-color: var(--input-bg); border-radius: 5px; position: relative; overflow: hidden; }
+
+/* FIXED: This ::before pseudo-element will now correctly display the colored bar */
+.strength-bar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0; /* Default width is 0, JS will change class to set width */
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.strength-bar.weak::before { background-color: #ff4d4d; width: 33%; }
+.strength-bar.medium::before { background-color: #ffd700; width: 66%; }
+.strength-bar.strong::before { background-color: #2ecc71; width: 100%; }
+
+.password-strength p { font-size: 12px; margin-top: 5px; color: #888; }
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px 12px;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+@media (max-width: 768px) {
+    .container { flex-direction: column; width: 100%; min-height: 100vh; border-radius: 0; }
+    .form-container, .toggle-container { width: 100%; min-height: 50vh; }
+    #container > .toggle-container { order: -1; }
+}
