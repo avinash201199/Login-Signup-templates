@@ -1,0 +1,138 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4a90e2, #9013fe);
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Form Card */
+form {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideIn 0.8s ease forwards;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.8rem;
+  font-weight: 600;
+}
+
+/* Form Groups */
+.form-group {
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+/* Floating Label */
+label {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  color: #777;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* When focused or filled */
+input:focus + label,
+textarea:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 0.8rem;
+  background: #fff;
+  padding: 0 5px;
+  color: #4a90e2;
+}
+
+/* Focused Input */
+input:focus,
+textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background: #4a90e2;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #3b7dd8;
+  transform: translateY(-2px);
+}
+
+/* Status text */
+#status {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  form {
+    padding: 1.5rem;
+  }
+}

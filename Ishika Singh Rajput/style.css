@@ -1,0 +1,283 @@
+/* Import Google Font for a clean look (Optional) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --dark-bg: #0d0c1d;
+    --neon-blue: #00bcd4;
+    --neon-purple: #7f00ff;
+    --text-light: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --input-bg: #f8f8f8;
+    --input-border: #bbbbbb;
+    --button-gradient: linear-gradient(45deg, #009688, #00bcd4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.template-container {
+    display: flex;
+    width: 900px;
+    height: 600px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* --- LEFT PANEL: Abstract Welcome Area --- */
+.abstract-panel {
+    width: 50%;
+    background: var(--dark-bg);
+    /* The complex waves require an SVG/image, this provides the gradient base: */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.abstract-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Placeholder for the abstract light glow */
+    background: radial-gradient(circle at center, rgba(0, 188, 212, 0.1), rgba(127, 0, 255, 0.1) 60%, transparent);
+}
+
+.welcome-content {
+    z-index: 1;
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.welcome-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #aaa;
+    margin-bottom: 40px;
+}
+
+.cta-buttons .btn {
+    padding: 10px 30px;
+    border: 2px solid;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0 10px;
+    background: none;
+}
+
+.login-btn {
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+}
+
+.signup-btn {
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
+}
+
+.login-btn:hover {
+    background-color: var(--neon-blue);
+    color: var(--dark-bg);
+}
+
+/* --- RIGHT PANEL: Glassmorphism Login Area --- */
+.login-panel {
+    width: 50%;
+    /* The glass effect uses the background of the template-container as its backdrop */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    padding: 40px;
+    width: 90%;
+    /* Optional: slightly brighter card background for contrast */
+    background: rgba(255, 255, 255, 0.15); 
+    border-radius: 10px;
+}
+
+.switch-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.switch-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-right: 15px;
+}
+
+.signup-text {
+    font-size: 1.2rem;
+    color: #999;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+/* Input and Form Styles */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 50px; /* Space for the icon */
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--neon-blue);
+}
+
+/* Options (Remember Me/Forgot Password) */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.options a {
+    color: var(--text-light);
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    cursor: pointer;
+    /* Neon button look using the gradient */
+    background: var(--button-gradient);
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.5);
+    transition: box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+    box-shadow: 0 5px 20px rgba(0, 188, 212, 0.8);
+}
+
+
+/* --- Toggle Switch Styles (Simplified) --- */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--neon-blue);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Add these new utility classes to the end of your style.css */
+
+.hidden {
+    display: none !important;
+}
+
+/* Styles to flip the panel colors/text on signup */
+.active-signup .login-btn {
+    border-color: #7f00ff; /* Neon Purple */
+    color: #7f00ff;
+    background: none;
+}
+
+.active-signup .signup-btn {
+    border-color: #00bcd4; /* Neon Blue */
+    color: #0d0c1d; /* Dark BG text */
+    background-color: #00bcd4;
+}
+
+/* Adjust the abstract panel gradient for the Signup state */
+.active-signup .abstract-panel::before {
+    background: radial-gradient(circle at center, rgba(127, 0, 255, 0.1), rgba(0, 188, 212, 0.1) 60%, transparent);
+}

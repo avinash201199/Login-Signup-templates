@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+:root{
+  --bg: radial-gradient(1200px 800px at 10% 10%, #1b3561 0%, transparent 60%),
+        radial-gradient(1200px 800px at 90% 20%, #4b2b7a 0%, transparent 60%),
+        radial-gradient(1200px 800px at 20% 90%, #0b5f6b 0%, transparent 60%),
+        #0b0f1a;
+  --card: rgba(255,255,255,0.08);
+  --stroke: rgba(255,255,255,0.14);
+  --text: #e8eef7;
+  --muted:#aac0df;
+  --focus:#8ab4ff;
+  --accent:#7c4dff;
+  --cta:#00d4ff;
+  --danger:#ff4d6d;
+}
+
+/* light mode variables for when parent page toggles body.light-mode */
+body.light-mode :root,
+.light :root { /* fallback if used standalone */
+  --bg: radial-gradient(1200px 800px at 10% 10%, #e9f0ff 0%, transparent 60%),
+        radial-gradient(1200px 800px at 90% 20%, #f2e9ff 0%, transparent 60%),
+        radial-gradient(1200px 800px at 20% 90%, #e9fbff 0%, transparent 60%),
+        #f6f8fc;
+  --card: rgba(255,255,255,0.7);
+  --stroke: rgba(14,30,54,0.12);
+  --text:#1c2838;
+  --muted:#4b5b70;
+  --focus:#3b82f6;
+  --accent:#6d28d9;
+  --cta:#0ea5e9;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+.aurora{
+  position: fixed; inset: -20vmax; pointer-events:none; z-index:-1;
+  background: conic-gradient(from 180deg at 50% 50%, rgba(124,77,255,.25), rgba(14,165,233,.2), rgba(255,77,109,.2), rgba(124,77,255,.25));
+  filter: blur(80px) saturate(140%);
+  animation: drift 30s ease-in-out infinite;
+}
+
+@keyframes drift{ 0%{ transform: translate3d(0,0,0) rotate(0deg);} 50%{ transform: translate3d(6%, -4%, 0) rotate(20deg);} 100%{ transform: translate3d(0,0,0) rotate(0deg);} }
+
+.container{ min-height:100vh; display:grid; place-items:center; padding:24px; }
+
+.brand{ display:flex; gap:10px; align-items:center; margin-bottom:14px; color:var(--muted); }
+.brand h1{ font-size:18px; font-weight:700; letter-spacing:.3px; margin:0; color:var(--text); }
+
+.card{
+  width: min(960px, 92vw);
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  backdrop-filter: blur(18px) saturate(130%);
+}
+
+.tabs{ display:flex; padding:10px; gap:8px; }
+.tab{
+  border: 1px solid var(--stroke);
+  background: transparent;
+  color: var(--muted);
+  padding:10px 14px; border-radius: 10px; cursor:pointer; font-weight:600;
+}
+.tab.active{ color: var(--text); border-color: var(--focus); box-shadow: 0 0 0 3px color-mix(in oklab, var(--focus) 30%, transparent); }
+
+.panels{ padding: 18px clamp(18px, 4vw, 28px) 8px; }
+.panel{ display:none; }
+.panel.active{ display:block; }
+
+.grid{ display:grid; gap:14px; grid-template-columns: 1fr; }
+@media (min-width: 640px){ .grid{ grid-template-columns: repeat(2,1fr);} }
+
+.field{ display:grid; gap:8px; margin-bottom:14px; }
+.field label{ font-weight:600; font-size:14px; color:var(--muted); }
+.field input{
+  width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--stroke);
+  background: color-mix(in oklab, var(--card) 60%, transparent);
+  color:var(--text); outline: none;
+}
+.field input:focus{ border-color: var(--focus); box-shadow: 0 0 0 4px color-mix(in oklab, var(--focus) 25%, transparent); }
+
+.with-action{ grid-template-columns: 1fr auto; align-items:end; }
+.with-action .field-col{ display:grid; gap:8px; }
+.ghost{ border:1px dashed var(--stroke); background:transparent; color:var(--muted); padding:10px 12px; border-radius:10px; cursor:pointer; }
+.ghost:hover{ color: var(--text); }
+
+.extras{ display:flex; justify-content:space-between; align-items:center; margin-top:4px; margin-bottom:12px; gap:12px; }
+.checkbox{ display:flex; align-items:center; gap:8px; color:var(--muted); }
+.checkbox input{ accent-color: var(--focus); }
+.link{ color: var(--focus); text-decoration: none; }
+.link:hover{ text-decoration: underline; }
+
+.cta{
+  width:100%; padding:12px 16px; border:none; border-radius:12px; font-weight:700; cursor:pointer;
+  background: linear-gradient(90deg, var(--accent), var(--cta)); color:#071018;
+  box-shadow: 0 8px 24px color-mix(in oklab, var(--cta) 45%, transparent);
+}
+.cta:hover{ filter: brightness(1.05); }
+
+.fineprint{ padding: 6px 18px 18px; color:var(--muted); font-size: 13px; }

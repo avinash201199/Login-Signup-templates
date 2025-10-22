@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Signup</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    }
+
+    .container {
+      position: relative;
+      width: 380px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      padding: 40px 30px;
+      transition: all 0.4s ease;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .form {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .form.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: #4e54c8;
+    }
+
+    button {
+      padding: 12px;
+      background: #4e54c8;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #3f44a2;
+    }
+
+    .switch {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .switch a {
+      color: #4e54c8;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .switch a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: 90%;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Login Form -->
+    <div class="form login active">
+      <h2>Login</h2>
+      <input type="text" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button onclick="login()">Login</button>
+      <div class="switch">
+        Don’t have an account?
+        <a onclick="toggleForm('signup')">Sign up</a>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="form signup">
+      <h2>Sign Up</h2>
+      <input type="text" id="signupName" placeholder="Full Name" required />
+      <input type="email" id="signupEmail" placeholder="Email" required />
+      <input type="password" id="signupPassword" placeholder="Password" required />
+      <button onclick="signup()">Sign Up</button>
+      <div class="switch">
+        Already have an account?
+        <a onclick="toggleForm('login')">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.querySelector(".form.login");
+    const signupForm = document.querySelector(".form.signup");
+
+    // Toggle between Login and Signup
+    function toggleForm(form) {
+      if (form === "signup") {
+        loginForm.classList.remove("active");
+        signupForm.classList.add("active");
+      } else {
+        signupForm.classList.remove("active");
+        loginForm.classList.add("active");
+      }
+    }
+
+    // Mock login
+    function login() {
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+      if (email && password) {
+        alert(`Welcome back, ${email}!`);
+      } else {
+        alert("Please enter your credentials.");
+      }
+    }
+
+    // Mock signup
+    function signup() {
+      const name = document.getElementById("signupName").value;
+      const email = document.getElementById("signupEmail").value;
+      const password = document.getElementById("signupPassword").value;
+      if (name && email && password) {
+        alert(`Account created for ${name}!`);
+        toggleForm("login");
+      } else {
+        alert("Please fill all fields.");
+      }
+    }
+  </script>
+</body>
+</html>

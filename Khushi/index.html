@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Journal - Login / Signup</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="form-box" id="formBox">
+      <h2 id="title">Join Movie Journal 🎬</h2>
+
+      <form id="form">
+        <div id="nameField" class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="Full Name" id="name" />
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" placeholder="Email" id="email" />
+        </div>
+
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Password" id="password" />
+        </div>
+
+        <div id="confirmField" class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Confirm Password" id="confirm" />
+        </div>
+
+        <button type="submit" id="submitBtn">Sign Up</button>
+      </form>
+
+      <p class="switch">
+        Already have an account? <span id="switchLink">Login</span>
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

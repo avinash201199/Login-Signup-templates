@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-box login-form active">
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Login to your account</p>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <input type="email" id="loginEmail" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="loginPassword" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="options">
+                        <label class="remember">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+                <p class="toggle-text">
+                    Don't have an account? 
+                    <a href="#" class="toggle-link" id="showSignup">Sign up</a>
+                </p>
+            </div>
+
+            <div class="form-box signup-form">
+                <h2>Create Account</h2>
+                <p class="subtitle">Sign up to get started</p>
+                <form id="signupForm">
+                    <div class="input-group">
+                        <input type="text" id="signupName" required>
+                        <label>Full Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="signupEmail" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="signupPassword" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="signupConfirmPassword" required>
+                        <label>Confirm Password</label>
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+                </form>
+                <p class="toggle-text">
+                    Already have an account? 
+                    <a href="#" class="toggle-link" id="showLogin">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

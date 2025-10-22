@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login — Haris Iftikhar</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="center">
+      <section class="card">
+        <div class="brand">Haris Iftikhar</div>
+        <h1>Welcome back</h1>
+        <p class="muted">Sign in to continue to your account</p>
+
+        <form id="login-form">
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" required placeholder="you@example.com">
+          </label>
+
+          <label class="field">
+            <span>Password</span>
+            <input type="password" name="password" required placeholder="Enter password">
+          </label>
+
+          <div class="row between">
+            <label class="checkbox"><input type="checkbox" name="remember"> Remember me</label>
+            <a class="link" href="#">Forgot?</a>
+          </div>
+
+          <button class="btn primary" type="submit">Sign in</button>
+
+          <p class="small">Don't have an account? <a href="signup.html">Sign up</a></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

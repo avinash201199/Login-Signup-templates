@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeoGlass Auth Template</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <div class="auth-container">
+    <div class="auth-box">
+      <div class="toggle-section">
+        <button id="loginTab" class="active">Login</button>
+        <button id="signupTab">Signup</button>
+      </div>
+
+      <form id="loginForm" class="form active">
+        <h2>Welcome Back 👋</h2>
+        <div class="input-group">
+          <i class="ri-mail-line"></i>
+          <input type="email" placeholder="Email Address" required>
+        </div>
+        <div class="input-group">
+          <i class="ri-lock-line"></i>
+          <input type="password" placeholder="Password" required>
+        </div>
+        <div class="options">
+          <label><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit" class="submit-btn">Login</button>
+      </form>
+
+      <form id="signupForm" class="form">
+        <h2>Create Account ✨</h2>
+        <div class="input-group">
+          <i class="ri-user-line"></i>
+          <input type="text" placeholder="Full Name" required>
+        </div>
+        <div class="input-group">
+          <i class="ri-mail-line"></i>
+          <input type="email" placeholder="Email Address" required>
+        </div>
+        <div class="input-group">
+          <i class="ri-lock-line"></i>
+          <input type="password" placeholder="Password" required minlength="6">
+        </div>
+        <div class="input-group">
+          <i class="ri-lock-password-line"></i>
+          <input type="password" placeholder="Confirm Password" required minlength="6">
+        </div>
+        <button type="submit" class="submit-btn">Signup</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

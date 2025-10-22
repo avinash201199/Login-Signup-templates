@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Login / Signup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Video Background -->
+    <video class="video-background" autoplay muted loop playsinline>
+      <source
+        src="https://www.pexels.com/download/video/3129595"
+        type="video/mp4"
+      />
+    </video>
+    <div class="video-overlay"></div>
+
+    <div class="container">
+      <div class="form-container">
+        <div class="glow-text">NEON</div>
+
+        <div class="tabs">
+          <button class="tab active" onclick="switchTab('login')">Login</button>
+          <button class="tab" onclick="switchTab('signup')">Sign Up</button>
+          <div class="tab-indicator" id="tabIndicator"></div>
+        </div>
+
+        <div class="form-content">
+          <!-- Login Form -->
+          <div class="form active" id="loginForm">
+            <form onsubmit="handleLogin(event)">
+              <div class="input-group">
+                <label for="loginEmail">Email</label>
+                <input
+                  type="email"
+                  id="loginEmail"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="loginPassword">Password</label>
+                <input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="Enter your password"
+                  required
+                />
+                <span
+                  class="password-toggle"
+                  onclick="togglePassword('loginPassword')"
+                  >👁️</span
+                >
+              </div>
+              <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+              </div>
+              <button type="submit" class="submit-btn">Login</button>
+            </form>
+          </div>
+
+          <!-- Signup Form -->
+          <div class="form" id="signupForm">
+            <form onsubmit="handleSignup(event)">
+              <div class="input-group">
+                <label for="signupEmail">Email</label>
+                <input
+                  type="email"
+                  id="signupEmail"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="signupPassword">Password</label>
+                <input
+                  type="password"
+                  id="signupPassword"
+                  placeholder="Create a password"
+                  required
+                />
+                <span
+                  class="password-toggle"
+                  onclick="togglePassword('signupPassword')"
+                  >👁️</span
+                >
+              </div>
+              <div class="input-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  placeholder="Confirm your password"
+                  required
+                />
+                <span
+                  class="password-toggle"
+                  onclick="togglePassword('confirmPassword')"
+                  >👁️</span
+                >
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="terms" required />
+                <label for="terms">I agree to the Terms & Conditions</label>
+              </div>
+              <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Nova Auth</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="glass-card">
+      <h2>Welcome Back</h2>
+      <p class="subtitle">Sign in to continue your journey</p>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" required />
+        </div>
+
+        <button type="submit" class="btn">Login</button>
+
+        <div class="options">
+          <a href="#">Forgot Password?</a>
+          <a href="#">Create Account</a>
+        </div>
+      </form>
+
+      <div class="social-login">
+        <p>Or continue with</p>
+        <div class="social-icons">
+          <i class="fab fa-google"></i>
+          <i class="fab fa-github"></i>
+          <i class="fab fa-facebook"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

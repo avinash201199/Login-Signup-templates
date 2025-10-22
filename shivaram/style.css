@@ -1,0 +1,316 @@
+:root {
+    --primary-color: #888888;
+    --secondary-color: #555555; 
+    --text-color: #ffffff; 
+    --input-bg-color: rgba(255, 255, 255, 0.8); 
+    --form-bg-opacity: 0.1; 
+    --overlay-bg-opacity: 0.1;
+    --link-color: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url('image.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+/* --- Main Container (The entire card) --- */
+.container {
+    background-color: rgba(255, 255, 255, 0.05); /* Very light, almost transparent base */
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle border */
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+/* --- Forms & Inputs --- */
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+    background-color: rgba(255, 255, 255, var(--form-bg-opacity));
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    padding: 0 40px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+span {
+    font-size: 12px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+input {
+    background-color: var(--input-bg-color);
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    color: #333;
+    font-weight: 600;
+    transition: box-shadow 0.3s ease;
+}
+
+input::placeholder {
+    color: #666;
+}
+
+input:focus {
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+/* Positioning the Forms */
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.log-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, var(--form-bg-opacity));
+}
+
+/* --- Buttons --- */
+.primary-btn {
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in, background-color 0.3s ease;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.primary-btn:active {
+    transform: scale(0.95);
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.ghost {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ghost:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.forgot-link {
+    color: var(--link-color);
+    font-size: 12px;
+    margin: 15px 0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.forgot-link:hover {
+    color: var(--primary-color); /* Highlight with the accent color */
+}
+
+/* --- Social Login --- */
+.social-container {
+    margin: 15px 0 10px;
+}
+
+.social-btn {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff; /* Ensure social icons are white */
+}
+
+.google-btn {
+    background-color: rgba(0, 0, 0, 0.6); /* Translucent Google Blue */
+    border-color: rgba(0, 0, 0, 0.8);
+}
+
+.github-btn {
+    background-color: rgba(23, 21, 21, 0.6); /* Translucent GitHub Black */
+    border-color: rgba(23, 21, 21, 0.8);
+}
+
+.social-btn:hover {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- Overlay/Toggle Panel --- */
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.overlay {
+    /* Subtle, dark, transparent gradient for the overlay */
+    background: linear-gradient(to right, rgba(0, 0, 0, var(--overlay-bg-opacity)), rgba(50, 50, 50, var(--overlay-bg-opacity)));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.overlay-panel h1 {
+    font-size: 30px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.overlay-panel p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+
+/* --- CONTAINER ACTIVE (Switching View) --- */
+
+.container.active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+.container.active .log-in-container {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.container.active .overlay {
+    transform: translateX(50%);
+}
+
+.container.active .overlay-left {
+    transform: translateX(0);
+}
+
+.container.active .overlay-right {
+    transform: translateX(20%);
+}
+
+@keyframes show {
+    0%, 49.99% {
+        opacity: 0;
+    }
+    50%, 100% {
+        opacity: 1;
+    }
+}

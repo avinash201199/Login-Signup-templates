@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Signup Template</title>
+    <link rel="stylesheet" href="styles/signup.css">
+</head>
+
+<body>
+    <div class="signup-container">
+        <div class="signup-header">
+            <h1>Create Account</h1>
+            <p>Join our community today</p>
+        </div>
+
+        <form id="signupForm" class="signup-form">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                <div class="error-message" id="nameError">Please enter a valid name</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <div class="error-message" id="emailError">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+                <div class="password-strength">
+                    <div class="strength-bar" id="passwordStrength"></div>
+                </div>
+                <div class="error-message" id="passwordError">Password must be at least 8 characters</div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password"
+                    required>
+                <div class="error-message" id="confirmError">Passwords do not match</div>
+            </div>
+
+            <div class="social-signup">
+                <span class="divider-text">Or sign up with</span>
+                <div class="social-buttons">
+                    <button type="button" class="social-btn google">
+                        <span>Google</span>
+                    </button>
+                    <button type="button" class="social-btn facebook">
+                        <span>Facebook</span>
+                    </button>
+                    <button type="button" class="social-btn github">
+                        <span>GitHub</span>
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Create Account
+            </button>
+        </form>
+
+        <div class="login-link">
+            Already have an account? <a href="#" class="login-link-text">Sign In</a>
+        </div>
+    </div>
+
+    <script src="js/signup.js"></script>
+</body>
+
+</html>

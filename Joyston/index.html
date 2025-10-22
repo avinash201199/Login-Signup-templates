@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Auth - Login & Signup</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Side - Visual -->
+        <div class="visual-side">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+            <div class="visual-content">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <h1>AuthFlow</h1>
+                </div>
+                <p class="tagline">Experience seamless authentication with modern design</p>
+            </div>
+        </div>
+
+        <!-- Right Side - Forms -->
+        <div class="form-side">
+            <div class="form-container">
+                <!-- Login Form -->
+                <div class="form-wrapper active" id="loginForm">
+                    <div class="form-header">
+                        <h2>Welcome Back</h2>
+                        <p>Sign in to your account</p>
+                    </div>
+                    
+                    <form class="auth-form" id="loginFormElement">
+                        <div class="input-group">
+                            <input type="email" id="loginEmail" required>
+                            <label for="loginEmail">Email Address</label>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="password" id="loginPassword" required>
+                            <label for="loginPassword">Password</label>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="rememberMe">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span>Sign In</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </form>
+                    
+                    <div class="form-footer">
+                        <p>Don't have an account? <a href="#" class="toggle-form" data-target="signup">Create Account</a></p>
+                    </div>
+                </div>
+
+                <!-- Signup Form -->
+                <div class="form-wrapper" id="signupForm">
+                    <div class="form-header">
+                        <h2>Create Account</h2>
+                        <p>Join us today</p>
+                    </div>
+                    
+                    <form class="auth-form" id="signupFormElement">
+                        <div class="input-group">
+                            <input type="text" id="signupName" required>
+                            <label for="signupName">Full Name</label>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="email" id="signupEmail" required>
+                            <label for="signupEmail">Email Address</label>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="password" id="signupPassword" required>
+                            <label for="signupPassword">Password</label>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="password" id="confirmPassword" required>
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="agreeTerms" required>
+                                <span class="checkmark"></span>
+                                I agree to the Terms & Conditions
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span>Create Account</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </form>
+                    
+                    <div class="form-footer">
+                        <p>Already have an account? <a href="#" class="toggle-form" data-target="login">Sign In</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <div class="toast-icon">✓</div>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

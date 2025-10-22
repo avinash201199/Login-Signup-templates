@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="matrixCanvas" class="matrix-bg"></canvas>
+    <canvas id="particleCanvas" class="particle-bg"></canvas>
+    <div class="container">
+        <div class="form-container">
+            <!-- Login Form -->
+            <form id="loginForm" class="form active">
+                <h2>Access Granted</h2>
+                <p class="subtitle">[ LOGIN TO SYSTEM ]</p>
+
+                <div class="input-group">
+                    <input type="email" id="loginEmail" required>
+                    <label for="loginEmail">Email</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="loginPassword" required>
+                    <label for="loginPassword">Password</label>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+
+                <p class="toggle-text">
+                    Don't have an account?
+                    <a href="#" id="showSignup">Sign up</a>
+                </p>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="signupForm" class="form">
+                <h2>Initialize User</h2>
+                <p class="subtitle">[ REGISTER NEW IDENTITY ]</p>
+
+                <div class="input-group">
+                    <input type="text" id="signupName" required>
+                    <label for="signupName">Full Name</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="signupEmail" required>
+                    <label for="signupEmail">Email</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="signupPassword" required>
+                    <label for="signupPassword">Password</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="signupConfirmPassword" required>
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                </div>
+
+                <label class="checkbox">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <span>I agree to the Terms & Conditions</span>
+                </label>
+
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+
+                <p class="toggle-text">
+                    Already have an account?
+                    <a href="#" id="showLogin">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

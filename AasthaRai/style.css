@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.wrapper {
+  width: 380px;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 0 25px rgba(98, 0, 255, 0.3);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.wrapper:hover {
+  box-shadow: 0 0 35px rgba(98, 0, 255, 0.6);
+}
+
+h2 {
+  font-weight: 600;
+  background: linear-gradient(45deg, #9d50bb, #6e48aa);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin-top: 5px;
+  margin-bottom: 1.5rem;
+}
+
+.input-box {
+  position: relative;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 2px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-box label {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  color: #aaa;
+  font-size: 0.9rem;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border-color: #8e2de2;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -10px;
+  left: 10px;
+  font-size: 0.75rem;
+  color: #8e2de2;
+  background: #0f0f0f;
+  padding: 0 6px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(45deg, #8e2de2, #4a00e0);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #9d50bb, #6e48aa);
+  transform: scale(1.02);
+}
+
+.social-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #ccc;
+  background: transparent;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.forgot {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #888;
+  cursor: pointer;
+}
+
+.or {
+  color: #666;
+  margin: 1rem 0;
+}
+
+.switch {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.switch a {
+  color: #8e2de2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
+}

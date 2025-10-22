@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Login/Register</title>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background video -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="https://cdn.pixabay.com/video/2016/02/16/2181-155747485_small.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <div class="card">
+      <!-- LOGIN FORM -->
+      <div class="front">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit">Login</button>
+          <p>Don't have an account? <span id="showRegister">Register</span></p>
+        </form>
+        <div class="social-login">
+          <p>Or login with</p>
+          <div class="social-icons">
+            <button class="google"><i class="fab fa-google"></i></button>
+            <button class="outlook"><i class="fas fa-envelope"></i></button>
+            <button class="github"><i class="fab fa-github"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div class="back">
+        <h2>Register</h2>
+        <form id="registerForm">
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit">Register</button>
+          <p>Already have an account? <span id="showLogin">Login</span></p>
+        </form>
+        <div class="social-login">
+          <p>Or register with</p>
+          <div class="social-icons">
+            <button class="google"><i class="fab fa-google"></i></button>
+            <button class="outlook"><i class="fas fa-envelope"></i></button>
+            <button class="github"><i class="fab fa-github"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Contact Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <form id="contactForm" class="slide-in">
+      <h2>Contact Us</h2>
+
+      <div class="form-group">
+        <input type="text" id="name" required />
+        <label for="name">Full Name</label>
+      </div>
+
+      <div class="form-group">
+        <input type="email" id="email" required />
+        <label for="email">Email Address</label>
+      </div>
+
+      <div class="form-group">
+        <textarea id="message" rows="4" required></textarea>
+        <label for="message">Message</label>
+      </div>
+
+      <button type="submit">Send Message</button>
+      <p id="status"></p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

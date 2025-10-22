@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+/* Background video */
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5); /* darken video for better readability */
+}
+
+/* Centering container */
+.container {
+  perspective: 1500px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.card {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease-in-out;
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-5px);
+}
+
+p {
+  color: #fff;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+p span {
+  color: #ffeb3b;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* SOCIAL ICON BUTTONS */
+.social-login {
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.social-login p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons button {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-icons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.social-icons .google { background: #db4437; color: #fff; }
+.social-icons .outlook { background: #0072c6; color: #fff; }
+.social-icons .github { background: #24292f; color: #fff; }
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .card { height: 500px; padding: 20px; }
+  h2 { font-size: 1.5rem; }
+  input, button[type="submit"], .social-icons button { padding: 12px; font-size: 1.1rem; }
+  p { font-size: 0.85rem; }
+}
+
+@media (max-width: 350px) {
+  .card { height: 470px; padding: 15px; }
+  h2 { font-size: 1.3rem; }
+  input, button[type="submit"], .social-icons button { padding: 10px; font-size: 1rem; }
+  p { font-size: 0.8rem; }
+}

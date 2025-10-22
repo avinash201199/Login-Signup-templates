@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-box" id="formBox">
+        <!-- Login Form -->
+        <form id="loginForm" class="form active">
+          <h2>Login</h2>
+          <div class="input-group">
+            <input type="text" required />
+            <label>Username</label>
+          </div>
+          <div class="input-group">
+            <input type="password" required />
+            <label>Password</label>
+          </div>
+          <button type="submit" class="btn">Login</button>
+          <p class="toggle-text">
+            Don't have an account?
+            <a href="#" id="signupLink">Sign up</a>
+          </p>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signupForm" class="form">
+          <h2>Sign Up</h2>
+          <div class="input-group">
+            <input type="text" required />
+            <label>Username</label>
+          </div>
+          <div class="input-group">
+            <input type="email" required />
+            <label>Email</label>
+          </div>
+          <div class="input-group">
+            <input type="password" required />
+            <label>Password</label>
+          </div>
+          <button type="submit" class="btn">Sign Up</button>
+          <p class="toggle-text">
+            Already have an account?
+            <a href="#" id="loginLink">Login</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const signupLink = document.getElementById("signupLink");
+      const loginLink = document.getElementById("loginLink");
+      const loginForm = document.getElementById("loginForm");
+      const signupForm = document.getElementById("signupForm");
+
+      signupLink.onclick = () => {
+        loginForm.classList.remove("active");
+        signupForm.classList.add("active");
+      };
+      loginLink.onclick = () => {
+        signupForm.classList.remove("active");
+        loginForm.classList.add("active");
+      };
+    </script>
+  </body>
+</html>

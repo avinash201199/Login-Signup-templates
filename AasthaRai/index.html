@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Signup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Login Form -->
+    <div class="form-box login">
+      <h2>Welcome Back 👋</h2>
+      <p class="subtitle">Connect with your friends and explore new stories every day.</p>
+
+      <form>
+        <div class="input-box">
+          <input type="email" required />
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <input type="password" required />
+          <label>Password</label>
+        </div>
+
+        <button type="submit" class="btn">Log In</button>
+        <p class="forgot">Forgot your password?</p>
+        <p class="or">──────── or ────────</p>
+        <button class="social-btn">Continue with Google</button>
+
+        <p class="switch">Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+      </form>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="form-box signup hidden">
+      <h2>Create Account ✨</h2>
+      <p class="subtitle">Join the community and share your favorite moments.</p>
+
+      <form>
+        <div class="input-box">
+          <input type="text" required />
+          <label>Username</label>
+        </div>
+        <div class="input-box">
+          <input type="email" required />
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <input type="password" required />
+          <label>Password</label>
+        </div>
+
+        <button type="submit" class="btn">Sign Up</button>
+        <p class="or">──────── or ────────</p>
+        <button class="social-btn">Sign up with Google</button>
+
+        <p class="switch">Already have an account? <a href="#" id="login-link">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

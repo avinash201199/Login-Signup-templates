@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloom Login & Signup</title>
+
+  <!-- FontAwesome for Icons -->
+  <script src="https://kit.fontawesome.com/a2e0b6c6c3.js" crossorigin="anonymous"></script>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" id="container">
+    <div class="form-container" id="form-container">
+      <h2 id="form-title">Login</h2>
+
+      <div class="input-field">
+        <input type="text" id="username" placeholder="Username" required />
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" placeholder="Password" required />
+      </div>
+
+      <button class="btn" onclick="login()">Login</button>
+
+      <div class="social-login">
+        <p>or login with</p>
+        <div class="social-icons">
+          <i class="fab fa-google"></i>
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-github"></i>
+        </div>
+      </div>
+
+      <div class="toggle" onclick="toggleForm()">
+        Don't have an account? <span>Sign up</span>
+      </div>
+    </div>
+
+    <div class="flower-page" id="flower-page">
+      <h2>Welcome to Bloom Garden 🌸</h2>
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Flowers" />
+      <p>Enjoy the beauty of nature and bloom with positivity!</p>
+    </div>
+  </div>
+
+  <!-- Inline JavaScript -->
+  <script>
+    let isSignup = false;
+
+    function toggleForm() {
+      const title = document.getElementById('form-title');
+      const btn = document.querySelector('.btn');
+      const toggle = document.querySelector('.toggle');
+
+      if (!isSignup) {
+        title.innerText = 'Sign Up';
+        btn.innerText = 'Sign Up';
+        toggle.innerHTML = 'Already have an account? <span>Login</span>';
+        isSignup = true;
+      } else {
+        title.innerText = 'Login';
+        btn.innerText = 'Login';
+        toggle.innerHTML = 'Don\'t have an account? <span>Sign up</span>';
+        isSignup = false;
+      }
+    }
+
+    function login() {
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('flower-page').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

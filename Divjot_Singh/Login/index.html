@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Sign Up</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card w-full max-w-md p-8">
+    <div class="flex justify-center mb-6">
+      <button id="loginTab" class="w-1/2 py-2 text-sm font-semibold text-gray-300 border-b-2 border-transparent hover:text-white tab-active rounded-l-xl">Login</button>
+      <button id="signupTab" class="w-1/2 py-2 text-sm font-semibold text-gray-300 border-b-2 border-transparent hover:text-white rounded-r-xl">Sign Up</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="fade">
+      <div class="mb-4">
+        <label class="block text-gray-200 mb-1 text-sm">Email</label>
+        <input type="email" class="input-field" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-2">
+        <label class="block text-gray-200 mb-1 text-sm">Password</label>
+        <input type="password" class="input-field" placeholder="Enter your password" required>
+      </div>
+      <div class="flex justify-end mb-4">
+        <a href="#" class="text-sm text-indigo-400 hover:underline">Forgot Password?</a>
+      </div>
+      <button type="submit" class="btn-primary">Login</button>
+
+      <div class="mt-6">
+        <p class="text-center text-gray-400 text-sm mb-3">or continue with</p>
+        <div class="flex justify-center gap-4">
+          <button class="social-btn">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google">
+            Google
+          </button>
+          <button class="social-btn">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+            GitHub
+          </button>
+        </div>
+      </div>
+    </form>
+
+
+    <form id="signupForm" class="hidden fade">
+      <div class="mb-4">
+        <label class="block text-gray-200 mb-1 text-sm">Full Name</label>
+        <input type="text" class="input-field" placeholder="Enter your name" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-200 mb-1 text-sm">Email</label>
+        <input type="email" class="input-field" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-200 mb-1 text-sm">Password</label>
+        <input type="password" class="input-field" placeholder="Create a password" required>
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-200 mb-1 text-sm">Confirm Password</label>
+        <input type="password" class="input-field" placeholder="Confirm your password" required>
+      </div>
+      <button type="submit" class="btn-primary">Create Account</button>
+
+      <div class="mt-6">
+        <p class="text-center text-gray-400 text-sm mb-3">or sign up with</p>
+        <div class="flex justify-center gap-4">
+          <button class="social-btn">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google">
+            Google
+          </button>
+          <button class="social-btn">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+            GitHub
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

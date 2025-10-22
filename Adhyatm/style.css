@@ -1,0 +1,118 @@
+*{
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    width:100%;
+    background-image: url("images/background.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#username, #password{
+    margin: 4px;
+    font-size: 18px;
+}
+fieldset{
+    background-color: black;
+    margin: auto;
+    
+    width: 100px;
+    background-color: black;
+    width: 250px; 
+    padding: 20px; 
+    border: 1px solid transparent; 
+    border-radius: 8px; 
+
+    
+}
+fieldset h2 {
+  color: #F5F5F5;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px; 
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; 
+    background-color: #AEC6CF;
+    display: block; 
+    margin: 5px auto 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+}
+fieldset form input{
+    background-color: rgb(0, 0, 0);
+    border-bottom:1px solid rgb(53, 53, 53);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: rgb(53, 53, 53);
+    padding: 10px;
+    width: 100%;
+
+    
+}
+fieldset form input:hover{
+    border: 1px solid rgb(117, 53, 117);
+    cursor: pointer;
+}
+
+fieldset form button {
+    border-radius: 30px;
+    width:100%;
+    font-size: 20px;
+    background-color: rgb(117, 53, 117);
+    border: none;
+    color: white;
+    padding: 8px;
+    margin: auto;
+}
+fieldset form button:hover{
+    cursor:pointer;
+    border: 1px solid white;
+}
+fieldset h3, a {
+    color: #555;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    
+} 
+.Register{
+    display: flex;
+    align-items: center;
+}
+.Register a {
+    margin: 3px;
+    text-align: center;
+    color: rgb(117, 53, 117);
+    
+}
+.Register h3 {
+    margin: 3px;
+    text-align: center;
+}
+#password{
+    cursor: pointer;
+    font-size: 15px;
+    
+}
+.Register a:hover {
+    cursor: pointer;   
+}
+#password:hover {
+    color: rgb(117, 53, 117);
+}
+form label {
+    color: white;
+}
+.remember{
+    display: flex;
+    align-items: center;
+
+}

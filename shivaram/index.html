@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login/Signup</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social-btn google-btn"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-btn github-btn"><i class="fab fa-github"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" required />
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Password" required />
+                <button class="primary-btn">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="form-container log-in-container">
+            <form action="#">
+                <h1>Welcome Back!</h1>
+                <div class="social-container">
+                    <a href="#" class="social-btn google-btn"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-btn github-btn"><i class="fab fa-github"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type="email" placeholder="Email Address" required />
+                <input type="password" placeholder="Password" required />
+                <a href="#" class="forgot-link">Forgot Password?</a>
+                <button class="primary-btn">Login</button>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Have an Account?</h1>
+                    <p>Log in to access your dashboard!</p>
+                    <button class="ghost" id="logIn">Login</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>New Here?</h1>
+                    <p>Enter your personal details and start your journey with us!</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

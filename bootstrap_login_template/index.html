@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Use data-bs-theme="dark" for dark mode and data-bs-theme="light" for light mode -->
+<html lang="en" style="height: 100vh" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="h-100">
+    <div class="container h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div
+          class="col-md-6 border border-2 rounded p-3 shadow"
+          style="height: 28rem"
+        >
+          <h2 class="text-center my-4">Login</h2>
+          <form
+            method="POST"
+            action="/login/"
+            class="gap-2 d-flex flex-column align-items-center"
+          >
+            <div class="mb-3 w-100">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                required
+              />
+            </div>
+            <div class="mb-3 w-100">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary w-75">Login</button>
+            <button type="button" class="btn btn-secondary w-75">
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurora Glass Auth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="aurora"></div>
+    <main class="container" role="main">
+      <header class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2L2 7l10 5 10-5-10-5Zm0 7L2 4v13l10 5 10-5V4l-10 5Z" stroke="currentColor" stroke-width="1.25" fill="none"/>
+        </svg>
+        <h1>Aurora Glass Auth</h1>
+      </header>
+
+      <section class="card" aria-labelledby="auth-tabs">
+        <div class="tabs" id="auth-tabs" role="tablist">
+          <button class="tab active" role="tab" aria-selected="true" aria-controls="panel-login" id="tab-login">Login</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-signup" id="tab-signup">Sign up</button>
+        </div>
+
+        <div class="panels">
+          <form id="panel-login" role="tabpanel" aria-labelledby="tab-login" class="panel active" autocomplete="on" novalidate>
+            <div class="field">
+              <label for="login-email">Email</label>
+              <input id="login-email" name="email" type="email" inputmode="email" placeholder="you@example.com" required />
+            </div>
+            <div class="field with-action">
+              <div class="field-col">
+                <label for="login-password">Password</label>
+                <input id="login-password" name="password" type="password" placeholder="••••••••" required />
+              </div>
+              <button type="button" class="ghost" id="login-toggle">Show</button>
+            </div>
+            <div class="extras">
+              <label class="checkbox">
+                <input type="checkbox" id="remember" />
+                <span>Remember me</span>
+              </label>
+              <a href="#" class="link">Forgot password?</a>
+            </div>
+            <button class="cta" type="submit">Sign in</button>
+          </form>
+
+          <form id="panel-signup" role="tabpanel" aria-labelledby="tab-signup" class="panel" autocomplete="on" novalidate>
+            <div class="grid">
+              <div class="field">
+                <label for="first-name">First name</label>
+                <input id="first-name" name="firstName" type="text" placeholder="Alex" required />
+              </div>
+              <div class="field">
+                <label for="last-name">Last name</label>
+                <input id="last-name" name="lastName" type="text" placeholder="Morgan" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="signup-email">Email</label>
+              <input id="signup-email" name="email" type="email" inputmode="email" placeholder="you@example.com" required />
+            </div>
+            <div class="field with-action">
+              <div class="field-col">
+                <label for="signup-password">Password</label>
+                <input id="signup-password" name="password" type="password" placeholder="At least 8 characters" required minlength="8" />
+              </div>
+              <button type="button" class="ghost" id="signup-toggle">Show</button>
+            </div>
+            <button class="cta" type="submit">Create account</button>
+          </form>
+        </div>
+
+        <footer class="fineprint">
+          <p>By continuing, you agree to our
+            <a href="#" class="link">Terms</a> and
+            <a href="#" class="link">Privacy Policy</a>.</p>
+        </footer>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+  </html>

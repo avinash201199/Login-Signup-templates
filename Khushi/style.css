@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(3px);
+}
+
+.container {
+  position: relative;
+  z-index: 5;
+}
+
+.form-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 380px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc;
+}
+
+input {
+  width: 100%;
+  padding: 12px 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+input::placeholder {
+  color: #bbb;
+}
+
+input:focus {
+  border-color: #ffcc00;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #ffcc00, #ff9900);
+  border: none;
+  border-radius: 8px;
+  color: #222;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #ff9900, #ffcc00);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+  transform: translateY(-2px);
+}
+
+.switch {
+  margin-top: 15px;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.switch span {
+  color: #ffcc00;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.switch span:hover {
+  color: #fff;
+}
+
+@media (max-width: 420px) {
+  .form-box {
+    width: 90%;
+    padding: 30px 20px;
+  }
+}
