@@ -63,11 +63,3 @@ When this class is applied, CSS transitions move the overlay panel smoothly to r
 
 You can see how the page works in the original concept by Florin Pop’s Blog Post
 .
-
-💻 Ideal For
-
-Login/Sign-Up pages for web applications
-
-Front-end practice projects
-
-Students learning modern UI/UX animations
