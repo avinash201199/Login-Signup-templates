@@ -44,6 +44,7 @@ const templateFolders = [
   "Khushi",
   "Kruti Amrutiya",
   "Minaal",
+  "Mehren_animated_temp",
   "Sahil-Kumar",
   "samim29",
   "shivaram",
