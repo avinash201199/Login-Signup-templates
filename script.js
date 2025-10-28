@@ -80,6 +80,7 @@ const templateFolders = [
   "OnkarJondhale",
   "SrushtiThombre",
   "Rohan",
+  "login-signup-glass",
   "Kanishka",
     "Ishika Singh Rajput",
     "Harsh-Login-Form",
@@ -137,6 +138,7 @@ const workingTemplates = [
   "Rohan",
   "OnkarJondhale",
   "Kanishka",
+  "login-signup-glass"
 ];
 
 //container element from the HTML

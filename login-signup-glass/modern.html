@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modern Login / Signup — Test</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- Base ---------- */
+    :root{
+      --card-w: 380px;
+      --glass-bg: rgba(255,255,255,0.12);
+      --glass-border: rgba(255,255,255,0.18);
+      --accent: linear-gradient(135deg,#ff8bd9,#7a5dfc 60%);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial;
+      background: #071126;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      color:#fff;
+    }
+
+    /* ---------- animated background blob ---------- */
+    .bg-blob{
+      position:fixed;
+      left:50%;
+      top:50%;
+      width:1200px;
+      height:1200px;
+      transform:translate(-50%,-50%);
+      background: radial-gradient(circle at 30% 30%, #ff9ad3 0%, transparent 25%),
+                  radial-gradient(circle at 70% 70%, #6e55ff 0%, transparent 25%),
+                  radial-gradient(circle at 50% 50%, rgba(0,0,0,0.06) 60%, transparent 100%);
+      filter: blur(140px) saturate(120%);
+      z-index:0;
+      pointer-events:none;
+      animation: drift 14s ease-in-out infinite alternate;
+      opacity:0.95;
+    }
+    @keyframes drift{
+      from{transform:translate(-60%,-55%) scale(1)}
+      to  {transform:translate(-40%,-45%) scale(1.05)}
+    }
+
+    /* ---------- card ---------- */
+    .card {
+      width:var(--card-w);
+      border-radius:18px;
+      padding:26px;
+      background: var(--glass-bg);
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(14px) saturate(120%);
+      box-shadow: 0 30px 60px rgba(4,8,20,0.55), inset 0 1px 0 rgba(255,255,255,0.03);
+      position:relative;
+      z-index:1;
+      color:#fff;
+    }
+
+    /* ---------- toggle ---------- */
+    .toggle {
+      display:flex;
+      gap:8px;
+      margin-bottom:20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:6px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .toggle button{
+      flex:1;
+      border:0;
+      background:transparent;
+      padding:10px 12px;
+      border-radius:999px;
+      color:rgba(255,255,255,0.85);
+      font-weight:600;
+      cursor:pointer;
+      transition: all .22s ease;
+    }
+    .toggle button.active{
+      background: white;
+      color:#0b1020;
+      box-shadow: 0 6px 18px rgba(11,16,32,0.18);
+    }
+
+    /* ---------- forms ---------- */
+    form { display:none; flex-direction:column; gap:10px; }
+    form.active { display:flex; }
+    form h2 { font-size:20px; margin-bottom:4px; }
+    .muted { color:rgba(255,255,255,0.72); font-size:13px; margin-bottom:10px; }
+
+    input[type="text"], input[type="email"], input[type="password"]{
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.04);
+      color:#fff;
+      outline:none;
+      font-size:14px;
+      transition: box-shadow .15s ease, transform .08s ease;
+    }
+    input::placeholder{ color: rgba(255,255,255,0.5) }
+
+    input:focus{
+      box-shadow: 0 6px 18px rgba(122,93,252,0.16);
+      transform: translateY(-1px);
+      border-color: rgba(122,93,252,0.6);
+    }
+
+    .primary {
+      margin-top:6px;
+      padding:12px;
+      border-radius:12px;
+      border:0;
+      font-weight:600;
+      cursor:pointer;
+      background: var(--accent);
+      color:white;
+      box-shadow: 0 8px 30px rgba(122,93,252,0.18);
+      transition: transform .12s ease;
+    }
+    .primary:active{ transform: translateY(1px) }
+
+    .link {
+      margin-top:8px;
+      font-size:13px;
+      color: rgba(255,255,255,0.8);
+      text-align:center;
+    }
+    .link span { color:#eaf2ff; font-weight:600; cursor:pointer }
+
+    /* small screen responsiveness */
+    @media (max-width:420px){
+      .card{ width:100%; padding:20px; border-radius:14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-blob" aria-hidden="true"></div>
+
+  <div class="card" role="main" aria-label="Authentication card">
+    <div class="toggle" role="tablist" aria-label="Login or Sign up">
+      <button id="btnLogin" class="active" aria-controls="loginForm" role="tab">Login</button>
+      <button id="btnSignup" aria-controls="signupForm" role="tab">Sign Up</button>
+    </div>
+
+    <!-- LOGIN -->
+    <form id="loginForm" class="active" autocomplete="on" novalidate>
+      <h2>Welcome back 👋</h2>
+      <div class="muted">Sign in to continue to your account</div>
+      <input id="loginEmail" type="email" placeholder="Email" required />
+      <input id="loginPassword" type="password" placeholder="Password" required />
+      <button class="primary" type="submit">Login</button>
+      <div class="link">Don't have an account? <span id="gotoSignup">Create one</span></div>
+    </form>
+
+    <!-- SIGNUP -->
+    <form id="signupForm" autocomplete="on" novalidate>
+      <h2>Create account 🚀</h2>
+      <div class="muted">Join us — it's free and only takes a minute</div>
+      <input id="signupName" type="text" placeholder="Full name" required />
+      <input id="signupEmail" type="email" placeholder="Email" required />
+      <input id="signupPassword" type="password" placeholder="Password (min 6 chars)" required />
+      <button class="primary" type="submit">Sign up</button>
+      <div class="link">Already registered? <span id="gotoLogin">Log in</span></div>
+    </form>
+  </div>
+
+  <script>
+    // UI toggles
+    const btnLogin = document.getElementById('btnLogin');
+    const btnSignup = document.getElementById('btnSignup');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const gotoSignup = document.getElementById('gotoSignup');
+    const gotoLogin = document.getElementById('gotoLogin');
+
+    function showLogin(){
+      btnLogin.classList.add('active'); btnSignup.classList.remove('active');
+      loginForm.classList.add('active'); signupForm.classList.remove('active');
+    }
+    function showSignup(){
+      btnSignup.classList.add('active'); btnLogin.classList.remove('active');
+      signupForm.classList.add('active'); loginForm.classList.remove('active');
+    }
+
+    btnLogin.addEventListener('click', showLogin);
+    btnSignup.addEventListener('click', showSignup);
+    gotoSignup.addEventListener('click', showSignup);
+    gotoLogin.addEventListener('click', showLogin);
+
+    // Simple validation + dummy submit handlers
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const pass  = document.getElementById('loginPassword').value;
+      if(!email || !pass){ alert('Please fill email and password.'); return; }
+      // demo: simple email pattern check
+      if(!/^\S+@\S+\.\S+$/.test(email)){ alert('Please enter a valid email.'); return; }
+      alert('✅ Login successful (demo). Replace this with real backend call.');
+    });
+
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('signupName').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const pass  = document.getElementById('signupPassword').value;
+      if(!name || !email || !pass){ alert('Please complete all fields.'); return; }
+      if(pass.length < 6){ alert('Password must be at least 6 characters.'); return; }
+      if(!/^\S+@\S+\.\S+$/.test(email)){ alert('Please enter a valid email.'); return; }
+      alert('🎉 Account created (demo). Replace with backend signup.');
+      // optionally clear form:
+      signupForm.reset();
+      showLogin();
+    });
+
+    // Accessibility: keyboard shortcuts (optional)
+    document.addEventListener('keydown', (ev) => {
+      if(ev.key === 'Escape') showLogin();
+    });
+  </script>
+</body>
+</html>
