@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Login / Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="background">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <div class="wrapper">
+    <input type="checkbox" id="toggle">
+
+    <div class="card">
+      <h2>Sign In</h2>
+
+      <form class="sign-in-form">
+        <div class="input-box">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="Username" required>
+        </div>
+
+        <div class="input-box">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Password" required>
+        </div>
+
+        <div class="options">
+          <label><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button class="btn">Login</button>
+        <p class="switch-text">Don’t have an account? <label for="toggle" class="switch-link">Sign Up</label></p>
+      </form>
+
+      <form class="sign-up-form">
+        <div class="input-box">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="Username" required>
+        </div>
+        <div class="input-box">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="input-box">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Password" required>
+        </div>
+
+        <button class="btn">Sign Up</button>
+        <p class="switch-text">Already have an account? <label for="toggle" class="switch-link">Sign In</label></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

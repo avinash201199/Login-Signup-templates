@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    width: 350px;
+    animation: fadeIn 1s ease forwards;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #bbb;
+    font-size: 14px;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.input-group input::placeholder {
+    color: #aaa;
+}
+
+.input-group input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px #00bfff;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1.5rem;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.remember input {
+    accent-color: #00bfff;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #00bfff, #0077ff);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #00ffff, #00bfff);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 191, 255, 0.3);
+}
+
+.links {
+    margin-top: 1.8rem;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.links a {
+    color: #00bfff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    color: #00ffff;
+    text-decoration: underline;
+}
+
+.signup {
+    margin-top: 0.8rem;
+    display: block;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        width: 85%;
+        padding: 2rem 1.5rem;
+    }
+}

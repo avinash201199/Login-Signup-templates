@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Login Form -->
+      <div class="form-box" id="login-box">
+        <h2>Login</h2>
+        <form>
+          <div class="input-box">
+            <label>Email</label>
+            <input type="email" required placeholder="Enter your email" />
+          </div>
+
+          <div class="input-box">
+            <label>Password</label>
+            <input type="password" required placeholder="Enter your password" />
+          </div>
+
+          <button type="submit" class="btn">Login</button>
+          <p class="toggle-text">
+            Don’t have an account?
+            <a href="#" id="show-signup">Sign up</a>
+          </p>
+        </form>
+      </div>
+
+      <!-- Signup Form -->
+      <div class="form-box hidden" id="signup-box">
+        <h2>Sign Up</h2>
+        <form>
+          <div class="input-box">
+            <label>Username</label>
+            <input type="text" required placeholder="Enter your username" />
+          </div>
+
+          <div class="input-box">
+            <label>Email</label>
+            <input type="email" required placeholder="Enter your email" />
+          </div>
+
+          <div class="input-box">
+            <label>Password</label>
+            <input type="password" required placeholder="Create a password" />
+          </div>
+
+          <button type="submit" class="btn">Sign Up</button>
+          <p class="toggle-text">
+            Already have an account?
+            <a href="#" id="show-login">Login</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const loginBox = document.getElementById("login-box");
+      const signupBox = document.getElementById("signup-box");
+      const showSignup = document.getElementById("show-signup");
+      const showLogin = document.getElementById("show-login");
+
+      showSignup.addEventListener("click", (e) => {
+        e.preventDefault();
+        loginBox.classList.add("hidden");
+        signupBox.classList.remove("hidden");
+      });
+
+      showLogin.addEventListener("click", (e) => {
+        e.preventDefault();
+        signupBox.classList.add("hidden");
+        loginBox.classList.remove("hidden");
+      });
+    </script>
+  </body>
+</html>

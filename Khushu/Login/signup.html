@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup and Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="signUpMessage" class="fixed-message" style="display:none; opacity:0;">
+    </div>
+
+    <div class="auth-container">
+        <h2 id="form-title">Register</h2>
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <form id="auth-form">
+            <div id="register-fields">
+                <div id="name-field">
+                    <label for="name">Your name</label>
+                    <input id="name" required>
+                </div>
+                <div>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div id="confirm-password-field">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+            </div>
+
+            <div id="forgot-password-link" style="display:none;">
+                <a href="#">Forgot your password?</a>
+            </div>
+
+            <div class="submit-button-container">
+                <button type="submit" id="submitButton">
+                    Register
+                </button>
+            </div>
+        </form>
+
+        <div class="toggle-auth-footer">
+            <p id="toggle-auth-text">Already have an account? <a href="#" id="toggle-auth-link">Login</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

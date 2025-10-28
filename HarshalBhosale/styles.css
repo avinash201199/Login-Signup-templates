@@ -1,0 +1,123 @@
+/* ------------------ Base ------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+/* ------------------ Wrapper ------------------ */
+.wrapper {
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 360px;
+  transition: all 0.3s ease;
+}
+
+/* ------------------ Form Boxes ------------------ */
+.form-box {
+  animation: fadeIn 0.4s ease;
+}
+
+.form-box.hidden {
+  display: none;
+}
+
+h2 {
+  text-align: center;
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* ------------------ Inputs ------------------ */
+.input-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-box label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.input-box input {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.input-box input:focus {
+  border-color: #2a5298;
+  outline: none;
+}
+
+/* ------------------ Button ------------------ */
+.btn {
+  width: 100%;
+  background: #2a5298;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #1e3c72;
+}
+
+/* ------------------ Text Links ------------------ */
+.toggle-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.toggle-text a {
+  color: #2a5298;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.toggle-text a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------ Animation ------------------ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 420px) {
+  .wrapper {
+    width: 90%;
+    padding: 30px 20px;
+  }
+}

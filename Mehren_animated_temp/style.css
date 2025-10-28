@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  animation: gradientBG 10s ease infinite;
+  background: linear-gradient(-45deg, #7b2ff7, #f107a3, #00bfff, #00ff88);
+  background-size: 400% 400%;
+}
+
+/* 🎨 Animated Gradient Background */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🌈 Floating Bubbles */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -150px;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  animation: floatUp 12s infinite ease-in;
+}
+
+.bubble:nth-child(1) { left: 10%; animation-duration: 11s; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 30%; width: 60px; height: 60px; animation-duration: 13s; animation-delay: 2s; }
+.bubble:nth-child(3) { left: 50%; width: 100px; height: 100px; animation-duration: 10s; animation-delay: 4s; }
+.bubble:nth-child(4) { left: 70%; width: 50px; height: 50px; animation-duration: 15s; animation-delay: 1s; }
+.bubble:nth-child(5) { left: 85%; width: 70px; height: 70px; animation-duration: 12s; animation-delay: 3s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-900px) scale(1.2); opacity: 0; }
+}
+
+/* 🧊 Glass Card */
+.wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card {
+  width: 380px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  padding: 40px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+h2 {
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* 🧾 Input Fields */
+.input-box {
+  position: relative;
+  margin: 15px 0;
+}
+
+.input-box i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #eee;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 40px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.input-box input:focus {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+/* ⚙ Options */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.options a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.options a:hover {
+  text-decoration: underline;
+}
+
+/* 🟣 Button */
+.btn {
+  margin-top: 25px;
+  background: linear-gradient(45deg, #00bfff, #8a2be2);
+  border: none;
+  border-radius: 20px;
+  padding: 12px 45px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+/* ✨ Form Switch */
+#toggle { display: none; }
+
+.sign-up-form {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.6s ease;
+}
+
+#toggle:checked ~ .card .sign-in-form {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+#toggle:checked ~ .card .sign-up-form {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Switch Text */
+.switch-text {
+  font-size: 13px;
+  margin-top: 25px;
+}
+
+.switch-link {
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}

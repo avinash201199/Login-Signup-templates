@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Register</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Add Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+
+<body>
+  <div class="materialContainer">
+    <!-- LOGIN BOX -->
+    <div class="box">
+      <div class="title">LOGIN</div>
+
+      <div class="input">
+        <label for="name">Username</label>
+        <input type="text" name="name" id="name">
+        <span class="spin"></span>
+      </div>
+
+      <div class="input">
+        <label for="pass">Password</label>
+        <input type="password" name="pass" id="pass">
+        <span class="spin"></span>
+      </div>
+
+      <div class="button login">
+        <button><span>GO</span> <i class="fa fa-check"></i></button>
+      </div>
+
+      <a href="#" class="pass-forgot">Forgot your password?</a>
+    </div>
+
+    <!-- REGISTER BOX -->
+    <div class="overbox">
+      <div class="material-button alt-2"><span class="shape"></span></div>
+
+      <div class="title">REGISTER</div>
+
+      <div class="input">
+        <label for="regname">Username</label>
+        <input type="text" name="regname" id="regname">
+        <span class="spin"></span>
+      </div>
+
+      <div class="input">
+        <label for="regpass">Password</label>
+        <input type="password" name="regpass" id="regpass">
+        <span class="spin"></span>
+      </div>
+
+      <div class="input">
+        <label for="reregpass">Repeat Password</label>
+        <input type="password" name="reregpass" id="reregpass">
+        <span class="spin"></span>
+      </div>
+
+      <div class="button">
+        <button><span>NEXT</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Correct script tag -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

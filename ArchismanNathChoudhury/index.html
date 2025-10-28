@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minimal Dark Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+    <aside class="panel">
+      <div class="brand">
+        <div class="logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="5" fill="white" fill-opacity="0.08"/>
+            <path d="M7 16V8h3l2 3 2-3h3v8" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+          </svg>
+        </div>
+        <div>
+          <h1>NovaKIT</h1>
+          <p>Small components · clean UI</p>
+        </div>
+      </div>
+
+      <h2 class="headline">Welcome back — nice to see you 👋</h2>
+      <p class="sub">Sign in to your account to continue.</p>
+
+      <div class="tip">
+        <strong>Tip:</strong> Use <kbd>demo@demo.test</kbd> / <kbd>password</kbd> to try the flow.
+      </div>
+    </aside>
+
+    <section class="card">
+      <h3>Sign in</h3>
+      <p class="sub">Enter your credentials to access your workspace.</p>
+
+      <form id="loginForm" autocomplete="on" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" value="demo@demo.test">
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-row">
+            <input id="password" name="password" type="password" required placeholder="••••••••" value="password">
+            <button type="button" id="pwdToggle" class="ghost">Show</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="checkbox">
+            <input type="checkbox" id="remember" name="remember">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="muted">Forgot?</a>
+        </div>
+
+        <button type="submit" class="btn" id="submitBtn">Sign in</button>
+
+        <div class="divider"></div>
+
+        <div class="socials">
+          <button type="button">Google</button>
+          <button type="button">GitHub</button>
+        </div>
+
+        <p class="help">Don't have an account? <a href="#" class="accent">Create one</a></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

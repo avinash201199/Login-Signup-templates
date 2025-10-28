@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colm Woods Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Log in to continue to your dashboard</p>
+
+            <form action="/login" method="POST">
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <div class="remember">
+                    <label>
+                        <input type="checkbox" name="remember">
+                        Remember Me
+                    </label>
+                </div>
+
+                <button class="btn" type="submit">Log In</button>
+            </form>
+
+            <div class="links">
+                <p><a href="#">Forgot Password?</a></p>
+                <p class="signup">Don’t have an account? <a href="#">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

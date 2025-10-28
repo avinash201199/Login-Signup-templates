@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Login / Signup</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel-left">
+      <div class="brand">✨ MySite</div>
+      <div class="lead">
+        Welcome to the most vibrant login/signup demo.<br>
+        Create an account or log in to get started instantly!
+      </div>
+      <img class="illustration" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="">
+    </div>
+
+    <div class="panel-right">
+      <div class="tabs">
+        <button class="tab active" id="tab-login">Login</button>
+        <button class="tab" id="tab-signup">Signup</button>
+      </div>
+
+      <div id="messages"></div>
+
+      <!-- LOGIN FORM -->
+      <form id="login-form">
+        <h1>Welcome back</h1>
+        <p class="sub">Login with your account</p>
+
+        <label>Username</label>
+        <input type="text" id="login-username" placeholder="e.g. prachi123" required>
+
+        <label>Password</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="password" id="login-password" placeholder="Your password" required>
+          <button type="button" class="toggle-pass" data-target="login-password">Show</button>
+        </div>
+
+        <div class="row">
+          <button class="btn" type="submit">Login</button>
+          <button class="btn secondary" type="button" id="demo-fill">Demo</button>
+        </div>
+
+        <p class="small">New here? Click <strong>Signup</strong> above to create an account.</p>
+      </form>
+
+      <!-- SIGNUP FORM -->
+      <form id="signup-form" style="display:none">
+        <h1>Create account</h1>
+        <p class="sub">Join our amazing community</p>
+
+        <label>Username</label>
+        <input type="text" id="signup-username" placeholder="Choose a username" required>
+
+        <label>Email</label>
+        <input type="email" id="signup-email" placeholder="you@example.com" required>
+
+        <label>Password</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="password" id="signup-password" placeholder="At least 6 characters" required>
+          <button type="button" class="toggle-pass" data-target="signup-password">Show</button>
+        </div>
+
+        <label>Confirm password</label>
+        <input type="password" id="signup-confirm" placeholder="Repeat password" required>
+
+        <div class="row">
+          <button class="btn" type="submit">Create account</button>
+          <button class="btn secondary" type="button" id="clear-storage">Clear</button>
+        </div>
+
+        <p class="small">By signing up, you agree to our <strong>demo terms</strong>.</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="./script.js">
+  
+  </script>
+</body>
+</html>

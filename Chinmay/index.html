@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Bird Auth</title>
+    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+    </button>
+
+    <div class="container">
+        <!-- Left Panel - Form Section -->
+        <div class="form-panel">
+            <div class="logo">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" />
+                    <path d="M16 20h16M16 24h16M16 28h10" stroke="var(--bg-primary)" stroke-width="2"
+                        stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <div class="form-wrapper">
+                <div class="header">
+                    <h1 class="title">Welcome to the<br><span class="highlight">Early Bird breakfast club!</span></h1>
+                </div>
+
+                <!-- Sign Up Form -->
+                <form class="auth-form" id="signupForm">
+                    <div class="input-group floating-label">
+                        <input type="email" id="email" required>
+                        <label for="email">Email</label>
+                    </div>
+
+                    <div class="input-group floating-label">
+                        <div class="password-wrapper">
+                            <input type="password" id="password" required>
+                            <label for="password">Password</label>
+                            <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Sign up</button>
+
+                    <p class="switch-form">Already have an account? <a href="#" id="switchToLogin">Log in</a></p>
+                </form>
+
+                <!-- Sign In Form (Hidden by default) -->
+                <form class="auth-form hidden" id="signinForm">
+                    <div class="input-group floating-label">
+                        <input type="email" id="signin-email" required>
+                        <label for="signin-email">Email</label>
+                    </div>
+
+                    <div class="input-group floating-label">
+                        <div class="password-wrapper">
+                            <input type="password" id="signin-password" required>
+                            <label for="signin-password">Password</label>
+                            <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="forgot-password">
+                        <a href="#">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Log in</button>
+
+                    <p class="switch-form">Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Panel - Visual Section -->
+        <div class="visual-panel">
+            <button class="menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span>
+            </button>
+
+            <div class="visual-content">
+                <!-- Decorative food items -->
+                <div class="food-grid">
+                    <div class="food-row">
+                        <div class="food-item strawberry"></div>
+                        <div class="food-item strawberry"></div>
+                        <div class="food-item strawberry"></div>
+                        <div class="food-item strawberry"></div>
+                        <div class="food-item strawberry"></div>
+                    </div>
+                    <div class="food-row">
+                        <div class="food-item blueberry"></div>
+                        <div class="food-item blueberry"></div>
+                        <div class="food-item blueberry"></div>
+                        <div class="food-item blueberry"></div>
+                        <div class="food-item blueberry"></div>
+                        <div class="food-item blueberry"></div>
+                        <div class="food-item blueberry"></div>
+                        <div class="food-item blueberry"></div>
+                        <div class="food-item blueberry"></div>
+                    </div>
+                    <div class="food-row">
+                        <div class="food-item banana"></div>
+                        <div class="food-item banana"></div>
+                        <div class="food-item banana"></div>
+                        <div class="food-item banana"></div>
+                        <div class="food-item banana"></div>
+                        <div class="food-item banana"></div>
+                        <div class="food-item banana"></div>
+                    </div>
+                    <div class="food-row">
+                        <div class="food-item milk"></div>
+                        <div class="food-item milk"></div>
+                        <div class="food-item milk"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=2.0"></script>
+</body>
+
+</html>

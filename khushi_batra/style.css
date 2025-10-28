@@ -1,0 +1,152 @@
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  cursor: none;
+  position: relative;
+}
+
+
+.stars {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.stars::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow:
+    100px 200px white, 150px 300px white, 200px 100px white,
+    300px 400px white, 400px 150px white, 500px 250px white,
+    600px 350px white, 700px 450px white, 800px 200px white,
+    900px 300px white, 1000px 150px white, 1200px 250px white;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+
+#shootingStars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(20, 20, 40, 0.85);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  text-align: center;
+  width: 260px;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+.login-container h1 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #00ffff;
+}
+
+.login-container input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+}
+
+.login-container input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+#loginButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #00bcd4, #8ec5fc);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+#loginButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffff;
+}
+
+#loginButton.active {
+  transform: scale(1.15);
+  background: linear-gradient(90deg, gold, #ffdd00);
+  box-shadow: 0 0 20px gold;
+}
+
+
+.color-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease;
+  color: #ffd700;
+  z-index: 1000;
+  text-shadow: 0 0 10px #ffd700, 0 0 25px #ffd700;
+}
+
+.color-toggle:hover {
+  transform: scale(1.2) rotate(15deg);
+}
+
+
+.trail {
+  position: fixed;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: fade 0.8s linear forwards;
+  box-shadow: 0 0 12px currentColor, 0 0 20px currentColor;
+}
+
+
+@keyframes fade {
+  from { opacity: 1; transform: scale(1.2); }
+  to { opacity: 0; transform: scale(0.3); }
+}
