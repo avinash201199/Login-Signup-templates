@@ -179,9 +179,11 @@ const workingTemplates = [
   "OnkarJondhale",
   "Kanishka",
   "Rohan",
+  "login-signup-glass",
   "OnkarJondhale",
   "Kanishka",
-  "login-signup-glass"
+ 
+  "HarshalBhosale",
 ];
 
 //container element from the HTML

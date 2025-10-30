@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Login & Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!-- Login Form -->
+                <form action="#" class="sign-in-form" id="loginForm">
+                    <h2 class="title">Welcome Back</h2>
+                    <div class="input-field">
+                        <i class="fas">👤</i>
+                        <input type="email" placeholder="Email" id="loginEmail" autocomplete="email" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas">🔒</i>
+                        <input type="password" placeholder="Password" id="loginPassword" autocomplete="current-password" required>
+                        <span class="toggle-password" onclick="togglePassword('loginPassword')">👁️</span>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox"> Remember me</label>
+                        <a href="#">Forgot password?</a>
+                    </div>
+                    <input type="submit" value="Login" class="btn solid">
+                    <p class="social-text">Or Sign in with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">🔍</a>
+                        <a href="#" class="social-icon">💼</a>
+                    </div>
+                </form>
+
+                <!-- Signup Form -->
+                <form action="#" class="sign-up-form" id="signupForm">
+                    <h2 class="title">Create Account</h2>
+                    <div class="input-field">
+                        <i class="fas">👤</i>
+                        <input type="text" placeholder="Username" id="signupUsername" autocomplete="username" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas">📧</i>
+                        <input type="email" placeholder="Email" id="signupEmail" autocomplete="email" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas">🔒</i>
+                        <input type="password" placeholder="Password" id="signupPassword" autocomplete="new-password" required>
+                        <span class="toggle-password" onclick="togglePassword('signupPassword')">👁️</span>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas">🔒</i>
+                        <input type="password" placeholder="Confirm Password" id="confirmPassword" autocomplete="new-password" required>
+                        <span class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</span>
+                    </div>
+                    <input type="submit" value="Sign Up" class="btn solid">
+                    <p class="social-text">Or Sign up with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">🔍</a>
+                        <a href="#" class="social-icon">💼</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New here?</h3>
+                    <p>Join us today and discover amazing features designed just for you!</p>
+                    <button class="btn transparent" id="sign-up-btn">Sign Up</button>
+                </div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Ccircle cx='250' cy='250' r='200' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E" class="image" alt="signup">
+            </div>
+
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Already a member?</h3>
+                    <p>Welcome back! Login to access your account and continue your journey.</p>
+                    <button class="btn transparent" id="sign-in-btn">Sign In</button>
+                </div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Ccircle cx='250' cy='250' r='200' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E" class="image" alt="login">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

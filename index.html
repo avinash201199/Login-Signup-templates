@@ -27,13 +27,13 @@
 
     <h1>Login / Signup Templates Showcase</h1>
 
-    <button class="contro-info" aria-label="How to contribute">
+    <button class="contro-info" aria-label="How to contribute" aria-expanded="false" aria-controls="popup" type="button">
       How to contribute
     </button>
 
-  <div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title" hidden>
+  <div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title" tabindex="-1" hidden>
       <div class="popup-content">
-        <span class="close-btn" aria-label="Close">&times;</span>
+        <button class="close-btn" aria-label="Close" type="button">&times;</button>
         <h2 id="popup-title">Contribution Steps</h2>
         <p>
           If you have a login or signup template you'd like to add, please
