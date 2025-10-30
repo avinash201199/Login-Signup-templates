@@ -101,6 +101,7 @@ const templateFolders = [
   "Kanishka",
   "Ishika Singh Rajput",
   "Harsh-Login-Form",
+  "Yash",
 ];
 
 // Template details with descriptions and features
@@ -185,6 +186,7 @@ const workingTemplates = [
   "AasthaRai",
   "AniruddhaDwivedi",
   "Cursor Following",
+  "Yash",
 ];
 
 //container element from the HTML
