@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash's 3D Flip Authentication Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Particle Canvas Background -->
+    <canvas id="particleCanvas"></canvas>
+    
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="floating-icon" style="--delay: 0s; --duration: 20s;">
+            <i class="fas fa-fingerprint"></i>
+        </div>
+        <div class="floating-icon" style="--delay: 5s; --duration: 25s;">
+            <i class="fas fa-shield-halved"></i>
+        </div>
+        <div class="floating-icon" style="--delay: 10s; --duration: 30s;">
+            <i class="fas fa-lock"></i>
+        </div>
+        <div class="floating-icon" style="--delay: 15s; --duration: 22s;">
+            <i class="fas fa-user-shield"></i>
+        </div>
+    </div>
+
+    <!-- Main 3D Container -->
+    <div class="scene">
+        <div class="card-3d" id="card3d">
+            <!-- Front Side - Login -->
+            <div class="card-face card-front">
+                <div class="card-glow"></div>
+                <div class="holographic-overlay"></div>
+                
+                <div class="face-id-scanner" id="faceScanner">
+                    <div class="scan-line"></div>
+                    <div class="scan-grid"></div>
+                </div>
+                
+                <div class="form-content">
+                    <div class="logo-area">
+                        <div class="logo-hexagon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h1 class="glitch-text" data-text="SECURE ACCESS">SECURE ACCESS</h1>
+                        <p class="typing-effect" data-text="Welcome back, please login to continue"></p>
+                    </div>
+
+                    <form class="auth-form" id="loginForm">
+                        <div class="input-wrapper">
+                            <div class="input-glow"></div>
+                            <div class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <input type="email" id="loginEmail" required>
+                            <label for="loginEmail">Email Address</label>
+                            <div class="input-line"></div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <div class="input-glow"></div>
+                            <div class="input-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <input type="password" id="loginPassword" required>
+                            <label for="loginPassword">Password</label>
+                            <div class="input-line"></div>
+                            <div class="toggle-password" onclick="togglePassword('loginPassword', this)">
+                                <i class="fas fa-eye-slash"></i>
+                            </div>
+                        </div>
+
+                        <div class="biometric-options">
+                            <button type="button" class="biometric-btn" onclick="triggerFaceID()">
+                                <i class="fas fa-face-smile"></i>
+                                <span>Face ID</span>
+                            </button>
+                            <button type="button" class="biometric-btn" onclick="triggerFingerprint()">
+                                <i class="fas fa-fingerprint"></i>
+                                <span>Touch ID</span>
+                            </button>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="cyber-checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span class="label-text">Remember me</span>
+                            </label>
+                            <a href="#" class="neon-link">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="submit-btn-3d">
+                            <span class="btn-text">Access System</span>
+                            <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                            <div class="btn-particles"></div>
+                        </button>
+
+                        <div class="social-grid">
+                            <button type="button" class="social-3d google" onclick="socialLogin('google')">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button type="button" class="social-3d github" onclick="socialLogin('github')">
+                                <i class="fab fa-github"></i>
+                            </button>
+                            <button type="button" class="social-3d microsoft" onclick="socialLogin('microsoft')">
+                                <i class="fab fa-microsoft"></i>
+                            </button>
+                        </div>
+
+                        <div class="flip-trigger">
+                            <p>New user? <a href="#" class="neon-link" onclick="flipCard(event)">Create Account →</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Back Side - Signup -->
+            <div class="card-face card-back">
+                <div class="card-glow"></div>
+                <div class="holographic-overlay"></div>
+                
+                <div class="form-content">
+                    <div class="logo-area">
+                        <div class="logo-hexagon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h1 class="glitch-text" data-text="JOIN US">JOIN US</h1>
+                        <p class="typing-effect" data-text="Create your account and get started"></p>
+                    </div>
+
+                    <form class="auth-form" id="signupForm">
+                        <div class="input-wrapper">
+                            <div class="input-glow"></div>
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <input type="text" id="signupName" required>
+                            <label for="signupName">Full Name</label>
+                            <div class="input-line"></div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <div class="input-glow"></div>
+                            <div class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <input type="email" id="signupEmail" required>
+                            <label for="signupEmail">Email Address</label>
+                            <div class="input-line"></div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <div class="input-glow"></div>
+                            <div class="input-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <input type="password" id="signupPassword" required>
+                            <label for="signupPassword">Password</label>
+                            <div class="input-line"></div>
+                            <div class="toggle-password" onclick="togglePassword('signupPassword', this)">
+                                <i class="fas fa-eye-slash"></i>
+                            </div>
+                            <!-- Password Strength Meter -->
+                            <div class="password-strength" id="passwordStrength">
+                                <div class="strength-bars">
+                                    <div class="strength-bar"></div>
+                                    <div class="strength-bar"></div>
+                                    <div class="strength-bar"></div>
+                                    <div class="strength-bar"></div>
+                                </div>
+                                <span class="strength-text">Password Strength</span>
+                            </div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <div class="input-glow"></div>
+                            <div class="input-icon">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <input type="password" id="confirmPassword" required>
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div class="input-line"></div>
+                            <div class="toggle-password" onclick="togglePassword('confirmPassword', this)">
+                                <i class="fas fa-eye-slash"></i>
+                            </div>
+                        </div>
+
+                        <label class="cyber-checkbox">
+                            <input type="checkbox" required>
+                            <span class="checkmark">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="label-text">I agree to Terms & Privacy Policy</span>
+                        </label>
+
+                        <button type="submit" class="submit-btn-3d">
+                            <span class="btn-text">Create Account</span>
+                            <span class="btn-icon"><i class="fas fa-rocket"></i></span>
+                            <div class="btn-particles"></div>
+                        </button>
+
+                        <div class="social-grid">
+                            <button type="button" class="social-3d google" onclick="socialLogin('google')">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button type="button" class="social-3d github" onclick="socialLogin('github')">
+                                <i class="fab fa-github"></i>
+                            </button>
+                            <button type="button" class="social-3d microsoft" onclick="socialLogin('microsoft')">
+                                <i class="fab fa-microsoft"></i>
+                            </button>
+                        </div>
+
+                        <div class="flip-trigger">
+                            <p>Have an account? <a href="#" class="neon-link" onclick="flipCard(event)">← Login Here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fingerprint Scanner Overlay -->
+    <div class="fingerprint-overlay" id="fingerprintOverlay">
+        <div class="fingerprint-scanner">
+            <div class="fingerprint-icon">
+                <i class="fas fa-fingerprint"></i>
+            </div>
+            <div class="scan-pulse"></div>
+            <p>Place your finger on the sensor</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

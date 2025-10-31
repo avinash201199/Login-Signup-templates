@@ -111,8 +111,9 @@ const templateFolders = [
   "Kanishka",
   "Ishika Singh Rajput",
   "Harsh-Login-Form",
+
+  "Yash",
   "shiva-sharma",
-];
 
 // Template details with descriptions and features
 const templateDetails = {
@@ -196,7 +197,9 @@ const workingTemplates = [
   "AasthaRai",
   "AniruddhaDwivedi",
   "Cursor Following",
+  "Yash",
   "Card Flip",
+
 ];
 
 
