@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card-wrapper">
+            <div class="card" id="authCard">
+                <!-- Login Side -->
+                <div class="card-face card-front">
+                    <div class="card-content">
+                        <h2 class="title">Welcome Back</h2>
+                        <p class="subtitle">Login to your account</p>
+
+                        <form class="auth-form" id="loginForm">
+                            <div class="input-group">
+                                <input type="email" id="loginEmail" placeholder=" " required>
+                                <label for="loginEmail">Email</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="password" id="loginPassword" placeholder=" " required>
+                                <label for="loginPassword">Password</label>
+                                <span class="toggle-password" onclick="togglePassword('loginPassword')">
+                                    <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="form-footer">
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Remember me</span>
+                                </label>
+                                <a href="#" class="link">Forgot?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="btn-text">Login</span>
+                                <span class="btn-ripple"></span>
+                            </button>
+                        </form>
+
+                        <div class="divider">
+                            <span>or continue with</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button class="btn-social btn-google">
+                                <svg width="18" height="18" viewBox="0 0 20 20">
+                                    <path fill="#4285F4" d="M19.6 10.23c0-.82-.1-1.42-.25-2.05H10v3.72h5.5c-.15.96-.74 2.31-2.04 3.22v2.45h3.16c1.89-1.73 2.98-4.3 2.98-7.34z"/>
+                                    <path fill="#34A853" d="M13.46 15.13c-.83.59-1.96 1-3.46 1-2.64 0-4.88-1.74-5.68-4.15H1.07v2.52C2.72 17.75 6.09 20 10 20c2.7 0 4.96-.89 6.62-2.42l-3.16-2.45z"/>
+                                    <path fill="#FBBC05" d="M3.99 10c0-.69.12-1.35.32-1.97V5.51H1.07A9.973 9.973 0 000 10c0 1.61.39 3.14 1.07 4.49l3.24-2.52c-.2-.62-.32-1.28-.32-1.97z"/>
+                                    <path fill="#EA4335" d="M10 3.88c1.88 0 3.13.81 3.85 1.48l2.84-2.76C14.96.99 12.7 0 10 0 6.09 0 2.72 2.25 1.07 5.51l3.24 2.52C5.12 5.62 7.36 3.88 10 3.88z"/>
+                                </svg>
+                            </button>
+                            <button class="btn-social btn-github">
+                                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <p class="toggle-text">
+                            Don't have an account? 
+                            <a href="#" class="link" onclick="flipCard(event)">Sign up</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sign Up Side -->
+                <div class="card-face card-back">
+                    <div class="card-content">
+                        <h2 class="title">Create Account</h2>
+                        <p class="subtitle">Sign up to get started</p>
+
+                        <form class="auth-form signup-form" id="signupForm">
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <input type="text" id="signupName" placeholder=" " required>
+                                    <label for="signupName">Full Name</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="email" id="signupEmail" placeholder=" " required>
+                                    <label for="signupEmail">Email</label>
+                                </div>
+                            </div>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <input type="password" id="signupPassword" placeholder=" " required>
+                                    <label for="signupPassword">Password</label>
+                                    <span class="toggle-password" onclick="togglePassword('signupPassword')">
+                                        <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="input-group">
+                                    <input type="password" id="confirmPassword" placeholder=" " required>
+                                    <label for="confirmPassword">Confirm</label>
+                                    <span class="toggle-password" onclick="togglePassword('confirmPassword')">
+                                        <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-footer">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required>
+                                    <span>I agree to Terms</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="btn-text">Sign Up</span>
+                                <span class="btn-ripple"></span>
+                            </button>
+                        </form>
+
+                        <div class="divider">
+                            <span>or continue with</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button class="btn-social btn-google">
+                                <svg width="18" height="18" viewBox="0 0 20 20">
+                                    <path fill="#4285F4" d="M19.6 10.23c0-.82-.1-1.42-.25-2.05H10v3.72h5.5c-.15.96-.74 2.31-2.04 3.22v2.45h3.16c1.89-1.73 2.98-4.3 2.98-7.34z"/>
+                                    <path fill="#34A853" d="M13.46 15.13c-.83.59-1.96 1-3.46 1-2.64 0-4.88-1.74-5.68-4.15H1.07v2.52C2.72 17.75 6.09 20 10 20c2.7 0 4.96-.89 6.62-2.42l-3.16-2.45z"/>
+                                    <path fill="#FBBC05" d="M3.99 10c0-.69.12-1.35.32-1.97V5.51H1.07A9.973 9.973 0 000 10c0 1.61.39 3.14 1.07 4.49l3.24-2.52c-.2-.62-.32-1.28-.32-1.97z"/>
+                                    <path fill="#EA4335" d="M10 3.88c1.88 0 3.13.81 3.85 1.48l2.84-2.76C14.96.99 12.7 0 10 0 6.09 0 2.72 2.25 1.07 5.51l3.24 2.52C5.12 5.62 7.36 3.88 10 3.88z"/>
+                                </svg>
+                            </button>
+                            <button class="btn-social btn-github">
+                                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <p class="toggle-text">
+                            Already have an account? 
+                            <a href="#" class="link" onclick="flipCard(event)">Login</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

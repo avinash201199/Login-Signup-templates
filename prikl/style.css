@@ -1,0 +1,148 @@
+:root {
+    --bg-color: #f0f2f5;
+    --form-bg: #ffffff;
+    --text-color: #333;
+    --label-color: #555;
+    --input-border: #ddd;
+    --input-bg: #fff;
+    --toggle-btn-bg: #f9f9f9;
+    --toggle-btn-color: #555;
+    --toggle-btn-active-bg: #007bff;
+    --toggle-btn-active-color: white;
+    --submit-btn-bg: #007bff;
+    --submit-btn-hover-bg: #0056b3;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --border-color: #ddd;
+}
+
+body[data-theme="dark"] {
+    --bg-color: #1a1a2e;
+    --form-bg: #16213e;
+    --text-color: #e0e0e0;
+    --label-color: #a0a0a0;
+    --input-border: #3f51b5;
+    --input-bg: #0f3460;
+    --toggle-btn-bg: #0f3460;
+    --toggle-btn-color: #a0a0a0;
+    --toggle-btn-active-bg: #e94560;
+    --toggle-btn-active-color: white;
+    --submit-btn-bg: #e94560;
+    --submit-btn-hover-bg: #d82e4e;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --border-color: #3f51b5;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-container {
+    background-color: var(--form-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.toggle-container {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    background-color: var(--toggle-btn-bg);
+    color: var(--toggle-btn-color);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-btn:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.toggle-btn:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.toggle-btn.active {
+    background-color: var(--toggle-btn-active-bg);
+    color: var(--toggle-btn-active-color);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    margin-bottom: 0.5rem;
+    color: var(--label-color);
+}
+
+.input-group input {
+    padding: 0.75rem;
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--toggle-btn-active-bg);
+}
+
+.submit-btn {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--submit-btn-bg);
+    color: var(--toggle-btn-active-color);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: var(--submit-btn-hover-bg);
+}
+
+.hidden {
+    display: none;
+}

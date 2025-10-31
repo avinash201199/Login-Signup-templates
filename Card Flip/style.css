@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgb(208, 65, 94) 0%, rgb(208, 65, 94) 20%, rgb(214, 87, 103) 20%, rgb(214, 87, 103) 40%, rgb(219, 121, 113) 40%, rgb(219, 121, 113) 60%, rgb(224, 165, 124) 60%, rgb(224, 165, 124) 80%, rgb(230, 216, 134) 80%, rgb(230, 216, 134) 100%);
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 380px;
+    padding: 20px;
+}
+
+/* Card Flip Container */
+.card-wrapper {
+    perspective: 1000px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    width: 130%;
+    left: -15%;
+}
+
+.card-content {
+    padding: 28px 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography */
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* Form */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.signup-form {
+    gap: 10px;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 38px 12px 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.input-group label {
+    position: absolute;
+    top: 13px;
+    left: 14px;
+    font-size: 14px;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: transparent;
+    padding: 0;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+    top: -8px;
+    left: 12px;
+    font-size: 11px;
+    color: #d0415e;
+    background: white;
+    padding: 0 6px;
+    font-weight: 500;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #d0415e;
+    box-shadow: 0 0 0 3px rgba(208, 65, 94, 0.1);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-password:hover {
+    opacity: 0.8;
+}
+
+.eye-icon {
+    color: #666;
+}
+
+.toggle-password.active .eye-icon path:first-child {
+    display: none;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: #666;
+}
+
+.checkbox-label input {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.link {
+    color: #d0415e;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: #b83552;
+}
+
+/* Primary Button with Ripple Effect */
+.btn {
+    position: relative;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #d0415e 0%, #e0a57c 100%);
+    color: white;
+    margin-top: 6px;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-ripple {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-primary:hover .btn-ripple {
+    width: 400px;
+    height: 400px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(208, 65, 94, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 18px 0;
+    color: #999;
+    font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.divider span {
+    padding: 0 12px;
+}
+
+/* Social Login Buttons */
+.social-login {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-social {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: white;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-social::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.btn-google {
+    color: #1a1a1a;
+}
+
+.btn-google::before {
+    background: rgba(66, 133, 244, 0.1);
+}
+
+.btn-google:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-github {
+    color: #1a1a1a;
+}
+
+.btn-github::before {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.btn-github:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-social:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: #d0d0d0;
+}
+
+.btn-social svg {
+    position: relative;
+    z-index: 1;
+}
+
+/* Toggle Text */
+.toggle-text {
+    margin-top: auto;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    padding-top: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card-back {
+        width: 110%;
+        left: -5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+        padding: 16px;
+    }
+
+    .card {
+        height: auto;
+        min-height: 520px;
+    }
+
+    .card-back {
+        width: 100%;
+        left: 0;
+    }
+
+    .card-content {
+        padding: 24px 20px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .social-login {
+        flex-direction: column;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-content {
+    animation: fadeIn 0.6s ease-out;
+}

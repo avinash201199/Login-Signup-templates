@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Login/Signup - Shiva Sharma</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="crt-overlay"></div>
+        <div class="form-container">
+            <div class="form-toggle">
+                <button id="login-btn" class="active">Login</button>
+                <button id="signup-btn">Signup</button>
+            </div>
+            <form id="login-form" class="form active">
+                <h2>Login</h2>
+                <div class="input-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required aria-describedby="login-email-error">
+                    <span id="login-email-error" class="error" role="alert"></span>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required aria-describedby="login-password-error">
+                    <span id="login-password-error" class="error" role="alert"></span>
+                </div>
+                <button type="submit" class="btn">Enter</button>
+            </form>
+            <form id="signup-form" class="form">
+                <h2>Signup</h2>
+                <div class="input-group">
+                    <label for="signup-name">Name</label>
+                    <input type="text" id="signup-name" required aria-describedby="signup-name-error">
+                    <span id="signup-name-error" class="error" role="alert"></span>
+                </div>
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required aria-describedby="signup-email-error">
+                    <span id="signup-email-error" class="error" role="alert"></span>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required aria-describedby="signup-password-error">
+                    <span id="signup-password-error" class="error" role="alert"></span>
+                </div>
+                <button type="submit" class="btn">Join</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

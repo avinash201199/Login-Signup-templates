@@ -1,0 +1,266 @@
+/* Retro Pixel Art Gradient Theme */
+
+:root {
+    --primary: #00ff00;
+    --secondary: #ff00ff;
+    --accent: #ffff00;
+    --bg-dark: #000000;
+    --bg-light: #111111;
+    --text: #ffffff;
+    --error: #ff0000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.crt-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 0, 0.03) 0px,
+        rgba(0, 255, 0, 0.03) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.form-container {
+    background: linear-gradient(145deg, var(--bg-light) 0%, var(--bg-dark) 100%);
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+    border-radius: 10px;
+    z-index: -1;
+    animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.form-toggle {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.form-toggle button {
+    flex: 1;
+    background: none;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.form-toggle button.active {
+    background: var(--primary);
+    color: var(--bg-dark);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.form-toggle button:hover {
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 10px;
+    color: var(--primary);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    background: var(--bg-dark);
+    border: 1px solid var(--primary);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+input:invalid {
+    border-color: var(--error);
+}
+
+.error {
+    display: block;
+    margin-top: 5px;
+    font-size: 8px;
+    color: var(--error);
+    min-height: 10px;
+}
+
+.btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border: none;
+    color: var(--bg-dark);
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    .form-container {
+        padding: 20px;
+    }
+    h2 {
+        font-size: 14px;
+    }
+    .form-toggle button {
+        font-size: 10px;
+        padding: 8px;
+    }
+    input, .btn {
+        font-size: 10px;
+        padding: 8px;
+    }
+    .btn {
+        padding: 12px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .form-container::before {
+        animation: none;
+    }
+    .btn::before {
+        transition: none;
+    }
+    .form {
+        animation: none;
+    }
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary: #ffffff;
+        --secondary: #ffffff;
+        --accent: #ffffff;
+        --bg-dark: #000000;
+        --bg-light: #000000;
+        --text: #ffffff;
+        --error: #ff0000;
+    }
+}

@@ -6,6 +6,7 @@ const leftPupil = document.querySelector('.left-pupil');
 const rightPupil = document.querySelector('.right-pupil');
 const characterBtns = document.querySelectorAll('.character-btn');
 const signupForm = document.querySelector('.signup-form');
+const loginForm = document.querySelector('.login-form');
 const switchToSignup = document.querySelector('.switch-to-signup');
 const switchToLogin = document.querySelector('.switch-to-login');
 const passwordFields = document.querySelectorAll('.password-field');
@@ -98,15 +99,7 @@ passwordFields.forEach(field => {
 });
 
 // Form switching functionality
-switchToSignup.addEventListener('click', (e) => {
-    e.preventDefault();
-    switchForms('signup');
-});
 
-switchToLogin.addEventListener('click', (e) => {
-    e.preventDefault();
-    switchForms('login');
-});
 
 function switchForms(formType) {
     if (formType === 'signup') {
@@ -130,6 +123,16 @@ function switchForms(formType) {
     }
 }
 
+switchToSignup.addEventListener('click', (e) => {
+    e.preventDefault();
+    switchForms('signup');
+});
+
+switchToLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+    switchForms('login');
+});
+
 // Form submission handlers
 document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', (e) => {
@@ -144,6 +147,8 @@ document.querySelectorAll('form').forEach(form => {
             alert(`${formType} successful!`);
             character.style.animation = 'float 1.5s ease-in-out infinite, wiggle 0.8s ease-in-out infinite';
         }, 1000);
+
+        form.reset();
     });
 });
 

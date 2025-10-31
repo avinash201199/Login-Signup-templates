@@ -11,6 +11,7 @@ Esc closes and restores focus to trigger.
 
 //A list of all the template folder names.
 const templateFolders = [
+  "Anuradha",
   "Ankit_nonsense3",
   "AasthaRai",
   "Aerospace-Prog",
@@ -24,6 +25,7 @@ const templateFolders = [
   "Ayush",
   "Baveja Template",
   "Bootsnipp",
+  "Card Flip",
   "Chanakya",
   "Chinmay",
   "Chitraxi Porwal",
@@ -63,21 +65,29 @@ const templateFolders = [
   "Minaal",
   "Sahil-Kumar",
   "samim29",
+"shivaram",
+    "Abhinav Shukla",
+    "Amit Raj Sharm",
+    "Anuradha",
+    "Avinash",
+    "Ayush",
+    "Baveja Template",
+    "Bootsnipp",
+    "Chanakya",
+    "CodePenTemplate-1",
+    "Coding Nepal",
+    "colorlib Template",
+    "Dev-Portal-Shikha",
+    "Dhruva Bhat",
+    "Foolish Developer",
+    "Ivan Grozdic",
+    "Himanshu",
+    "Janavi-Pandole",
+    "Modern Animated Template",
+    "prem",
+    "SaurabhMishra(edtech+ecommerce)",
   "shivaram",
-  "Abhinav Shukla",
-  "Amit Raj Sharm",
-  "Anuradha",
-  "Avinash",
-  "Ayush",
-  "Baveja Template",
-  "Bootsnipp",
-  "Chanakya",
-  "CodePenTemplate-1",
-  "Coding Nepal",
-  "colorlib Template",
   "Dev-Portal-Shikha",
-  "Dhruva Bhat",
-  "Foolish Developer",
   "Ivan Grozdic",
   "Himanshu",
   "Janavi-Pandole",
@@ -101,8 +111,9 @@ const templateFolders = [
   "Kanishka",
   "Ishika Singh Rajput",
   "Harsh-Login-Form",
+
   "Yash",
-];
+  "shiva-sharma",
 
 // Template details with descriptions and features
 const templateDetails = {
@@ -187,17 +198,17 @@ const workingTemplates = [
   "AniruddhaDwivedi",
   "Cursor Following",
   "Yash",
+  "Card Flip",
+
 ];
+
+
 
 //container element from the HTML
 const cardContainer = document.getElementById("card-container");
 
-// Log template details
-console.log('🎨 JwelSrivastava_Form Template Details:', templateDetails["JwelSrivastava_Form"]);
-
 // Loop through each folder name and creating a card for it
 templateFolders.forEach((folderName) => {
-  console.log('Creating card for:', folderName);
   // Create the HTML elements for the card
   const card = document.createElement("a");
   card.classList.add("template-card");
@@ -235,19 +246,19 @@ templateFolders.forEach((folderName) => {
     card.href = `./${folderName}/`;
   }
 
-  const screenshot = document.createElement("img");
+    const screenshot = document.createElement("img");
 
-  // Checking if the template is in our "working" list
-  if (workingTemplates.includes(folderName)) {
-    // If it works, use your real screenshot
-    screenshot.src = `./screenshots/${folderName}.png`;
-  } else {
-    // If it's broken, using a professional placeholder
-    screenshot.src = `https://placehold.co/400x300/2d3436/dfe6e9/png?text=Preview+Not+Available`;
-  }
+    // Checking if the template is in our "working" list
+    if (workingTemplates.includes(folderName)) {
+        // If it works, use your real screenshot
+        screenshot.src = `./screenshots/${folderName}.png`;
+    } else {
+        // If it's broken, using a professional placeholder
+        screenshot.src = `https://placehold.co/400x300/2d3436/dfe6e9/png?text=Preview+Not+Available`;
+    }
 
-  const title = document.createElement("h3");
-  title.textContent = folderName;
+    const title = document.createElement("h3");
+    title.textContent = folderName;
 
   // Add template details if available
   const details = templateDetails[folderName];
@@ -297,8 +308,8 @@ templateFolders.forEach((folderName) => {
     card.appendChild(title);
   }
 
-  // Adding the completed card to the container
-  cardContainer.appendChild(card);
+    // Adding the completed card to the container
+    cardContainer.appendChild(card);
 });
 
 // how to contribute info code (accessibility improvements)
@@ -417,6 +428,13 @@ if (popup) {
     }
   });
 
+  // Close popup with ESC key
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !popup.hidden) {
+      popup.hidden = true;
+      if (controInfo) controInfo.focus({ preventScroll: true });
+    }
+  });
 }
 
 // Scroll to top function
@@ -424,30 +442,30 @@ const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
 // Function to check scroll position and toggle button visibility
 const scrollFunction = () => {
-  // If the user has scrolled down more than 100px from the top
-  if (
-    document.body.scrollTop > 100 ||
-    document.documentElement.scrollTop > 100
-  ) {
-    // Show the button
-    scrollToTopBtn.style.display = "block";
-  } else {
-    // Otherwise, hide the button
-    scrollToTopBtn.style.display = "none";
-  }
+    // If the user has scrolled down more than 100px from the top
+    if (
+        document.body.scrollTop > 100 ||
+        document.documentElement.scrollTop > 100
+    ) {
+        // Show the button
+        scrollToTopBtn.style.display = "block";
+    } else {
+        // Otherwise, hide the button
+        scrollToTopBtn.style.display = "none";
+    }
 };
 
 // Function to scroll smoothly to the top of the page
 const topFunction = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth", // This enables smooth scrolling
-  });
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth", // This enables smooth scrolling
+    });
 };
 
 // Add an event listener that calls scrollFunction() whenever the user scrolls
 window.onscroll = () => {
-  scrollFunction();
+    scrollFunction();
 };
 
 // Add an event listener that calls topFunction() when the button is clicked
@@ -459,21 +477,21 @@ const currentTheme = localStorage.getItem("theme");
 
 // On page load, apply the saved theme
 if (currentTheme) {
-  document.body.classList.add(currentTheme);
-  if (currentTheme === "light-mode") {
-    themeToggle.checked = true;
-  }
+    document.body.classList.add(currentTheme);
+    if (currentTheme === "light-mode") {
+        themeToggle.checked = true;
+    }
 }
 
 // Add event listener for the toggle switch
 themeToggle.addEventListener("change", function () {
-  if (this.checked) {
-    document.body.classList.add("light-mode");
-    localStorage.setItem("theme", "light-mode");
-  } else {
-    document.body.classList.remove("light-mode");
-    localStorage.setItem("theme", ""); // When unchecked, it's the default dark mode
-  }
+    if (this.checked) {
+        document.body.classList.add("light-mode");
+        localStorage.setItem("theme", "light-mode");
+    } else {
+        document.body.classList.remove("light-mode");
+        localStorage.setItem("theme", ""); // When unchecked, it's the default dark mode
+    }
 });
 
 
@@ -482,46 +500,46 @@ const searchInput = document.getElementById("search-input");
 const clearBtn = document.getElementById("clear-search");
 
 if (searchInput) {
-  searchInput.addEventListener("input", function () {
-    const query = this.value.toLowerCase().trim();
-    const cards = document.querySelectorAll(".template-card");
-    let visibleCount = 0;
+    searchInput.addEventListener("input", function () {
+        const query = this.value.toLowerCase().trim();
+        const cards = document.querySelectorAll(".template-card");
+        let visibleCount = 0;
 
-    cards.forEach((card) => {
-      const title = card.querySelector("h3").textContent.toLowerCase();
-      const isMatch = title.includes(query);
-      card.style.display = isMatch ? "block" : "none";
-      if (isMatch) visibleCount++;
+        cards.forEach((card) => {
+            const title = card.querySelector("h3").textContent.toLowerCase();
+            const isMatch = title.includes(query);
+            card.style.display = isMatch ? "block" : "none";
+            if (isMatch) visibleCount++;
+        });
+
+        // Create or show "No results" message
+        let noResultMsg = document.getElementById("no-results");
+        if (!noResultMsg) {
+            noResultMsg = document.createElement("p");
+            noResultMsg.id = "no-results";
+            noResultMsg.textContent = "No templates found";
+            noResultMsg.style.textAlign = "center";
+            noResultMsg.style.marginTop = "40px";
+            noResultMsg.style.fontSize = "1.2rem";
+            noResultMsg.style.color = "var(--text-secondary)";
+            cardContainer.parentNode.insertBefore(
+                noResultMsg,
+                cardContainer.nextSibling
+            );
+        }
+
+        noResultMsg.style.display = visibleCount === 0 ? "block" : "none";
     });
 
-    // Create or show "No results" message
-    let noResultMsg = document.getElementById("no-results");
-    if (!noResultMsg) {
-      noResultMsg = document.createElement("p");
-      noResultMsg.id = "no-results";
-      noResultMsg.textContent = "No templates found";
-      noResultMsg.style.textAlign = "center";
-      noResultMsg.style.marginTop = "40px";
-      noResultMsg.style.fontSize = "1.2rem";
-      noResultMsg.style.color = "var(--text-secondary)";
-      cardContainer.parentNode.insertBefore(
-        noResultMsg,
-        cardContainer.nextSibling
-      );
+    //clear search button
+    if (clearBtn) {
+        clearBtn.addEventListener("click", function () {
+            searchInput.value = "";
+            const cards = document.querySelectorAll(".template-card");
+            cards.forEach((card) => (card.style.display = "block"));
+            const noResultMsg = document.getElementById("no-results");
+            if (noResultMsg) noResultMsg.style.display = "none";
+            searchInput.focus();
+        });
     }
-
-    noResultMsg.style.display = visibleCount === 0 ? "block" : "none";
-  });
-
-  //clear search button
-  if (clearBtn) {
-    clearBtn.addEventListener("click", function () {
-      searchInput.value = "";
-      const cards = document.querySelectorAll(".template-card");
-      cards.forEach((card) => (card.style.display = "block"));
-      const noResultMsg = document.getElementById("no-results");
-      if (noResultMsg) noResultMsg.style.display = "none";
-      searchInput.focus();
-    });
-  }
 }
