@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Nexus | Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0a0a16;
+            color: #fff;
+            min-height: 100vh;
+            overflow: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(28, 10, 80, 0.5) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(80, 10, 60, 0.5) 0%, transparent 20%),
+                linear-gradient(45deg, #0a0a16 0%, #1a0a2a 100%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ff00cc, #3333ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(255, 0, 204, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0ff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .login-container {
+            background: rgba(10, 10, 30, 0.8);
+            border: 2px solid #3333ff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(51, 51, 255, 0.5),
+                        inset 0 0 20px rgba(51, 51, 255, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #ff00cc, #3333ff, #00ccff, #ff00cc);
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.3;
+        }
+
+        .form-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #a0a0ff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(20, 20, 40, 0.8);
+            border: 1px solid #3333ff;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #ff00cc;
+            box-shadow: 0 0 10px rgba(255, 0, 204, 0.5);
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+        }
+
+        .remember input {
+            margin-right: 8px;
+        }
+
+        .forgot {
+            color: #ff00cc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .forgot:hover {
+            color: #ff66ff;
+            text-shadow: 0 0 5px rgba(255, 102, 255, 0.8);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(90deg, #ff00cc, #3333ff);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 204, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .toggle-form {
+            text-align: center;
+            margin-top: 20px;
+            color: #a0a0ff;
+        }
+
+        .toggle-form a {
+            color: #ff00cc;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 5px;
+            transition: color 0.3s;
+        }
+
+        .toggle-form a:hover {
+            color: #ff66ff;
+            text-shadow: 0 0 5px rgba(255, 102, 255, 0.8);
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(20, 20, 40, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(20, 20, 40, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #ff00cc, transparent);
+            box-shadow: 0 0 10px #ff00cc;
+            animation: scan 4s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes scan {
+            0% {
+                top: 0;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+
+        .floating-elements {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(51, 51, 255, 0.1);
+            border: 1px solid rgba(51, 51, 255, 0.3);
+            border-radius: 5px;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, 50px) rotate(90deg);
+            }
+            50% {
+                transform: translate(40px, 0) rotate(180deg);
+            }
+            75% {
+                transform: translate(20px, -50px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        .error-message {
+            color: #ff3366;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-switch {
+            display: none;
+        }
+
+        #signup-form {
+            display: none;
+        }
+
+        #login-toggle:checked ~ #login-form {
+            display: block;
+        }
+
+        #login-toggle:checked ~ #signup-form {
+            display: none;
+        }
+
+        #signup-toggle:checked ~ #login-form {
+            display: none;
+        }
+
+        #signup-toggle:checked ~ #signup-form {
+            display: block;
+        }
+
+        .form-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #3333ff;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            color: #a0a0ff;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            color: #fff;
+            border-bottom: 2px solid #ff00cc;
+            box-shadow: 0 0 10px rgba(255, 0, 204, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 20px;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="scan-line"></div>
+    
+    <div class="floating-elements">
+        <div class="floating-element" style="width: 80px; height: 80px; top: 10%; left: 10%;"></div>
+        <div class="floating-element" style="width: 60px; height: 60px; top: 70%; left: 80%;"></div>
+        <div class="floating-element" style="width: 100px; height: 100px; top: 40%; left: 70%;"></div>
+        <div class="floating-element" style="width: 50px; height: 50px; top: 80%; left: 20%;"></div>
+        <div class="floating-element" style="width: 70px; height: 70px; top: 20%; left: 60%;"></div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">NEON NEXUS</h1>
+            <p class="subtitle">Enter the digital frontier</p>
+        </div>
+        
+        <div class="login-container">
+            <input type="radio" id="login-toggle" name="form-toggle" class="form-switch" checked>
+            <input type="radio" id="signup-toggle" name="form-toggle" class="form-switch">
+            
+            <div class="form-tabs">
+                <label for="login-toggle" class="tab active">LOGIN</label>
+                <label for="signup-toggle" class="tab">SIGN UP</label>
+            </div>
+            
+            <form id="login-form">
+                <h2 class="form-title">Access Terminal</h2>
+                
+                <div class="input-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" placeholder="Enter your username">
+                    <div class="error-message" id="login-username-error"></div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                    <div class="error-message" id="login-password-error"></div>
+                </div>
+                
+                <div class="remember-forgot">
+                    <div class="remember">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot">Forgot password?</a>
+                </div>
+                
+                <button type="button" class="btn" id="login-btn">Login</button>
+            </form>
+            
+            <form id="signup-form">
+                <h2 class="form-title">Create Account</h2>
+                
+                <div class="input-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" placeholder="Choose a username">
+                    <div class="error-message" id="signup-username-error"></div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email">
+                    <div class="error-message" id="signup-email-error"></div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password">
+                    <div class="error-message" id="signup-password-error"></div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" placeholder="Confirm your password">
+                    <div class="error-message" id="signup-confirm-error"></div>
+                </div>
+                
+                <button type="button" class="btn" id="signup-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Login button functionality
+            document.getElementById('login-btn').addEventListener('click', function() {
+                const username = document.getElementById('login-username').value;
+                const password = document.getElementById('login-password').value;
+                
+                // Reset errors
+                document.getElementById('login-username-error').style.display = 'none';
+                document.getElementById('login-password-error').style.display = 'none';
+                
+                let hasError = false;
+                
+                if (!username) {
+                    document.getElementById('login-username-error').textContent = 'Username is required';
+                    document.getElementById('login-username-error').style.display = 'block';
+                    hasError = true;
+                }
+                
+                if (!password) {
+                    document.getElementById('login-password-error').textContent = 'Password is required';
+                    document.getElementById('login-password-error').style.display = 'block';
+                    hasError = true;
+                }
+                
+                if (!hasError) {
+                    // In a real application, you would send this data to a server
+                    alert('Login successful! Welcome to Neon Nexus.');
+                    // Reset form
+                    document.getElementById('login-username').value = '';
+                    document.getElementById('login-password').value = '';
+                }
+            });
+            
+            // Signup button functionality
+            document.getElementById('signup-btn').addEventListener('click', function() {
+                const username = document.getElementById('signup-username').value;
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+                const confirm = document.getElementById('signup-confirm').value;
+                
+                // Reset errors
+                document.getElementById('signup-username-error').style.display = 'none';
+                document.getElementById('signup-email-error').style.display = 'none';
+                document.getElementById('signup-password-error').style.display = 'none';
+                document.getElementById('signup-confirm-error').style.display = 'none';
+                
+                let hasError = false;
+                
+                if (!username) {
+                    document.getElementById('signup-username-error').textContent = 'Username is required';
+                    document.getElementById('signup-username-error').style.display = 'block';
+                    hasError = true;
+                }
+                
+                if (!email) {
+                    document.getElementById('signup-email-error').textContent = 'Email is required';
+                    document.getElementById('signup-email-error').style.display = 'block';
+                    hasError = true;
+                } else if (!isValidEmail(email)) {
+                    document.getElementById('signup-email-error').textContent = 'Please enter a valid email';
+                    document.getElementById('signup-email-error').style.display = 'block';
+                    hasError = true;
+                }
+                
+                if (!password) {
+                    document.getElementById('signup-password-error').textContent = 'Password is required';
+                    document.getElementById('signup-password-error').style.display = 'block';
+                    hasError = true;
+                } else if (password.length < 6) {
+                    document.getElementById('signup-password-error').textContent = 'Password must be at least 6 characters';
+                    document.getElementById('signup-password-error').style.display = 'block';
+                    hasError = true;
+                }
+                
+                if (!confirm) {
+                    document.getElementById('signup-confirm-error').textContent = 'Please confirm your password';
+                    document.getElementById('signup-confirm-error').style.display = 'block';
+                    hasError = true;
+                } else if (password !== confirm) {
+                    document.getElementById('signup-confirm-error').textContent = 'Passwords do not match';
+                    document.getElementById('signup-confirm-error').style.display = 'block';
+                    hasError = true;
+                }
+                
+                if (!hasError) {
+                    // In a real application, you would send this data to a server
+                    alert('Account created successfully! Welcome to Neon Nexus.');
+                    // Reset form
+                    document.getElementById('signup-username').value = '';
+                    document.getElementById('signup-email').value = '';
+                    document.getElementById('signup-password').value = '';
+                    document.getElementById('signup-confirm').value = '';
+                    
+                    // Switch to login form
+                    document.getElementById('login-toggle').checked = true;
+                    tabs.forEach(t => t.classList.remove('active'));
+                    document.querySelector('.tab:first-child').classList.add('active');
+                }
+            });
+            
+            // Email validation function
+            function isValidEmail(email) {
+                const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+        });
+    </script>
+</body>
+</html>
